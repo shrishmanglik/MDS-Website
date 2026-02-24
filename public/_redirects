@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects
+# Format: from  to  status_code
+
+# www to non-www
+https://www.milliondollarstudio.ai/*  https://milliondollarstudio.ai/:splat  301
+
+# Redirect milliondollaraistudio.com to milliondollarstudio.ai
+https://milliondollaraistudio.com/*  https://milliondollarstudio.ai/:splat  301
+https://www.milliondollaraistudio.com/*  https://milliondollarstudio.ai/:splat  301
