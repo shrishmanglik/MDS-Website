@@ -1,0 +1,5 @@
+# Cloudflare Pages configuration
+# This file ensures Cloudflare knows exactly where the static export lives.
+name = "milliondollarstudio"
+pages_build_output_dir = "./out"
+compatibility_date = "2026-02-09"
