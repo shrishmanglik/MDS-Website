@@ -81,7 +81,7 @@ function TiltCard({ stream }: { stream: typeof streams[number] }) {
         <div
           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stream.gradient} flex items-center justify-center mb-6`}
         >
-          <stream.icon size={24} className="text-white" />
+          <stream.icon size={24} className="text-white" aria-hidden="true" />
         </div>
         <h3 className="font-heading text-xl font-semibold text-text-primary mb-3">
           {stream.title}
@@ -94,7 +94,7 @@ function TiltCard({ stream }: { stream: typeof streams[number] }) {
         </p>
         <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary group-hover:gap-2.5 transition-all">
           {stream.cta}
-          <ArrowRight size={14} />
+          <ArrowRight size={14} aria-hidden="true" />
         </span>
       </div>
     </Link>
@@ -103,9 +103,9 @@ function TiltCard({ stream }: { stream: typeof streams[number] }) {
 
 export function ThreeStreams() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-bg-tint-purple ambient-orb ambient-orb--purple">
       <motion.div
-        className="max-w-content mx-auto"
+        className="max-w-content mx-auto relative z-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -117,7 +117,7 @@ export function ThreeStreams() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {streams.map((stream) => (
             <motion.div key={stream.title} variants={fadeUpVariant}>
               <TiltCard stream={stream} />

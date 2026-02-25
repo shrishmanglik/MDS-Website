@@ -36,7 +36,7 @@ export function PricingTier({
     >
       {popular && (
         <div className="flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-accent-start to-accent-mid text-white text-xs font-semibold uppercase tracking-wider">
-          <Star size={12} />
+          <Star size={12} aria-hidden="true" />
           Popular
         </div>
       )}
@@ -58,7 +58,7 @@ export function PricingTier({
         <ul className="space-y-2.5 mb-6">
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-2 text-sm text-text-secondary">
-              <Check size={14} className="text-accent-emerald mt-0.5 flex-shrink-0" />
+              <Check size={14} className="text-accent-emerald mt-0.5 flex-shrink-0" aria-hidden="true" />
               {feature}
             </li>
           ))}
@@ -78,7 +78,7 @@ export function PricingTier({
           className="w-full"
         >
           {ctaText}
-          <ArrowRight size={14} />
+          <ArrowRight size={14} aria-hidden="true" />
         </Button>
       </div>
     </div>

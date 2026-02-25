@@ -116,7 +116,7 @@ export function ServicesContent() {
           className="text-center mb-20"
         >
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
-            AI services that move the needle.
+            AI That Runs Your Business.
           </h1>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             We don&apos;t sell hours. We sell outcomes. Every engagement has clear
@@ -169,8 +169,11 @@ export function ServicesContent() {
             starting point.
           </p>
           <Button href="/contact" variant="primary" size="lg">
-            Book a Call
+            Talk to Shrish
           </Button>
+          <p className="text-text-tertiary text-sm mt-3">
+            Free 15-min call. No pitch decks. No obligations.
+          </p>
         </motion.section>
       </div>
     </div>

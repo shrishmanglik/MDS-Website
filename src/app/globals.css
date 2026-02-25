@@ -9,10 +9,15 @@
   --bg-tertiary: #1A1A25;
   --bg-hover: #222233;
 
+  /* Tinted section panels — subtle color variation for visual depth */
+  --bg-tint-blue: #0A0F1E;
+  --bg-tint-purple: #0F0A1E;
+  --bg-tint-teal: #0A1A1E;
+
   /* Text */
   --text-primary: #F5F5F7;
   --text-secondary: #B0B0BC;
-  --text-tertiary: #8E8E9A;
+  --text-tertiary: #9E9EAE;
 
   /* Accents — electric blue (Linear-inspired) */
   --accent-primary: #5B7FFF;
@@ -54,11 +59,12 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  line-height: 1.65;
 }
 
 /* === Typography Scale === */
 h1 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-sora), system-ui, sans-serif;
   font-weight: 800;
   font-size: clamp(3rem, 6vw, 5.5rem);
   letter-spacing: -0.03em;
@@ -66,7 +72,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-sora), system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 3.5rem);
   letter-spacing: -0.02em;
@@ -74,7 +80,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-sora), system-ui, sans-serif;
   font-weight: 600;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   line-height: 1.3;
@@ -109,6 +115,60 @@ h3 {
   33% { background-position: 100% 50%, 0% 100%, 80% 0%; }
   66% { background-position: 50% 100%, 50% 0%, 0% 50%; }
 }
+
+/* Ambient floating orbs — CSS-only generative backgrounds */
+.ambient-orb {
+  position: relative;
+  overflow: hidden;
+}
+.ambient-orb::before,
+.ambient-orb::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: orb-float 25s ease-in-out infinite;
+}
+.ambient-orb::before {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+}
+.ambient-orb::after {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  left: -60px;
+  animation-delay: -12s;
+  animation-direction: reverse;
+}
+/* Blue orb variant */
+.ambient-orb--blue::before { background: rgba(91, 127, 255, 0.08); }
+.ambient-orb--blue::after { background: rgba(123, 156, 255, 0.06); }
+/* Purple orb variant */
+.ambient-orb--purple::before { background: rgba(168, 85, 247, 0.08); }
+.ambient-orb--purple::after { background: rgba(91, 127, 255, 0.06); }
+/* Teal orb variant */
+.ambient-orb--teal::before { background: rgba(16, 185, 129, 0.07); }
+.ambient-orb--teal::after { background: rgba(91, 127, 255, 0.05); }
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.1); }
+  50% { transform: translate(-20px, 15px) scale(0.95); }
+  75% { transform: translate(15px, 25px) scale(1.05); }
+}
+
+/* Reduced motion: disable orb animations */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb::before, .ambient-orb::after { animation: none; }
+}
+[data-reduced-motion="true"] .ambient-orb::before,
+[data-reduced-motion="true"] .ambient-orb::after { animation: none; }
 
 /* Card hover — scale + border */
 .card-hover {
@@ -190,6 +250,25 @@ h3 {
   z-index: 39;
 }
 
+/* 3D card tilt on hover — desktop only */
+@media (hover: hover) {
+  .card-tilt {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+  .card-tilt:hover {
+    transform: perspective(1000px) rotateX(1deg) rotateY(-1deg) translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+[data-reduced-motion="true"] .card-tilt:hover { transform: none; box-shadow: none; }
+
+/* Form input focus glow */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px rgba(91, 127, 255, 0.15);
+  outline: none;
+}
+
 /* Button micro-interactions */
 .btn-press:active {
   transform: scale(0.98);
@@ -206,7 +285,7 @@ h3 {
 .blog-content ul, .blog-content ol { padding-left: 1.5em; margin-bottom: 1.5em; }
 .blog-content li { margin-bottom: 0.5em; }
 .blog-content blockquote { border-left: 3px solid var(--accent-primary); padding-left: 1em; color: var(--text-tertiary); font-style: italic; margin: 1.5em 0; }
-.blog-content code { background: var(--bg-tertiary); padding: 0.15em 0.4em; border-radius: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.9em; }
+.blog-content code { background: var(--bg-tertiary); padding: 0.15em 0.4em; border-radius: 4px; font-family: var(--font-jetbrains), ui-monospace, monospace; font-size: 0.9em; }
 .blog-content pre { background: var(--bg-secondary); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 1.5em 0; }
 .blog-content pre code { background: none; padding: 0; }
 .blog-content hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }

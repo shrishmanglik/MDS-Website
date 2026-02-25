@@ -38,7 +38,7 @@ const tiers = [
     ],
     idealFor: 'Solopreneurs, small teams, proof-of-concepts',
     timeline: '2-3 weeks',
-    ctaText: 'Get Started',
+    ctaText: 'Build Your AI',
     ctaHref: '/intake',
   },
   {
@@ -56,7 +56,7 @@ const tiers = [
     ],
     idealFor: 'Growing businesses, funded startups, mid-market',
     timeline: '4-6 weeks',
-    ctaText: 'Get Started',
+    ctaText: 'Build Your AI',
     ctaHref: '/intake',
     popular: true,
   },
@@ -75,8 +75,8 @@ const tiers = [
     ],
     idealFor: 'Large organizations, complex integrations, mission-critical systems',
     timeline: '6-12 weeks',
-    ctaText: 'Contact Us',
-    ctaHref: '/intake',
+    ctaText: 'Talk to Shrish',
+    ctaHref: '/contact',
   },
 ]
 
@@ -210,6 +210,9 @@ export default function BuildPage() {
               Book a Discovery Call
               <ArrowRight size={16} />
             </Button>
+            <p className="text-text-tertiary text-sm mt-3">
+              Free 15-min call. We&apos;ll recommend the right tier for your project.
+            </p>
           </div>
         </div>
       </section>

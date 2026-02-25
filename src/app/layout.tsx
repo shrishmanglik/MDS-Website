@@ -1,12 +1,36 @@
 import type { Metadata } from 'next'
+import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/ui/BackToTop'
 import { MotionProvider } from '@/components/ui/MotionProvider'
 import { CursorGlow } from '@/components/ui/CursorGlow'
+import { NeuralCursor } from '@/components/ui/NeuralCursor'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
+import { ExitIntentModal } from '@/components/ui/ExitIntentModal'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  display: 'swap',
+  variable: '--font-sora',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://milliondollarstudio.ai'),
@@ -87,21 +111,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-[#0A0A0F]">
-      <head>
-        {/* Sora + Inter from Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`bg-[#0A0A0F] ${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body antialiased bg-bg-primary text-text-secondary cursor-glow">
         <MotionProvider>
           <SmoothScroll />
           <GrainOverlay />
           <CursorGlow />
+          <NeuralCursor />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-bg-secondary focus:text-text-primary focus:px-4 focus:py-2 focus:rounded-lg focus:border focus:border-border-custom"
@@ -112,6 +128,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <BackToTop />
+          <ExitIntentModal />
         </MotionProvider>
         <script
           type="application/ld+json"

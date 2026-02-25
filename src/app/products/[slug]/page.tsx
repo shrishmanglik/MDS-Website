@@ -6,6 +6,7 @@ import { products, getProductBySlug } from '@/lib/products'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { WaitlistForm } from '@/components/ui/WaitlistForm'
 import { Button } from '@/components/ui/Button'
+import { productJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }))
@@ -54,13 +55,31 @@ export default async function ProductPage({
 
   return (
     <div className="pt-24 pb-16 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            productJsonLd({
+              name: product.name,
+              description: product.tagline,
+              slug: product.slug,
+              status: product.status,
+            }),
+            breadcrumbJsonLd([
+              { name: 'Home', url: '/' },
+              { name: 'Products', url: '/products' },
+              { name: product.name, url: `/products/${product.slug}` },
+            ]),
+          ]),
+        }}
+      />
       <div className="max-w-3xl mx-auto">
         {/* Back link */}
         <Link
           href="/products"
           className="inline-flex items-center gap-1.5 text-text-tertiary hover:text-text-secondary text-sm mb-8 transition-colors"
         >
-          <ArrowLeft size={14} />
+          <ArrowLeft size={14} aria-hidden="true" />
           Back to Products
         </Link>
 
@@ -129,6 +148,7 @@ export default async function ProductPage({
                 <Check
                   size={16}
                   className="text-accent-emerald mt-0.5 flex-shrink-0"
+                  aria-hidden="true"
                 />
                 {feature}
               </li>
@@ -177,9 +197,12 @@ export default async function ProductPage({
             We build custom AI systems from scratch. Full code ownership.
           </p>
           <Button href="/build" variant="primary" size="md">
-            Start Your Project
+            Build Your AI With Us
             <ArrowRight size={16} />
           </Button>
+          <p className="text-text-tertiary text-xs mt-3">
+            Fixed price. Fast delivery. You own everything.
+          </p>
         </div>
       </div>
     </div>

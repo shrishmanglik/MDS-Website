@@ -4,13 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
-
-const metrics = [
-  { value: '99%+', label: 'Extraction accuracy' },
-  { value: '100%', label: 'On-premise deployment' },
-  { value: '95%', label: 'Clause detection' },
-  { value: '2 weeks', label: 'To production' },
-] as const
+import { CountUp } from '@/components/ui/CountUp'
 
 const industries = ['Healthcare', 'Financial Services', 'Legal Tech', 'Education'] as const
 
@@ -33,19 +27,33 @@ export function SocialProof() {
 
         {/* Metrics strip */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 p-6 md:p-8 rounded-2xl border border-border-custom bg-bg-secondary"
           variants={fadeUpVariant}
         >
-          {metrics.map((metric) => (
-            <div key={metric.label} className="text-center">
-              <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
-                {metric.value}
-              </p>
-              <p className="text-text-secondary text-sm">
-                {metric.label}
-              </p>
-            </div>
-          ))}
+          <div className="text-center md:border-r md:border-border-custom">
+            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+              &lt;$0.01
+            </p>
+            <p className="text-text-secondary text-sm">Cost per AI interaction</p>
+          </div>
+          <div className="text-center md:border-r md:border-border-custom">
+            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+              <CountUp end={99} suffix="%+" />
+            </p>
+            <p className="text-text-secondary text-sm">Extraction accuracy</p>
+          </div>
+          <div className="text-center md:border-r md:border-border-custom">
+            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+              <CountUp end={95} suffix="%" />
+            </p>
+            <p className="text-text-secondary text-sm">Deterministic processing</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+              <CountUp end={2} suffix=" weeks" />
+            </p>
+            <p className="text-text-secondary text-sm">To production</p>
+          </div>
         </motion.div>
 
         {/* Industry badges */}
@@ -83,7 +91,7 @@ export function SocialProof() {
             className="inline-flex items-center gap-1.5 text-accent-primary text-sm font-medium hover:gap-2.5 transition-all"
           >
             Read our case studies
-            <ArrowRight size={14} />
+            <ArrowRight size={14} aria-hidden="true" />
           </Link>
         </motion.div>
       </motion.div>

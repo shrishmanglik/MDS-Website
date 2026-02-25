@@ -68,7 +68,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <div className="hidden lg:block">
               <Button href="/contact" variant="cta" size="sm">
-                Start a Project
+                Build Your AI With Us
               </Button>
             </div>
             <button

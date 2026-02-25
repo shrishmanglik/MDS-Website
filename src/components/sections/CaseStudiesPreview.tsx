@@ -43,9 +43,9 @@ const capabilities = [
 
 export function CaseStudiesPreview() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-bg-tint-teal ambient-orb ambient-orb--teal">
       <motion.div
-        className="max-w-content mx-auto"
+        className="max-w-content mx-auto relative z-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -60,12 +60,12 @@ export function CaseStudiesPreview() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {capabilities.map((cap) => (
             <motion.div key={cap.title} variants={fadeUpVariant}>
               <Link
                 href={cap.href}
-                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-mid/30 transition-all duration-200 h-full"
+                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-mid/30 transition-all duration-200 h-full card-tilt"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-xs font-medium text-accent-mid bg-accent-mid/10 px-2 py-0.5 rounded-full">
@@ -97,8 +97,11 @@ export function CaseStudiesPreview() {
             className="inline-flex items-center gap-2 text-accent-start hover:text-accent-mid transition-colors font-medium"
           >
             See our approach
-            <ArrowRight size={16} />
+            <ArrowRight size={16} aria-hidden="true" />
           </Link>
+          <p className="text-text-tertiary text-xs mt-2">
+            Deterministic-first architecture. AI only where it matters.
+          </p>
         </motion.div>
       </motion.div>
     </section>

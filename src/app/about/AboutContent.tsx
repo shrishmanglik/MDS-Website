@@ -129,7 +129,7 @@ export function AboutContent() {
                 className="rounded-2xl border border-border-custom bg-bg-secondary p-6"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-4">
-                  <value.icon size={24} className="text-accent-primary" />
+                  <value.icon size={24} className="text-accent-primary" aria-hidden="true" />
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-text-primary mb-3">
                   {value.title}

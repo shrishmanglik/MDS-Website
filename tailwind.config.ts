@@ -13,6 +13,9 @@ const config: Config = {
         'bg-secondary': 'var(--bg-secondary)',
         'bg-tertiary': 'var(--bg-tertiary)',
         'bg-hover': 'var(--bg-hover)',
+        'bg-tint-blue': 'var(--bg-tint-blue)',
+        'bg-tint-purple': 'var(--bg-tint-purple)',
+        'bg-tint-teal': 'var(--bg-tint-teal)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
         'text-tertiary': 'var(--text-tertiary)',
@@ -32,9 +35,9 @@ const config: Config = {
         'border-active': 'var(--border-active)',
       },
       fontFamily: {
-        heading: ['Sora', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        heading: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains)', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, var(--accent-start), var(--accent-mid))',

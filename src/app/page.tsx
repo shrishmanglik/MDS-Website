@@ -5,7 +5,9 @@ import { SocialProof } from '@/components/sections/SocialProof'
 import { ThreeStreams } from '@/components/sections/ThreeStreams'
 import { ProductsPreview } from '@/components/sections/ProductsPreview'
 import { CaseStudiesPreview } from '@/components/sections/CaseStudiesPreview'
+import { FounderStory } from '@/components/sections/FounderStory'
 import { HowWeWork } from '@/components/sections/HowWeWork'
+import { professionalServiceJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
   title: 'Million Dollar AI Studio | AI Systems You Actually Own',
@@ -28,13 +30,20 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd()),
+        }}
+      />
       <Hero />
-      <PersonaRouter />
       <SocialProof />
+      <PersonaRouter />
       <ThreeStreams />
-      <ProductsPreview />
       <CaseStudiesPreview />
+      <ProductsPreview />
       <HowWeWork />
+      <FounderStory />
     </>
   )
 }

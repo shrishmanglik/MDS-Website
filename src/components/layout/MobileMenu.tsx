@@ -122,7 +122,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   size="lg"
                   className="w-full"
                 >
-                  Start a Project
+                  Build Your AI With Us
                 </Button>
               </div>
             </nav>

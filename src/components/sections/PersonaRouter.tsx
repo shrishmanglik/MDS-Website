@@ -31,9 +31,9 @@ const personas = [
 
 export function PersonaRouter() {
   return (
-    <section className="relative py-16 px-6">
+    <section className="relative py-16 px-6 bg-bg-tint-blue ambient-orb ambient-orb--blue">
       <motion.div
-        className="max-w-content mx-auto"
+        className="max-w-content mx-auto relative z-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -46,14 +46,14 @@ export function PersonaRouter() {
           What brings you here?
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {personas.map((persona) => (
             <motion.div key={persona.href} variants={fadeUpVariant}>
               <Link
                 href={persona.href}
-                className="group block p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-accent-primary/30 transition-colors h-full"
+                className="group block p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-accent-primary/30 transition-colors h-full card-tilt"
               >
-                <persona.icon className="w-8 h-8 text-accent-primary mb-4" />
+                <persona.icon className="w-8 h-8 text-accent-primary mb-4" aria-hidden="true" />
                 <h3 className="text-text-primary text-lg font-semibold mb-2 font-heading">
                   {persona.title}
                 </h3>
@@ -62,7 +62,7 @@ export function PersonaRouter() {
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-accent-primary text-sm font-medium group-hover:gap-2.5 transition-all">
                   {persona.cta}
-                  <ArrowRight size={14} />
+                  <ArrowRight size={14} aria-hidden="true" />
                 </span>
               </Link>
             </motion.div>

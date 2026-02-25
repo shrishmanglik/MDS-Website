@@ -27,7 +27,7 @@ export function ProductsPreview() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products.map((product) => (
             <motion.div key={product.slug} variants={fadeUpVariant}>
               <ProductCard product={product} compact />
@@ -43,6 +43,9 @@ export function ProductsPreview() {
             View all products
             <ArrowRight size={16} />
           </Link>
+          <p className="text-text-tertiary text-xs mt-2">
+            Real SaaS. Real users. Built solo with AI-assisted development.
+          </p>
         </motion.div>
       </motion.div>
     </section>

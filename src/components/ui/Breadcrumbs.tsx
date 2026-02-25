@@ -20,7 +20,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
           return (
             <li key={index} className="flex items-center gap-1.5">
               {index > 0 && (
-                <ChevronRight size={14} className="text-text-tertiary/50 shrink-0" />
+                <ChevronRight size={14} className="text-text-tertiary/50 shrink-0" aria-hidden="true" />
               )}
               {isLast ? (
                 <span className="text-text-secondary">{item.label}</span>

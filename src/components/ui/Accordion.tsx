@@ -39,6 +39,7 @@ export function Accordion({ items, allowMultiple = false }: AccordionProps) {
                   isOpen ? 'rotate-180' : ''
                 }`}
                 size={24}
+                aria-hidden="true"
               />
             </button>
             <AnimatePresence initial={false}>

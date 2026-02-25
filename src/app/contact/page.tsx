@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Mail, Calendar, ArrowRight } from 'lucide-react'
+import { Mail, Calendar, ArrowRight, Shield, Clock, Lock } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 import { ContactForm } from '@/components/ui/ContactForm'
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <Mail size={20} className="text-accent-primary shrink-0" />
+                <Mail size={20} className="text-accent-primary shrink-0" aria-hidden="true" />
                 <a
                   href={`mailto:${SITE.email}`}
                   className="text-text-secondary hover:text-text-primary transition-colors"
@@ -47,7 +47,7 @@ export default function ContactPage() {
 
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <Calendar size={20} className="text-accent-primary shrink-0" />
+                  <Calendar size={20} className="text-accent-primary shrink-0" aria-hidden="true" />
                   <span className="text-text-secondary">Or book a call directly</span>
                 </div>
                 <a
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-accent-primary hover:text-accent-secondary transition-colors font-medium ml-8"
                 >
-                  Book a Call <ArrowRight size={16} />
+                  Book a Call <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -67,8 +67,26 @@ export default function ContactPage() {
           </div>
 
           {/* Right side — form */}
-          <div className="bg-bg-secondary border border-border-custom rounded-2xl p-8">
-            <ContactForm />
+          <div>
+            <div className="bg-bg-secondary border border-border-custom rounded-2xl p-8">
+              <ContactForm />
+            </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2 text-text-tertiary text-xs">
+                <Lock size={14} className="text-accent-primary" aria-hidden="true" />
+                <span>Your data stays private</span>
+              </div>
+              <div className="flex items-center gap-2 text-text-tertiary text-xs">
+                <Clock size={14} className="text-accent-primary" aria-hidden="true" />
+                <span>Response within 24 hrs</span>
+              </div>
+              <div className="flex items-center gap-2 text-text-tertiary text-xs">
+                <Shield size={14} className="text-accent-primary" aria-hidden="true" />
+                <span>No spam, ever</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
