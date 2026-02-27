@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { products } from '@/lib/products'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
+import { SplitText } from '@/components/ui/SplitText'
 
 export function ProductsPreview() {
   return (
@@ -17,15 +18,23 @@ export function ProductsPreview() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.div className="text-center mb-16" variants={fadeUpVariant}>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Products we&apos;ve built
-          </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-16">
+          <SplitText
+            as="h2"
+            preset="blur-in"
+            splitMode="words"
+            className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-4"
+          >
+            Products we've built
+          </SplitText>
+          <motion.p
+            className="text-text-secondary text-lg max-w-2xl mx-auto"
+            variants={fadeUpVariant}
+          >
             Every product below was designed, built, and deployed by MDS.
             These aren&apos;t mockups.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products.map((product) => (

@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { Button } from '@/components/ui/Button'
 import { FlowMotif } from '@/components/ui/FlowMotif'
+import { SplitText } from '@/components/ui/SplitText'
 
 export function FounderStory() {
   return (
@@ -25,13 +26,13 @@ export function FounderStory() {
           </span>
         </motion.div>
 
-        <motion.h2
+        <SplitText
+          as="h2"
+          preset="scramble"
           className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-6"
-          variants={fadeUpVariant}
         >
-          Built by One Person.{' '}
-          <span className="gradient-text">Trusted by Many.</span>
-        </motion.h2>
+          Built by One Person. Trusted by Many.
+        </SplitText>
 
         <motion.p
           className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4"

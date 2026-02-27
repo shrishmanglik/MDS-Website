@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Wrench, Box, Cog } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
+import { SplitText } from '@/components/ui/SplitText'
 
 const streams = [
   {
@@ -111,11 +112,15 @@ export function ThreeStreams() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.div className="text-center mb-16" variants={fadeUpVariant}>
-          <h2 className="text-text-primary mb-4">
+        <div className="text-center mb-16">
+          <SplitText
+            as="h2"
+            preset="wave"
+            className="text-text-primary mb-4"
+          >
             Three ways to work with us
-          </h2>
-        </motion.div>
+          </SplitText>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {streams.map((stream) => (

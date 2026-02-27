@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
 import { SocialProof } from '@/components/sections/SocialProof'
+import { SectionDivider } from '@/components/ui/SectionTransition'
 import { professionalServiceJsonLd } from '@/lib/structured-data'
 
 // Lazy-load below-fold sections to reduce initial JS bundle
@@ -40,12 +41,18 @@ export default function HomePage() {
         }}
       />
       <Hero />
+      <SectionDivider variant="glow" />
       <SocialProof />
       <PersonaRouter />
+      <SectionDivider variant="gradient" />
       <ThreeStreams />
+      <SectionDivider variant="dots" />
       <CaseStudiesPreview />
+      <SectionDivider variant="gradient" />
       <ProductsPreview />
+      <SectionDivider variant="glow" />
       <HowWeWork />
+      <SectionDivider variant="gradient" />
       <FounderStory />
     </>
   )

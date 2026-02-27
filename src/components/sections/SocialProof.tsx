@@ -5,8 +5,13 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { CountUp } from '@/components/ui/CountUp'
+import { SplitText } from '@/components/ui/SplitText'
+import { Marquee } from '@/components/ui/Marquee'
 
-const industries = ['Healthcare', 'Financial Services', 'Legal Tech', 'Education'] as const
+const industries = [
+  'Healthcare', 'Financial Services', 'Legal Tech', 'Education',
+  'Logistics', 'Real Estate', 'E-Commerce', 'Manufacturing',
+] as const
 
 export function SocialProof() {
   return (
@@ -18,12 +23,13 @@ export function SocialProof() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.h2
+        <SplitText
+          as="h2"
+          preset="fade-up"
           className="text-text-primary text-2xl md:text-3xl font-heading font-bold text-center mb-12"
-          variants={fadeUpVariant}
         >
           Built for real businesses.
-        </motion.h2>
+        </SplitText>
 
         {/* Metrics strip */}
         <motion.div
@@ -56,19 +62,18 @@ export function SocialProof() {
           </div>
         </motion.div>
 
-        {/* Industry badges */}
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-3 mb-12"
-          variants={fadeUpVariant}
-        >
-          {industries.map((industry) => (
-            <span
-              key={industry}
-              className="px-4 py-1.5 rounded-full border border-border-visible bg-bg-secondary text-text-secondary text-sm"
-            >
-              {industry}
-            </span>
-          ))}
+        {/* Industry badges — infinite marquee */}
+        <motion.div className="mb-12 -mx-6" variants={fadeUpVariant}>
+          <Marquee speed={40} pauseOnHover gap="0.75rem">
+            {industries.map((industry) => (
+              <span
+                key={industry}
+                className="px-4 py-1.5 rounded-full border border-border-visible bg-bg-secondary text-text-secondary text-sm whitespace-nowrap"
+              >
+                {industry}
+              </span>
+            ))}
+          </Marquee>
         </motion.div>
 
         {/* Quote */}

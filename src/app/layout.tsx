@@ -6,11 +6,12 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/ui/BackToTop'
 import { MotionProvider } from '@/components/ui/MotionProvider'
-import { CursorGlow } from '@/components/ui/CursorGlow'
-import { CustomCursor } from '@/components/ui/CustomCursor'
+import { UnifiedCursor } from '@/components/ui/UnifiedCursor'
+import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
 import { ExitIntentModal } from '@/components/ui/ExitIntentModal'
+import { BackgroundShaderWrapper } from '@/components/ui/BackgroundShaderWrapper'
 import './globals.css'
 
 const satoshi = localFont({
@@ -119,10 +120,11 @@ export default function RootLayout({
     <html lang="en" className={`bg-[#050508] ${satoshi.variable} ${generalSans.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body antialiased bg-bg-primary text-text-secondary cursor-glow">
         <MotionProvider>
+          <BackgroundShaderWrapper />
           <SmoothScroll />
           <GrainOverlay />
-          <CursorGlow />
-          <CustomCursor />
+          <UnifiedCursor />
+          <ScrollProgress />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-bg-secondary focus:text-text-primary focus:px-4 focus:py-2 focus:rounded-lg focus:border focus:border-border-custom"
