@@ -74,7 +74,7 @@ export function AboutContent() {
               {SITE.founder}
             </h2>
             <p className="text-accent-primary font-medium mb-6">{SITE.founderTitle}</p>
-            <p className="text-text-secondary leading-relaxed max-w-2xl mb-6">
+            <p className="text-text-secondary leading-relaxed max-w-prose mb-6">
               Systems architect with expertise spanning financial technology, prompt engineering,
               and full-stack AI architecture. Founded MDS to prove that one builder with the
               right stack can outperform teams of ten — and then made that stack available

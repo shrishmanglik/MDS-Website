@@ -73,7 +73,7 @@ export function Navbar() {
             </div>
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-primary/50 focus:outline-none rounded-lg"
+              className="lg:hidden p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-primary/50 focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Open menu"
             >
               <Menu size={24} />

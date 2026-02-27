@@ -30,13 +30,15 @@ export function Accordion({ items, allowMultiple = false }: AccordionProps) {
           <div key={index}>
             <button
               onClick={() => toggleIndex(index)}
-              className="flex w-full items-center justify-between py-5 text-left focus:ring-2 focus:ring-accent-mid focus:outline-none rounded-lg"
+              className={`flex w-full items-center justify-between py-5 px-3 -mx-3 text-left focus:ring-2 focus:ring-accent-mid focus:outline-none rounded-lg transition-colors duration-200 ${
+                isOpen ? 'bg-bg-tertiary/50' : ''
+              }`}
               aria-expanded={isOpen}
             >
               <span className="text-text-primary font-medium pr-4">{item.question}</span>
               <ChevronDown
-                className={`text-text-tertiary shrink-0 transition-transform duration-300 ${
-                  isOpen ? 'rotate-180' : ''
+                className={`shrink-0 transition-all duration-300 ${
+                  isOpen ? 'rotate-180 text-accent-mid' : 'text-text-tertiary'
                 }`}
                 size={24}
                 aria-hidden="true"

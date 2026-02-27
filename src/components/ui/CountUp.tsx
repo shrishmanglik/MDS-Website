@@ -16,12 +16,17 @@ export function CountUp({ end, prefix = '', suffix = '', duration = 1.5, classNa
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const { prefersReducedMotion } = useReducedMotion()
-  const [display, setDisplay] = useState(prefersReducedMotion ? end : 0)
+  const [display, setDisplay] = useState(0)
+  const hasAnimated = useRef(false)
 
   useEffect(() => {
-    if (!isInView || prefersReducedMotion) {
-      setDisplay(end)
-      return
+    if (!isInView || hasAnimated.current) return
+    hasAnimated.current = true
+
+    if (prefersReducedMotion) {
+      // Use rAF to avoid synchronous setState in effect
+      const id = requestAnimationFrame(() => setDisplay(end))
+      return () => cancelAnimationFrame(id)
     }
 
     const startTime = performance.now()

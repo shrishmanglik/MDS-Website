@@ -11,7 +11,7 @@ export const SITE = {
   formEmail: 'milliondollaraistudio@gmail.com',
 } as const
 
-export const WEB3FORMS_KEY = '0298abe0-42fb-4f6b-b2ae-21eee063fed2'
+// Web3Forms key moved to server-side .env.local (see /api/submit-form)
 
 export const SOCIAL = {
   twitter: { url: 'https://x.com/MDAI_Studio', handle: '@MDAI_Studio' },

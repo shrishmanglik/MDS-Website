@@ -2,7 +2,8 @@
 
 import { useState, type FormEvent } from 'react'
 import { Check } from 'lucide-react'
-import { WEB3FORMS_KEY, SITE } from '@/lib/constants'
+import { SITE } from '@/lib/constants'
+import { submitForm } from '@/lib/forms/submitForm'
 import { Button } from './Button'
 
 export function ContactForm() {
@@ -21,28 +22,23 @@ export function ContactForm() {
     e.preventDefault()
     setSubmitting(true)
     setError('')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          form_name: 'Contact',
-          subject: 'New Contact Message — MDS Website',
-          ...formData,
-        }),
-      })
-      const data = await res.json()
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError('Something went wrong. Please try again.')
-      }
-    } catch {
-      setError('Something went wrong. You can email us directly at shrishmanglik@milliondollarstudio.ai')
-    } finally {
-      setSubmitting(false)
+    const result = await submitForm({
+      form_name: 'Contact',
+      subject: 'New Contact Message — MDS Website',
+      ...formData,
+    })
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.message)
     }
+    setSubmitting(false)
+  }
+
+  const resetForm = () => {
+    setFormData({ name: '', email: '', company: '', message: '', budget: '' })
+    setSubmitted(false)
+    setError('')
   }
 
   const inputStyles =
@@ -50,24 +46,42 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-8">
+      <div className="text-center py-8" role="status" aria-live="polite">
         <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
           <Check size={32} className="text-green-500" />
         </div>
-        <h3 className="font-heading text-xl font-bold text-text-primary mb-2">Message Received!</h3>
+        <h3 className="font-heading text-xl font-bold text-text-primary mb-2">Message Sent!</h3>
         <p className="text-text-secondary text-sm mb-4">
-          We typically respond within 24 hours. For urgent matters, email us directly at{' '}
+          We&apos;ll get back to you within 24 hours. For urgent matters, email us directly at{' '}
           <a href={`mailto:${SITE.email}`} className="text-accent-mid hover:underline">{SITE.email}</a>.
         </p>
-        <Button href="/" variant="secondary" size="md">
-          Back to Homepage
-        </Button>
+        <div className="flex items-center justify-center gap-3">
+          <button
+            onClick={resetForm}
+            className="text-accent-mid hover:text-accent-start transition-colors text-sm font-medium min-h-[44px] inline-flex items-center"
+          >
+            Send another message
+          </button>
+          <span className="text-text-tertiary">|</span>
+          <Button href="/" variant="secondary" size="md">
+            Back to Homepage
+          </Button>
+        </div>
       </div>
     )
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot — hidden from real users, bots fill it */}
+      <input
+        type="text"
+        name="_honeypot"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
       <div>
         <label htmlFor="contact-name" className="block text-sm font-medium text-text-secondary mb-1.5">
           Name
@@ -142,16 +156,18 @@ export function ContactForm() {
           <option value="Not sure yet">Not sure yet</option>
         </select>
       </div>
-      {error && (
-        <p className="text-red-400 text-sm text-center">
-          {error}{' '}
-          {error.includes('email us') ? null : (
-            <>You can also email us at{' '}
-              <a href={`mailto:${SITE.email}`} className="underline hover:text-red-300">{SITE.email}</a>.
-            </>
-          )}
-        </p>
-      )}
+      <div aria-live="polite">
+        {error && (
+          <p className="text-red-400 text-sm text-center">
+            {error}{' '}
+            {!error.includes('email') && (
+              <>You can also email us at{' '}
+                <a href={`mailto:${SITE.email}`} className="underline hover:text-red-300">{SITE.email}</a>.
+              </>
+            )}
+          </p>
+        )}
+      </div>
       <Button type="submit" variant="primary" size="lg" loading={submitting} className="w-full">
         Send Message
       </Button>

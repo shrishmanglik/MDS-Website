@@ -13,6 +13,7 @@ const ReducedMotionContext = createContext<ReducedMotionContextValue>({
 })
 
 function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null
   const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'))
   return match ? decodeURIComponent(match[1]) : null
 }
@@ -21,34 +22,35 @@ function setCookie(name: string, value: string) {
   document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax`
 }
 
-export function ReducedMotionProvider({ children }: { children: ReactNode }) {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const [manualOverride, setManualOverride] = useState<boolean | null>(null)
+function getInitialMotionState(): { reduced: boolean; manual: boolean | null } {
+  if (typeof window === 'undefined') return { reduced: false, manual: null }
+  const cookieValue = getCookie('reduced-motion')
+  if (cookieValue !== null) {
+    const manual = cookieValue === '1'
+    return { reduced: manual, manual }
+  }
+  const mql = window.matchMedia('(prefers-reduced-motion: reduce)')
+  return { reduced: mql.matches, manual: null }
+}
 
-  // Initialize from cookie + OS preference on mount
-  useEffect(() => {
-    const cookieValue = getCookie('reduced-motion')
-    if (cookieValue !== null) {
-      const manual = cookieValue === '1'
-      setManualOverride(manual)
-      setPrefersReducedMotion(manual)
-    } else {
-      const mql = window.matchMedia('(prefers-reduced-motion: reduce)')
-      setPrefersReducedMotion(mql.matches)
-    }
-  }, [])
+export function ReducedMotionProvider({ children }: { children: ReactNode }) {
+  const [{ prefersReducedMotion }, setState] = useState(() => {
+    const init = getInitialMotionState()
+    return { prefersReducedMotion: init.reduced, manualOverride: init.manual }
+  })
 
   // Listen for OS-level changes (only applies when no manual override)
   useEffect(() => {
     const mql = window.matchMedia('(prefers-reduced-motion: reduce)')
     const handler = (e: MediaQueryListEvent) => {
-      if (manualOverride === null) {
-        setPrefersReducedMotion(e.matches)
-      }
+      setState(prev => {
+        if (prev.manualOverride !== null) return prev
+        return { ...prev, prefersReducedMotion: e.matches }
+      })
     }
     mql.addEventListener('change', handler)
     return () => mql.removeEventListener('change', handler)
-  }, [manualOverride])
+  }, [])
 
   // Sync data attribute on <html> for CSS targeting
   useEffect(() => {
@@ -56,11 +58,10 @@ export function ReducedMotionProvider({ children }: { children: ReactNode }) {
   }, [prefersReducedMotion])
 
   const toggleReducedMotion = useCallback(() => {
-    setPrefersReducedMotion(prev => {
-      const next = !prev
-      setManualOverride(next)
+    setState(prev => {
+      const next = !prev.prefersReducedMotion
       setCookie('reduced-motion', next ? '1' : '0')
-      return next
+      return { prefersReducedMotion: next, manualOverride: next }
     })
   }, [])
 

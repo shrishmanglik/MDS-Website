@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 import { ArrowRight, Check, Loader2 } from 'lucide-react'
-import { WEB3FORMS_KEY } from '@/lib/constants'
+import { submitForm } from '@/lib/forms/submitForm'
 
 interface WaitlistFormProps {
   productName: string
@@ -18,32 +18,24 @@ export function WaitlistForm({ productName, productSlug }: WaitlistFormProps) {
     if (!email) return
 
     setStatus('loading')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `Waitlist signup: ${productName}`,
-          email,
-          product: productSlug,
-          type: 'waitlist',
-        }),
-      })
-      if (res.ok) {
-        setStatus('success')
-        setEmail('')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    const result = await submitForm({
+      form_name: 'Waitlist',
+      subject: `Waitlist signup: ${productName}`,
+      email,
+      product: productSlug,
+      type: 'waitlist',
+    })
+    setStatus(result.success ? 'success' : 'error')
+    if (result.success) setEmail('')
   }
 
   if (status === 'success') {
     return (
-      <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm">
+      <div
+        className="flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm"
+        role="status"
+        aria-live="polite"
+      >
         <Check size={16} />
         <span>You&apos;re on the list. We&apos;ll notify you when {productName} launches.</span>
       </div>
@@ -52,6 +44,8 @@ export function WaitlistForm({ productName, productSlug }: WaitlistFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-2">
+      {/* Honeypot */}
+      <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <input
         type="email"
         value={email}
@@ -74,9 +68,11 @@ export function WaitlistForm({ productName, productSlug }: WaitlistFormProps) {
           </>
         )}
       </button>
-      {status === 'error' && (
-        <p className="text-red-400 text-xs mt-1">Something went wrong. Please try again.</p>
-      )}
+      <div aria-live="polite">
+        {status === 'error' && (
+          <p className="text-red-400 text-xs mt-1">Something went wrong. Please try again.</p>
+        )}
+      </div>
     </form>
   )
 }

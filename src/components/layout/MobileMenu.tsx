@@ -16,7 +16,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
   const onCloseRef = useRef(onClose)
-  onCloseRef.current = onClose
+
+  useEffect(() => {
+    onCloseRef.current = onClose
+  }, [onClose])
 
   const stableOnClose = useCallback(() => onCloseRef.current(), [])
 
@@ -98,7 +101,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex justify-end mb-8">
               <button
                 onClick={onClose}
-                className="p-2 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none rounded-lg"
+                className="p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Close menu"
               >
                 <X size={24} />

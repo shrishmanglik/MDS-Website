@@ -4,21 +4,20 @@ import { PricingTier } from '@/components/ui/PricingTier'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Custom AI Systems | Million Dollar AI Studio',
+  title: 'Custom AI Systems',
   description:
     'Personalized AI systems built to your specifications. Starter, Professional, and Enterprise tiers. Full code ownership. Ongoing support.',
   alternates: { canonical: '/build' },
   openGraph: {
-    title: 'Custom AI Systems | Million Dollar AI Studio',
+    title: 'Custom AI Systems',
     description: 'Personalized AI systems. Fixed price. You own everything.',
-    url: 'https://milliondollarstudio.ai/build',
-    siteName: 'Million Dollar AI Studio',
+    url: '/build',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom AI Systems | Million Dollar AI Studio',
+    title: 'Custom AI Systems',
     description: 'Personalized AI systems. Fixed price. You own everything.',
   },
 }

@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     title: 'Project Intake — Start Your AI Build',
     description:
       'Submit structured project requirements for a custom AI system. Get a fixed-price proposal within 48 hours.',
-    url: 'https://milliondollarstudio.ai/intake',
-    siteName: 'Million Dollar AI Studio',
+    url: '/intake',
     locale: 'en_US',
     type: 'website',
   },

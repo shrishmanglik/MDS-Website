@@ -9,7 +9,13 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 
 export function BlogPostContent({ post }: { post: BlogPost }) {
-  const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2)
+  // Prefer same-category posts, then fall back to any other posts
+  const relatedPosts = (() => {
+    const others = blogPosts.filter((p) => p.slug !== post.slug)
+    const sameCategory = others.filter((p) => p.category === post.category)
+    const different = others.filter((p) => p.category !== post.category)
+    return [...sameCategory, ...different].slice(0, 2)
+  })()
 
   const handleCopyLink = () => {
     if (typeof window !== 'undefined') {

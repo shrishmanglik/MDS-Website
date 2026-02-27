@@ -3,7 +3,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { TECH_CAPABILITIES } from '@/lib/constants'
@@ -159,7 +158,7 @@ export function TechnologyContent() {
             <h2 className="text-text-primary mb-4">
               The three-tier cost model
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl">
+            <p className="text-text-secondary text-lg max-w-prose">
               Every MDS system uses a deterministic-first architecture.
               AI is the last resort, not the first.
             </p>
@@ -209,14 +208,14 @@ export function TechnologyContent() {
             <h2 className="text-text-primary mb-4">
               The MIDAS Framework
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl">
+            <p className="text-text-secondary text-lg max-w-prose">
               Our internal framework for building production AI systems.
               Every product and client system runs on this pipeline.
             </p>
           </motion.div>
 
           <div className="space-y-4">
-            {midasSteps.map((step, i) => (
+            {midasSteps.map((step) => (
               <motion.div
                 key={step.step}
                 variants={fadeUpVariant}
@@ -252,7 +251,7 @@ export function TechnologyContent() {
             <h2 className="text-text-primary mb-4">
               Tech stack
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl">
+            <p className="text-text-secondary text-lg max-w-prose">
               Battle-tested tools. No hype-driven choices.
             </p>
           </motion.div>

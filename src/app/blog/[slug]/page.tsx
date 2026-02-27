@@ -17,7 +17,7 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug)
   if (!post) return { title: 'Post Not Found' }
   return {
-    title: `${post.title} | MDS Blog`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {

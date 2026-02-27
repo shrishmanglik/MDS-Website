@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Mail, Calendar, ArrowRight, Shield, Clock, Lock } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 import { ContactForm } from '@/components/ui/ContactForm'
+import { webPageJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
   title: 'Get Started | Free AI Audit',
@@ -9,19 +10,31 @@ export const metadata: Metadata = {
     'Start with a free AI audit. Discover where AI can reduce costs, accelerate operations, and create competitive advantage in your business.',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Get Started | Million Dollar AI Studio',
+    title: 'Get Started | Free AI Audit',
     description:
       'Start with a free AI audit. Discover where AI can reduce costs and create competitive advantage.',
+    images: [{ url: '/api/og?title=Get+Started&subtitle=Free+AI+audit.+Discover+where+AI+fits+in+your+business.', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Get Started | Million Dollar AI Studio',
+    title: 'Get Started | Free AI Audit',
     description: 'Start with a free AI audit.',
   },
 }
 
 export default function ContactPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webPageJsonLd({
+            name: 'Get Started | Free AI Audit',
+            description: 'Start with a free AI audit. Discover where AI can reduce costs, accelerate operations, and create competitive advantage.',
+            path: '/contact',
+          })),
+        }}
+      />
     <div className="pt-24 pb-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
@@ -91,5 +104,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }

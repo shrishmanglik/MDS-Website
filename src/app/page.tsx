@@ -1,16 +1,19 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
-import { PersonaRouter } from '@/components/sections/PersonaRouter'
 import { SocialProof } from '@/components/sections/SocialProof'
-import { ThreeStreams } from '@/components/sections/ThreeStreams'
-import { ProductsPreview } from '@/components/sections/ProductsPreview'
-import { CaseStudiesPreview } from '@/components/sections/CaseStudiesPreview'
-import { FounderStory } from '@/components/sections/FounderStory'
-import { HowWeWork } from '@/components/sections/HowWeWork'
 import { professionalServiceJsonLd } from '@/lib/structured-data'
 
+// Lazy-load below-fold sections to reduce initial JS bundle
+const PersonaRouter = dynamic(() => import('@/components/sections/PersonaRouter').then(m => ({ default: m.PersonaRouter })))
+const ThreeStreams = dynamic(() => import('@/components/sections/ThreeStreams').then(m => ({ default: m.ThreeStreams })))
+const CaseStudiesPreview = dynamic(() => import('@/components/sections/CaseStudiesPreview').then(m => ({ default: m.CaseStudiesPreview })))
+const ProductsPreview = dynamic(() => import('@/components/sections/ProductsPreview').then(m => ({ default: m.ProductsPreview })))
+const HowWeWork = dynamic(() => import('@/components/sections/HowWeWork').then(m => ({ default: m.HowWeWork })))
+const FounderStory = dynamic(() => import('@/components/sections/FounderStory').then(m => ({ default: m.FounderStory })))
+
 export const metadata: Metadata = {
-  title: 'Million Dollar AI Studio | AI Systems You Actually Own',
+  title: { absolute: 'Million Dollar AI Studio | AI Systems You Actually Own' },
   description:
     'AI systems you actually own. Custom AI builds, SaaS products, and enterprise systems with full code ownership — not prototypes, not demos.',
   alternates: { canonical: '/' },

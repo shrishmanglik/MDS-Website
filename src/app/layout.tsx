@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
+import { SITE, SOCIAL } from '@/lib/constants'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/ui/BackToTop'
@@ -33,7 +34,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://milliondollarstudio.ai'),
+  metadataBase: new URL(SITE.url),
   title: {
     default: 'Million Dollar AI Studio | Production AI Systems',
     template: '%s | Million Dollar AI Studio',
@@ -50,17 +51,17 @@ export const metadata: Metadata = {
     'deterministic AI',
     'MIDAS framework',
   ],
-  authors: [{ name: 'Shrish Manglik' }],
+  authors: [{ name: SITE.founder }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://milliondollarstudio.ai',
-    siteName: 'Million Dollar AI Studio',
-    title: 'Million Dollar AI Studio | Production AI Systems',
+    url: SITE.url,
+    siteName: SITE.name,
+    title: `${SITE.name} | Production AI Systems`,
     description:
       'AI systems you actually own. Production AI with full code ownership — not prototypes, not demos.',
     images: [
-      { url: '/og-image.png', width: 1200, height: 630, alt: 'Million Dollar AI Studio' },
+      { url: '/og-image.png', width: 1200, height: 630, alt: SITE.name },
     ],
   },
   twitter: {
@@ -83,24 +84,24 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Million Dollar AI Studio',
-  url: 'https://milliondollarstudio.ai',
-  logo: 'https://milliondollarstudio.ai/logo.png',
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/logo.png`,
   description:
     'Production AI systems for businesses. We design, build, and deploy AI that runs your business.',
   founder: {
     '@type': 'Person',
-    name: 'Shrish Manglik',
+    name: SITE.founder,
     jobTitle: 'Founder',
   },
   sameAs: [
-    'https://x.com/MDAI_Studio',
-    'https://www.linkedin.com/company/milliondollaraistudio/',
-    'https://github.com/milliondollaraistudio',
+    SOCIAL.twitter.url,
+    SOCIAL.linkedin.url,
+    SOCIAL.github.url,
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'shrishmanglik@milliondollarstudio.ai',
+    email: SITE.email,
     contactType: 'customer service',
   },
 }

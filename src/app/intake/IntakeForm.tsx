@@ -12,8 +12,9 @@ import {
   Trash2,
 } from 'lucide-react'
 import Link from 'next/link'
-import { WEB3FORMS_KEY } from '@/lib/constants'
-import { Button } from '@/components/ui/Button'
+import { submitForm } from '@/lib/forms/submitForm'
+import { FormProgress } from '@/components/forms/FormProgress'
+import { FormSuccess } from '@/components/forms/FormSuccess'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import {
   type IntakeFormData,
@@ -230,17 +231,12 @@ export function IntakeForm() {
     setSubmittingStep1(true)
     setError('')
     try {
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          form_name: 'Project Intake \u2014 Step 1',
-          subject: 'New Project Intake Lead \u2014 MDS Website',
-          name: formData.name,
-          email: formData.email,
-          company: formData.company || '(not provided)',
-        }),
+      await submitForm({
+        form_name: 'Project Intake \u2014 Step 1',
+        subject: 'New Project Intake Lead \u2014 MDS Website',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || '(not provided)',
       })
     } catch {
       // Even if partial submit fails, advance
@@ -301,29 +297,24 @@ export function IntakeForm() {
       const tierLabel =
         BUDGET_TIERS.find((t) => t.value === formData.budgetTier)?.label || formData.budgetTier
 
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          form_name: 'Project Intake \u2014 Complete',
-          subject: `New Project Intake: ${appTypeStr} (${tierLabel}) \u2014 MDS Website`,
-          name: formData.name,
-          email: formData.email,
-          company: formData.company || '(not provided)',
-          app_type: appTypeStr,
-          budget_tier: `${tierLabel} (${BUDGET_TIERS.find((t) => t.value === formData.budgetTier)?.price})`,
-          entities: entitiesStr,
-          deployment_target: formData.deploymentTarget,
-          integrations: integrationsStr || '(none selected)',
-          notes: formData.notes || '(none)',
-        }),
+      const result = await submitForm({
+        form_name: 'Project Intake \u2014 Complete',
+        subject: `New Project Intake: ${appTypeStr} (${tierLabel}) \u2014 MDS Website`,
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || '(not provided)',
+        app_type: appTypeStr,
+        budget_tier: `${tierLabel} (${BUDGET_TIERS.find((t) => t.value === formData.budgetTier)?.price})`,
+        entities: entitiesStr,
+        deployment_target: formData.deploymentTarget,
+        integrations: integrationsStr || '(none selected)',
+        notes: formData.notes || '(none)',
       })
-      const data = await res.json()
-      if (data.success) {
+
+      if (result.success) {
         setSubmitted(true)
       } else {
-        setError('Something went wrong. Please try again.')
+        setError(result.message)
       }
     } catch {
       setError('Network error. Please try again.')
@@ -335,69 +326,19 @@ export function IntakeForm() {
   // --- Success State ---
   if (submitted) {
     return (
-      <div className="pt-24 pb-16 px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
-            <Check size={40} className="text-green-500" />
-          </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-primary gradient-text">
-              Your Project Brief is Submitted!
-            </span>
-          </h1>
-          <p className="text-text-secondary text-lg leading-relaxed mb-6">
-            We&apos;ll review your requirements and respond with a scoping document
-            within 48 hours. Check your inbox for a confirmation.
-          </p>
-
-          <div className="bg-bg-secondary border border-border-custom rounded-2xl p-6 mb-8 text-left">
-            <h3 className="font-heading text-lg font-semibold text-text-primary mb-4">What Happens Next</h3>
-            <ol className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">1</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Requirements Review (within 48 hours)</p>
-                  <p className="text-text-tertiary text-xs">We analyze your project brief and prepare initial architecture notes</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">2</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Scoping Call (15 minutes)</p>
-                  <p className="text-text-tertiary text-xs">Quick call to clarify requirements and discuss approach</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">3</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Fixed-Price Proposal</p>
-                  <p className="text-text-tertiary text-xs">Detailed scope, timeline, architecture, and investment &mdash; you decide when to proceed</p>
-                </div>
-              </li>
-            </ol>
-          </div>
-
-          <div className="text-text-secondary text-sm space-y-3 mb-8">
-            <p>While you wait:</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/case-studies" className="text-accent-mid hover:text-accent-end transition-colors">
-                See Our Case Studies &rarr;
-              </Link>
-              <Link href="/products" className="text-accent-mid hover:text-accent-end transition-colors">
-                Explore Our Products &rarr;
-              </Link>
-            </div>
-          </div>
-          <Button href="/" variant="secondary" size="lg">
-            Back to Homepage
-          </Button>
-        </motion.div>
-      </div>
+      <FormSuccess
+        headline="Your Project Brief is Submitted!"
+        message="We'll review your requirements and respond with a scoping document within 48 hours. Check your inbox for a confirmation."
+        nextSteps={[
+          { title: 'Requirements Review (within 48 hours)', description: 'We analyze your project brief and prepare initial architecture notes' },
+          { title: 'Scoping Call (15 minutes)', description: 'Quick call to clarify requirements and discuss approach' },
+          { title: 'Fixed-Price Proposal', description: 'Detailed scope, timeline, architecture, and investment — you decide when to proceed' },
+        ]}
+        waitLinks={[
+          { label: 'See Our Case Studies', href: '/case-studies' },
+          { label: 'Explore Our Products', href: '/products' },
+        ]}
+      />
     )
   }
 
@@ -434,28 +375,7 @@ export function IntakeForm() {
           </p>
         </motion.div>
 
-        {/* Progress Indicator */}
-        <div className="flex items-center justify-center gap-2 mb-8 max-w-md mx-auto">
-          {STEPS.map((label, i) => {
-            const stepNum = i + 1
-            const active = step >= stepNum
-            return (
-              <div key={label} className="flex items-center gap-2">
-                <div className={`flex items-center gap-1.5 text-xs font-medium ${active ? 'text-accent-mid' : 'text-text-tertiary'}`}>
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                    active ? 'bg-accent-mid text-white' : 'bg-bg-tertiary text-text-tertiary'
-                  }`}>
-                    {step > stepNum ? <Check size={12} /> : stepNum}
-                  </span>
-                  <span className="hidden sm:inline">{label}</span>
-                </div>
-                {i < STEPS.length - 1 && (
-                  <div className={`w-6 sm:w-10 h-0.5 transition-colors ${step > stepNum ? 'bg-accent-mid' : 'bg-bg-tertiary'}`} />
-                )}
-              </div>
-            )
-          })}
-        </div>
+        <FormProgress steps={STEPS} currentStep={step} />
 
         {/* Form Card */}
         <div className="max-w-2xl mx-auto">
@@ -474,6 +394,8 @@ export function IntakeForm() {
                     Who are you?
                   </h2>
                   <form onSubmit={handleStep1} className="space-y-5">
+                    {/* Honeypot */}
+                    <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <label htmlFor="intake-name" className="block text-sm font-medium text-text-secondary mb-1.5">
                         Your name <span className="text-accent-mid">*</span>
@@ -516,7 +438,9 @@ export function IntakeForm() {
                       />
                     </div>
 
-                    {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    <div aria-live="polite">
+                      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    </div>
 
                     <button
                       type="submit"
@@ -599,7 +523,9 @@ export function IntakeForm() {
                       />
                     </div>
 
-                    {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    <div aria-live="polite">
+                      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    </div>
 
                     <div className="flex justify-between gap-3 pt-2">
                       <button
@@ -668,7 +594,9 @@ export function IntakeForm() {
                       </select>
                     </div>
 
-                    {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    <div aria-live="polite">
+                      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    </div>
 
                     <div className="flex justify-between gap-3 pt-2">
                       <button
@@ -707,6 +635,8 @@ export function IntakeForm() {
                     Integrations &amp; final details
                   </h2>
                   <form onSubmit={handleFinalSubmit} className="space-y-6">
+                    {/* Honeypot */}
+                    <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <p className="text-sm font-medium text-text-secondary mb-3">
                         What integrations do you need?
@@ -752,7 +682,9 @@ export function IntakeForm() {
                       />
                     </div>
 
-                    {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    <div aria-live="polite">
+                      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+                    </div>
 
                     <div className="flex justify-between gap-3 pt-2">
                       <button

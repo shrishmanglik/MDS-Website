@@ -2,10 +2,10 @@
 
 import { useState, type FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ClipboardCheck, ArrowRight, Route, BarChart3, FileCheck, Shield, Loader2 } from 'lucide-react'
+import { ClipboardCheck, ArrowRight, Route, BarChart3, FileCheck, Shield, Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { WEB3FORMS_KEY } from '@/lib/constants'
-import { Button } from '@/components/ui/Button'
+import { submitForm } from '@/lib/forms/submitForm'
+import { FormSuccess } from '@/components/forms/FormSuccess'
 
 const SLOTS_CLAIMED = 7
 const SLOTS_TOTAL = 10
@@ -79,17 +79,12 @@ export function AuditForm() {
     setError('')
     try {
       // Submit step 1 to capture the lead immediately
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          form_name: 'AI Assessment — Step 1',
-          subject: 'New AI Assessment Lead — MDS Website',
-          name: formData.name,
-          email: formData.email,
-          automation_type: formData.automation_type,
-        }),
+      await submitForm({
+        form_name: 'AI Assessment — Step 1',
+        subject: 'New AI Assessment Lead — MDS Website',
+        name: formData.name,
+        email: formData.email,
+        automation_type: formData.automation_type,
       })
       setStep(2)
     } catch {
@@ -104,95 +99,34 @@ export function AuditForm() {
     e.preventDefault()
     setSubmitting(true)
     setError('')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          form_name: 'AI Assessment — Complete',
-          subject: 'New AI Assessment Request — MDS Website',
-          ...formData,
-        }),
-      })
-      const data = await res.json()
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError('Something went wrong. Please try again.')
-      }
-    } catch {
-      setError('Network error. Please try again.')
-    } finally {
-      setSubmitting(false)
+    const result = await submitForm({
+      form_name: 'AI Assessment — Complete',
+      subject: 'New AI Assessment Request — MDS Website',
+      ...formData,
+    })
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.message)
     }
+    setSubmitting(false)
   }
 
   if (submitted) {
     return (
-      <div className="pt-24 pb-16 px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
-            <Check size={40} className="text-green-500" />
-          </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-primary gradient-text">
-              Your Assessment Request is Confirmed!
-            </span>
-          </h1>
-          <p className="text-text-secondary text-lg leading-relaxed mb-6">
-            We&apos;ll deliver your 5-page AI Opportunity Report within 48 hours.
-            Check your inbox for a confirmation email.
-          </p>
-          {/* What happens next */}
-          <div className="bg-bg-secondary border border-border-custom rounded-2xl p-6 mb-8 text-left">
-            <h3 className="font-heading text-lg font-semibold text-text-primary mb-4">What Happens Next</h3>
-            <ol className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">1</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Assessment Report (within 48 hours)</p>
-                  <p className="text-text-tertiary text-xs">5-page PDF with automation opportunities, ROI projections, and roadmap</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">2</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Discovery Call Invitation</p>
-                  <p className="text-text-tertiary text-xs">If there&apos;s a fit, we&apos;ll invite you to a 30-minute call to discuss findings</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">3</span>
-                <div>
-                  <p className="text-text-primary text-sm font-medium">Custom Proposal</p>
-                  <p className="text-text-tertiary text-xs">Clear scope, timeline, and investment — you decide if and when to proceed</p>
-                </div>
-              </li>
-            </ol>
-          </div>
-
-          <div className="text-text-secondary text-sm space-y-3 mb-8">
-            <p>While you wait:</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/case-studies" className="text-accent-mid hover:text-accent-end transition-colors">
-                See Our Case Studies &rarr;
-              </Link>
-              <Link href="/roi-calculator" className="text-accent-mid hover:text-accent-end transition-colors">
-                Calculate Your ROI &rarr;
-              </Link>
-            </div>
-          </div>
-          <Button href="/" variant="secondary" size="lg">
-            Back to Homepage
-          </Button>
-        </motion.div>
-      </div>
+      <FormSuccess
+        headline="Your Assessment Request is Confirmed!"
+        message="We'll deliver your 5-page AI Opportunity Report within 48 hours. Check your inbox for a confirmation email."
+        nextSteps={[
+          { title: 'Assessment Report (within 48 hours)', description: '5-page PDF with automation opportunities, ROI projections, and roadmap' },
+          { title: 'Discovery Call Invitation', description: "If there's a fit, we'll invite you to a 30-minute call to discuss findings" },
+          { title: 'Custom Proposal', description: 'Clear scope, timeline, and investment — you decide if and when to proceed' },
+        ]}
+        waitLinks={[
+          { label: 'See Our Case Studies', href: '/case-studies' },
+          { label: 'Calculate Your ROI', href: '/roi-calculator' },
+        ]}
+      />
     )
   }
 
@@ -300,6 +234,8 @@ export function AuditForm() {
               >
                 <div className="bg-bg-secondary border border-border-custom rounded-2xl p-8">
                   <form onSubmit={handleStep1} className="space-y-5">
+                    {/* Honeypot */}
+                    <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <label htmlFor="automation-type" className="block text-sm font-medium text-text-secondary mb-1.5">
                         What type of work do you want to automate? <span className="text-accent-mid">*</span>
@@ -348,9 +284,11 @@ export function AuditForm() {
                       />
                     </div>
 
-                    {error && (
-                      <p className="text-red-400 text-sm text-center">{error}</p>
-                    )}
+                    <div aria-live="polite">
+                      {error && (
+                        <p className="text-red-400 text-sm text-center">{error}</p>
+                      )}
+                    </div>
 
                     <button
                       type="submit"
@@ -386,6 +324,8 @@ export function AuditForm() {
                     Almost done &mdash; a few more details help us personalize your 5-page report.
                   </p>
                   <form onSubmit={handleStep2} className="space-y-5">
+                    {/* Honeypot */}
+                    <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <label htmlFor="company" className="block text-sm font-medium text-text-secondary mb-1.5">
                         Company / Organization
@@ -432,9 +372,11 @@ export function AuditForm() {
                       />
                     </div>
 
-                    {error && (
-                      <p className="text-red-400 text-sm text-center">{error}</p>
-                    )}
+                    <div aria-live="polite">
+                      {error && (
+                        <p className="text-red-400 text-sm text-center">{error}</p>
+                      )}
+                    </div>
 
                     <button
                       type="submit"

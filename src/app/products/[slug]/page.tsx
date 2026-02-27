@@ -22,13 +22,12 @@ export async function generateMetadata({
   if (!product) return { title: 'Product Not Found' }
 
   return {
-    title: `${product.name} | Million Dollar AI Studio`,
+    title: product.name,
     description: `${product.tagline} ${product.description}`,
     openGraph: {
-      title: `${product.name} | Million Dollar AI Studio`,
+      title: product.name,
       description: product.tagline,
-      url: `https://milliondollarstudio.ai/products/${slug}`,
-      siteName: 'Million Dollar AI Studio',
+      url: `/products/${slug}`,
       locale: 'en_US',
       type: 'website',
     },

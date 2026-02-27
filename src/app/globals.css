@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Anchor offset for sticky header */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: 5rem;
+}
+
 :root {
   /* Backgrounds — deep navy to black */
   --bg-primary: #0A0A0F;
@@ -163,12 +168,25 @@ h3 {
   75% { transform: translate(15px, 25px) scale(1.05); }
 }
 
-/* Reduced motion: disable orb animations */
+/* Reduced motion: disable ALL animations */
 @media (prefers-reduced-motion: reduce) {
-  .ambient-orb::before, .ambient-orb::after { animation: none; }
+  .ambient-orb::before, .ambient-orb::after { animation: none !important; }
+  .gradient-mesh,
+  .gradient-mesh::before,
+  .gradient-mesh::after { animation: none !important; }
+  .card-hover { transition: none !important; }
+  .card-hover:hover { transform: none; }
+  .nav-underline::after { transition: none !important; }
+  * { scroll-behavior: auto !important; }
 }
 [data-reduced-motion="true"] .ambient-orb::before,
-[data-reduced-motion="true"] .ambient-orb::after { animation: none; }
+[data-reduced-motion="true"] .ambient-orb::after { animation: none !important; }
+[data-reduced-motion="true"] .gradient-mesh,
+[data-reduced-motion="true"] .gradient-mesh::before,
+[data-reduced-motion="true"] .gradient-mesh::after { animation: none !important; }
+[data-reduced-motion="true"] .card-hover { transition: none !important; }
+[data-reduced-motion="true"] .card-hover:hover { transform: none; }
+[data-reduced-motion="true"] .nav-underline::after { transition: none !important; }
 
 /* Card hover — scale + border */
 .card-hover {

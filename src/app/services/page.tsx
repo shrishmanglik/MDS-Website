@@ -8,13 +8,14 @@ export const metadata: Metadata = {
     'From $500 AI audits to $200K+ enterprise systems. We design, build, and deploy production AI that runs your business.',
   alternates: { canonical: '/services' },
   openGraph: {
-    title: 'AI Services & Custom Builds | Million Dollar AI Studio',
+    title: 'AI Services & Custom Builds',
     description:
       'From $500 AI audits to $200K+ enterprise systems. We design, build, and deploy production AI that runs your business.',
+    images: [{ url: '/api/og?title=AI+Services+%26+Custom+Builds&subtitle=From+audits+to+enterprise+systems.+Production+AI+you+own.', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Services & Custom Builds | Million Dollar AI Studio',
+    title: 'AI Services & Custom Builds',
     description: 'From $500 AI audits to $200K+ enterprise systems.',
   },
 }

@@ -1,3 +1,5 @@
+import { SITE, SOCIAL } from '@/lib/constants'
+
 export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -6,7 +8,7 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `https://milliondollarstudio.ai${item.url}`,
+      item: `${SITE.url}${item.url}`,
     })),
   }
 }
@@ -19,8 +21,8 @@ export function articleJsonLd(post: { title: string; excerpt: string; date: stri
     description: post.excerpt,
     datePublished: post.date,
     author: { '@type': 'Person', name: post.author },
-    publisher: { '@type': 'Organization', name: 'Million Dollar AI Studio' },
-    url: `https://milliondollarstudio.ai/blog/${post.slug}`,
+    publisher: { '@type': 'Organization', name: SITE.name },
+    url: `${SITE.url}/blog/${post.slug}`,
   }
 }
 
@@ -30,8 +32,8 @@ export function serviceJsonLd(service: { title: string; description: string; slu
     '@type': 'Service',
     name: service.title,
     description: service.description,
-    provider: { '@type': 'Organization', name: 'Million Dollar AI Studio' },
-    url: `https://milliondollarstudio.ai/services/${service.slug}`,
+    provider: { '@type': 'Organization', name: SITE.name },
+    url: `${SITE.url}/services/${service.slug}`,
   }
 }
 
@@ -51,12 +53,12 @@ export function professionalServiceJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Million Dollar AI Studio',
-    url: 'https://milliondollarstudio.ai',
-    logo: 'https://milliondollarstudio.ai/logo.png',
+    name: SITE.name,
+    url: SITE.url,
+    logo: `${SITE.url}/logo.png`,
     description:
       'Production AI systems for businesses. Custom AI builds, SaaS products, and enterprise systems with full code ownership.',
-    founder: { '@type': 'Person', name: 'Shrish Manglik' },
+    founder: { '@type': 'Person', name: SITE.founder },
     areaServed: 'Worldwide',
     serviceType: [
       'AI Consulting',
@@ -95,10 +97,21 @@ export function professionalServiceJsonLd() {
       ],
     },
     sameAs: [
-      'https://x.com/MDAI_Studio',
-      'https://www.linkedin.com/company/milliondollaraistudio/',
-      'https://github.com/milliondollaraistudio',
+      SOCIAL.twitter.url,
+      SOCIAL.linkedin.url,
+      SOCIAL.github.url,
     ],
+  }
+}
+
+export function webPageJsonLd(page: { name: string; description: string; path: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: page.name,
+    description: page.description,
+    url: `${SITE.url}${page.path}`,
+    isPartOf: { '@type': 'WebSite', url: SITE.url, name: SITE.name },
   }
 }
 
@@ -113,7 +126,7 @@ export function productJsonLd(product: {
     '@type': 'SoftwareApplication',
     name: product.name,
     description: product.description,
-    url: `https://milliondollarstudio.ai/products/${product.slug}`,
+    url: `${SITE.url}/products/${product.slug}`,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     offers: {
@@ -125,7 +138,7 @@ export function productJsonLd(product: {
     },
     creator: {
       '@type': 'Organization',
-      name: 'Million Dollar AI Studio',
+      name: SITE.name,
     },
   }
 }
