@@ -20,7 +20,7 @@ export function FounderStory() {
         viewport={viewportOnce}
       >
         <motion.div variants={fadeUpVariant}>
-          <span className="inline-block font-mono text-xs uppercase tracking-widest text-accent-primary mb-6">
+          <span className="inline-block font-mono text-xs uppercase tracking-widest text-accent-blue mb-6">
             The Builder
           </span>
         </motion.div>

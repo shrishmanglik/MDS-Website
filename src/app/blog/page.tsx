@@ -40,7 +40,7 @@ export default function BlogPage() {
               className="block group bg-bg-secondary border border-border-custom rounded-2xl p-6 card-hover"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium text-accent-primary bg-accent-primary/10 px-2 py-0.5 rounded-full">
+                <span className="text-xs font-medium text-accent-blue bg-accent-blue/10 px-2 py-0.5 rounded-full">
                   {post.category}
                 </span>
                 <span className="text-text-tertiary text-xs">{post.readTime}</span>

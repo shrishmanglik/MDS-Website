@@ -71,21 +71,21 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
           <div className="flex items-center gap-3">
             <button
               onClick={handleCopyLink}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-purple focus:outline-none"
             >
               <Link2 size={16} aria-hidden="true" />
               Copy Link
             </button>
             <button
               onClick={shareOnX}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-purple focus:outline-none"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               Share on X
             </button>
             <button
               onClick={shareOnLinkedIn}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary text-text-secondary hover:text-text-primary text-sm transition-colors focus:ring-2 focus:ring-accent-purple focus:outline-none"
             >
               <Linkedin size={16} aria-hidden="true" />
               LinkedIn
@@ -121,7 +121,7 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
               <Link
                 key={related.slug}
                 href={`/blog/${related.slug}`}
-                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-5 hover:border-accent-mid/30 transition-colors"
+                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-5 hover:border-accent-purple/30 transition-colors"
               >
                 <Badge className="mb-3">{related.category}</Badge>
                 <h3 className="font-heading font-semibold text-text-primary group-hover:text-white transition-colors mb-2">

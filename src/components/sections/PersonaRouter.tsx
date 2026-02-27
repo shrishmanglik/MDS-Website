@@ -51,16 +51,16 @@ export function PersonaRouter() {
             <motion.div key={persona.href} variants={fadeUpVariant}>
               <Link
                 href={persona.href}
-                className="group block p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-accent-primary/30 transition-colors h-full card-tilt"
+                className="group block p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-accent-blue/30 transition-colors h-full card-tilt"
               >
-                <persona.icon className="w-8 h-8 text-accent-primary mb-4" aria-hidden="true" />
+                <persona.icon className="w-8 h-8 text-accent-blue mb-4" aria-hidden="true" />
                 <h3 className="text-text-primary text-lg font-semibold mb-2 font-heading">
                   {persona.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   {persona.description}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-accent-primary text-sm font-medium group-hover:gap-2.5 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-accent-blue text-sm font-medium group-hover:gap-2.5 transition-all">
                   {persona.cta}
                   <ArrowRight size={14} aria-hidden="true" />
                 </span>

@@ -52,12 +52,12 @@ export function WaitlistForm({ productName, productSlug }: WaitlistFormProps) {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email for early access"
         required
-        className="flex-1 px-4 py-2.5 rounded-xl bg-bg-tertiary border border-border-custom text-text-primary text-sm placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent-mid focus:border-transparent"
+        className="flex-1 px-4 py-2.5 rounded-xl bg-bg-tertiary border border-border-custom text-text-primary text-sm placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent-purple focus:border-transparent"
       />
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-accent-start to-accent-mid text-white text-sm font-medium hover:brightness-110 transition-all disabled:opacity-60"
+        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white text-sm font-medium hover:brightness-110 transition-all disabled:opacity-60"
       >
         {status === 'loading' ? (
           <Loader2 size={14} className="animate-spin" />

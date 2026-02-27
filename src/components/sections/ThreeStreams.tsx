@@ -15,8 +15,8 @@ const streams = [
     price: '$3K–$50K',
     cta: 'View Packages',
     href: '/services',
-    gradient: 'from-[#5B7FFF] to-[#A855F7]',
-    glowColor: 'rgba(91, 127, 255, 0.15)',
+    gradient: 'from-[#2962FF] to-[#7C3AED]',
+    glowColor: 'rgba(41, 98, 255, 0.15)',
   },
   {
     icon: Box,
@@ -26,7 +26,7 @@ const streams = [
     price: '4 products in development',
     cta: 'Explore Products',
     href: '/products',
-    gradient: 'from-[#10b981] to-[#5B7FFF]',
+    gradient: 'from-[#10b981] to-[#2962FF]',
     glowColor: 'rgba(16, 185, 129, 0.15)',
   },
   {
@@ -37,8 +37,8 @@ const streams = [
     price: '$5K–$200K+',
     cta: 'Build With Us',
     href: '/build',
-    gradient: 'from-[#A855F7] to-[#FF9F43]',
-    glowColor: 'rgba(168, 85, 247, 0.15)',
+    gradient: 'from-[#7C3AED] to-[#D4AF37]',
+    glowColor: 'rgba(124, 58, 237, 0.15)',
   },
 ]
 
@@ -89,10 +89,10 @@ function TiltCard({ stream }: { stream: typeof streams[number] }) {
         <p className="text-text-secondary text-sm leading-relaxed mb-4">
           {stream.description}
         </p>
-        <p className="text-sm font-medium font-mono text-accent-primary mb-6">
+        <p className="text-sm font-medium font-mono text-accent-blue mb-6">
           {stream.price}
         </p>
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary group-hover:gap-2.5 transition-all">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue group-hover:gap-2.5 transition-all">
           {stream.cta}
           <ArrowRight size={14} aria-hidden="true" />
         </span>

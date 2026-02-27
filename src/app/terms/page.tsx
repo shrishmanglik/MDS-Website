@@ -33,7 +33,7 @@ export default function TermsOfServicePage() {
               Welcome to {SITE.name}. By accessing or using our website at{' '}
               <a
                 href={SITE.url}
-                className="text-accent-mid hover:underline"
+                className="text-accent-purple hover:underline"
               >
                 {SITE.domain}
               </a>{' '}
@@ -171,7 +171,7 @@ export default function TermsOfServicePage() {
                 Email:{' '}
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-accent-mid hover:underline"
+                  className="text-accent-purple hover:underline"
                 >
                   {SITE.email}
                 </a>
@@ -180,7 +180,7 @@ export default function TermsOfServicePage() {
                 Website:{' '}
                 <a
                   href={SITE.url}
-                  className="text-accent-mid hover:underline"
+                  className="text-accent-purple hover:underline"
                 >
                   {SITE.domain}
                 </a>

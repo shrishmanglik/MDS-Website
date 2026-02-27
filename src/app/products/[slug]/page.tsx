@@ -115,7 +115,7 @@ export default async function ProductPage({
         </div>
 
         {/* Gradient placeholder for screenshot */}
-        <div className="rounded-2xl border border-border-custom bg-gradient-to-br from-accent-start/10 via-accent-mid/5 to-transparent h-64 md:h-80 flex items-center justify-center mb-12">
+        <div className="rounded-2xl border border-border-custom bg-gradient-to-br from-accent-blue/10 via-accent-purple/5 to-transparent h-64 md:h-80 flex items-center justify-center mb-12">
           <span className="text-text-tertiary text-sm">
             {product.name} Preview
           </span>

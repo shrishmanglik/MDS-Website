@@ -42,7 +42,7 @@ export function ContactForm() {
   }
 
   const inputStyles =
-    'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-mid focus:outline-none focus:border-accent-mid transition-colors'
+    'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-purple focus:outline-none focus:border-accent-purple transition-colors'
 
   if (submitted) {
     return (
@@ -53,12 +53,12 @@ export function ContactForm() {
         <h3 className="font-heading text-xl font-bold text-text-primary mb-2">Message Sent!</h3>
         <p className="text-text-secondary text-sm mb-4">
           We&apos;ll get back to you within 24 hours. For urgent matters, email us directly at{' '}
-          <a href={`mailto:${SITE.email}`} className="text-accent-mid hover:underline">{SITE.email}</a>.
+          <a href={`mailto:${SITE.email}`} className="text-accent-purple hover:underline">{SITE.email}</a>.
         </p>
         <div className="flex items-center justify-center gap-3">
           <button
             onClick={resetForm}
-            className="text-accent-mid hover:text-accent-start transition-colors text-sm font-medium min-h-[44px] inline-flex items-center"
+            className="text-accent-purple hover:text-accent-blue transition-colors text-sm font-medium min-h-[44px] inline-flex items-center"
           >
             Send another message
           </button>

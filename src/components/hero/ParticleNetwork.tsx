@@ -148,12 +148,12 @@ function Particles({ count }: { count: number }) {
           lp[idx + 4] = positions[j][1]
           lp[idx + 5] = positions[j][2]
 
-          // Blue tint for connections
-          lc[idx + 0] = 0.36 * alpha
-          lc[idx + 1] = 0.5 * alpha
+          // Blue tint for connections (#2962FF)
+          lc[idx + 0] = 0.16 * alpha
+          lc[idx + 1] = 0.38 * alpha
           lc[idx + 2] = 1.0 * alpha
-          lc[idx + 3] = 0.36 * alpha
-          lc[idx + 4] = 0.5 * alpha
+          lc[idx + 3] = 0.16 * alpha
+          lc[idx + 4] = 0.38 * alpha
           lc[idx + 5] = 1.0 * alpha
 
           lineIndex++
@@ -176,7 +176,7 @@ function Particles({ count }: { count: number }) {
     <>
       <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
         <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color="#5B7FFF" transparent opacity={0.6} />
+        <meshBasicMaterial color="#2962FF" transparent opacity={0.6} />
       </instancedMesh>
       <lineSegments ref={linesRef}>
         <bufferGeometry />
@@ -209,7 +209,7 @@ class ParticleErrorBoundary extends Component<
 function ParticleFallback() {
   return (
     <div
-      className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 via-transparent to-transparent"
+      className="absolute inset-0 bg-gradient-to-b from-accent-blue/5 via-transparent to-transparent"
       aria-hidden="true"
     />
   )

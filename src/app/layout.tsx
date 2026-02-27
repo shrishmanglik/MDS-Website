@@ -1,34 +1,38 @@
 import type { Metadata } from 'next'
-import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
+import { JetBrains_Mono } from 'next/font/google'
 import { SITE, SOCIAL } from '@/lib/constants'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/ui/BackToTop'
 import { MotionProvider } from '@/components/ui/MotionProvider'
 import { CursorGlow } from '@/components/ui/CursorGlow'
-import { NeuralCursor } from '@/components/ui/NeuralCursor'
+import { CustomCursor } from '@/components/ui/CustomCursor'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
 import { ExitIntentModal } from '@/components/ui/ExitIntentModal'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const satoshi = localFont({
+  src: [
+    { path: '../../public/fonts/Satoshi-Variable.woff2', style: 'normal' },
+    { path: '../../public/fonts/Satoshi-VariableItalic.woff2', style: 'italic' },
+  ],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-satoshi',
 })
 
-const sora = Sora({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
+const generalSans = localFont({
+  src: [
+    { path: '../../public/fonts/GeneralSans-Variable.woff2', style: 'normal' },
+    { path: '../../public/fonts/GeneralSans-VariableItalic.woff2', style: 'italic' },
+  ],
   display: 'swap',
-  variable: '--font-sora',
+  variable: '--font-general-sans',
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400'],
   display: 'swap',
   variable: '--font-jetbrains',
 })
@@ -112,13 +116,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-[#0A0A0F] ${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`bg-[#050508] ${satoshi.variable} ${generalSans.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body antialiased bg-bg-primary text-text-secondary cursor-glow">
         <MotionProvider>
           <SmoothScroll />
           <GrainOverlay />
           <CursorGlow />
-          <NeuralCursor />
+          <CustomCursor />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-bg-secondary focus:text-text-primary focus:px-4 focus:py-2 focus:rounded-lg focus:border focus:border-border-custom"

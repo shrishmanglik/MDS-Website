@@ -51,7 +51,7 @@ export default function ProductsPage() {
             href="https://www.linkedin.com/company/milliondollaraistudio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent-primary hover:text-accent-secondary transition-colors text-sm font-medium"
+            className="text-accent-blue hover:text-accent-purple transition-colors text-sm font-medium"
           >
             Follow our journey on LinkedIn
           </a>

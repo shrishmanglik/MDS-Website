@@ -64,14 +64,14 @@ export function ExitIntentModal() {
             >
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 p-1.5 text-text-tertiary hover:text-text-primary transition-colors rounded-lg focus:ring-2 focus:ring-accent-primary focus:outline-none"
+                className="absolute top-4 right-4 p-1.5 text-text-tertiary hover:text-text-primary transition-colors rounded-lg focus:ring-2 focus:ring-accent-blue focus:outline-none"
                 aria-label="Close"
               >
                 <X size={20} />
               </button>
 
               <div className="text-center">
-                <p className="font-mono text-xs uppercase tracking-widest text-accent-primary mb-4">
+                <p className="font-mono text-xs uppercase tracking-widest text-accent-blue mb-4">
                   Before you go
                 </p>
                 <h2

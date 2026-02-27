@@ -33,7 +33,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-widest text-accent-mid mb-4">{study.label}</p>
+          <p className="text-xs font-semibold tracking-widest text-accent-purple mb-4">{study.label}</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-primary gradient-text">{study.title}</span>
           </h1>
@@ -47,7 +47,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
             <div className="w-px h-10 bg-border-custom" />
             <div className="text-center">
               <p className="text-text-primary font-medium text-sm flex items-center gap-1.5">
-                <Clock size={14} className="text-accent-mid" /> {study.timeline}
+                <Clock size={14} className="text-accent-purple" /> {study.timeline}
               </p>
               <p className="text-text-tertiary text-xs">{study.industry}</p>
             </div>
@@ -94,8 +94,8 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
                 variants={itemVariants}
                 className="flex gap-4 bg-bg-secondary border border-border-custom rounded-xl p-5"
               >
-                <div className="w-8 h-8 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0">
-                  <span className="text-accent-mid font-bold text-sm">{i + 1}</span>
+                <div className="w-8 h-8 rounded-full bg-accent-purple/10 flex items-center justify-center shrink-0">
+                  <span className="text-accent-purple font-bold text-sm">{i + 1}</span>
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">{step}</p>
               </motion.div>
@@ -152,8 +152,8 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <div className="bg-bg-secondary border border-accent-mid/20 rounded-2xl p-8">
-            <Quote size={24} className="text-accent-mid/30 mb-4" />
+          <div className="bg-bg-secondary border border-accent-purple/20 rounded-2xl p-8">
+            <Quote size={24} className="text-accent-purple/30 mb-4" />
             <blockquote className="text-text-primary text-lg leading-relaxed mb-4 italic">
               &ldquo;{study.insight.quote}&rdquo;
             </blockquote>

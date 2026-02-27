@@ -27,7 +27,7 @@ export function SocialProof() {
 
         {/* Metrics strip */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 p-6 md:p-8 rounded-2xl border border-border-custom bg-bg-secondary"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 p-6 md:p-8 rounded-2xl border border-border-custom bg-bg-elevated/50 backdrop-blur-sm"
           variants={fadeUpVariant}
         >
           <div className="text-center md:border-r md:border-border-custom">
@@ -73,7 +73,7 @@ export function SocialProof() {
 
         {/* Quote */}
         <motion.blockquote
-          className="max-w-2xl mx-auto mb-10 border-l-2 border-accent-primary pl-6"
+          className="max-w-2xl mx-auto mb-10 border-l-2 border-accent-gold pl-6"
           variants={fadeUpVariant}
         >
           <p className="text-text-secondary text-base leading-relaxed italic mb-3">
@@ -88,7 +88,7 @@ export function SocialProof() {
         <motion.div className="text-center" variants={fadeUpVariant}>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-1.5 text-accent-primary text-sm font-medium hover:gap-2.5 transition-all"
+            className="inline-flex items-center gap-1.5 text-accent-blue text-sm font-medium hover:gap-2.5 transition-all"
           >
             Read our case studies
             <ArrowRight size={14} aria-hidden="true" />

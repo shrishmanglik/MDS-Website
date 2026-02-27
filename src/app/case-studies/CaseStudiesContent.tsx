@@ -52,7 +52,7 @@ export function CaseStudiesContent() {
           {caseStudies.map((study) => (
             <motion.div key={study.slug} variants={itemVariants}>
               <Link href={`/case-studies/${study.slug}`} className="block group">
-                <div className="bg-bg-secondary border border-border-custom rounded-2xl p-8 md:p-10 hover:border-accent-mid/30 transition-all duration-300">
+                <div className="bg-bg-secondary border border-border-custom rounded-2xl p-8 md:p-10 hover:border-accent-purple/30 transition-all duration-300">
                   <div className="flex flex-col md:flex-row md:items-start gap-8">
                     {/* Hero stat */}
                     <div className="shrink-0 md:w-48 text-center md:text-left">
@@ -64,7 +64,7 @@ export function CaseStudiesContent() {
 
                     {/* Content */}
                     <div className="flex-1">
-                      <p className="text-xs font-semibold tracking-widest text-accent-mid mb-2">{study.label}</p>
+                      <p className="text-xs font-semibold tracking-widest text-accent-purple mb-2">{study.label}</p>
                       <h2 className="font-heading text-xl md:text-2xl font-bold text-text-primary mb-2 group-hover:text-white transition-colors">
                         {study.title}
                       </h2>
@@ -79,7 +79,7 @@ export function CaseStudiesContent() {
                         </span>
                       </div>
 
-                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-mid group-hover:gap-2.5 transition-all">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-purple group-hover:gap-2.5 transition-all">
                         Read full case study
                         <ArrowRight size={14} />
                       </span>

@@ -101,7 +101,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex justify-end mb-8">
               <button
                 onClick={onClose}
-                className="p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
+                className="p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-purple focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Close menu"
               >
                 <X size={24} />
@@ -113,7 +113,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   key={link.href}
                   href={link.href}
                   onClick={onClose}
-                  className="text-lg font-medium text-text-secondary hover:text-text-primary py-3 px-4 rounded-xl hover:bg-bg-hover transition-colors focus:ring-2 focus:ring-accent-mid focus:outline-none"
+                  className="text-lg font-medium text-text-secondary hover:text-text-primary py-3 px-4 rounded-xl hover:bg-bg-hover transition-colors focus:ring-2 focus:ring-accent-purple focus:outline-none"
                 >
                   {link.label}
                 </Link>

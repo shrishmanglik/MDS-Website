@@ -32,7 +32,7 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
             <motion.div
               whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(139, 92, 246, 0.15)' }}
               transition={{ duration: 0.2 }}
-              className="bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-mid/30 transition-colors h-full flex flex-col"
+              className="bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-purple/30 transition-colors h-full flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
                 <Badge>{post.category}</Badge>

@@ -28,15 +28,15 @@ export function ServicePackageCard({
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <div className={`rounded-2xl border bg-bg-secondary overflow-hidden ${recommended ? 'border-accent-start ring-1 ring-accent-start/20' : 'border-border-custom'}`}>
+    <div className={`rounded-2xl border bg-bg-secondary overflow-hidden ${recommended ? 'border-accent-blue ring-1 ring-accent-blue/20' : 'border-border-custom'}`}>
       {recommended && (
-        <div className="flex items-center justify-center gap-1.5 px-4 py-1.5 bg-gradient-to-r from-accent-start to-accent-mid text-white text-xs font-semibold uppercase tracking-wider">
+        <div className="flex items-center justify-center gap-1.5 px-4 py-1.5 bg-gradient-to-r from-accent-blue to-accent-purple text-white text-xs font-semibold uppercase tracking-wider">
           Recommended starting point
         </div>
       )}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-6 text-left focus:outline-none focus:ring-2 focus:ring-accent-mid focus:ring-inset rounded-2xl"
+        className="w-full flex items-center justify-between p-6 text-left focus:outline-none focus:ring-2 focus:ring-accent-purple focus:ring-inset rounded-2xl"
         aria-expanded={expanded}
       >
         <div>
@@ -44,7 +44,7 @@ export function ServicePackageCard({
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               {name}
             </h3>
-            <span className="text-sm font-mono font-semibold text-accent-start">
+            <span className="text-sm font-mono font-semibold text-accent-blue">
               {price}
             </span>
           </div>

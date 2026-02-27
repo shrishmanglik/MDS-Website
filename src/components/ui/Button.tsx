@@ -25,9 +25,9 @@ const sizeStyles = {
 
 const variantStyles = {
   primary:
-    'bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white font-semibold hover:brightness-110 hover:shadow-lg hover:shadow-accent-primary/20',
+    'bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white font-semibold hover:brightness-110 hover:shadow-lg hover:shadow-accent-blue/20',
   secondary:
-    'border border-border-visible bg-bg-secondary text-text-primary hover:text-white hover:border-accent-primary/40 hover:bg-bg-tertiary',
+    'border border-border-visible bg-bg-secondary text-text-primary hover:text-white hover:border-accent-blue/40 hover:bg-bg-tertiary',
   ghost:
     'bg-transparent text-text-secondary hover:text-text-primary hover:bg-bg-hover',
   cta:
@@ -47,7 +47,7 @@ export function Button({
   target,
   rel,
 }: ButtonProps) {
-  const baseStyles = `inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 btn-press focus:ring-2 focus:ring-accent-primary/50 focus:outline-none ${
+  const baseStyles = `inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 btn-press focus:ring-2 focus:ring-accent-blue/50 focus:outline-none ${
     sizeStyles[size]
   } ${variantStyles[variant]} ${
     disabled || loading ? 'pointer-events-none opacity-70' : ''

@@ -27,7 +27,7 @@ import {
 } from '@/lib/intake'
 
 const inputStyles =
-  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-mid focus:outline-none focus:border-accent-mid transition-colors min-h-[44px]'
+  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-purple focus:outline-none focus:border-accent-purple transition-colors min-h-[44px]'
 
 const STEPS = ['Contact', 'Project', 'Scope', 'Integrations'] as const
 
@@ -49,7 +49,7 @@ function RadioCardGroup({
           key={opt.value}
           className={`relative block rounded-2xl border p-5 cursor-pointer transition-all duration-200 ${
             value === opt.value
-              ? 'border-accent-start ring-1 ring-accent-start/20 bg-accent-start/5'
+              ? 'border-accent-blue ring-1 ring-accent-blue/20 bg-accent-blue/5'
               : 'border-border-custom bg-bg-secondary hover:border-border-visible'
           }`}
         >
@@ -62,10 +62,10 @@ function RadioCardGroup({
             className="sr-only"
           />
           <p className="font-heading text-base font-semibold text-text-primary mb-1">{opt.label}</p>
-          <p className="font-mono text-sm text-accent-mid mb-2">{opt.price}</p>
+          <p className="font-mono text-sm text-accent-purple mb-2">{opt.price}</p>
           <p className="text-text-tertiary text-xs leading-relaxed">{opt.description}</p>
           {value === opt.value && (
-            <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-accent-start flex items-center justify-center">
+            <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-accent-blue flex items-center justify-center">
               <Check size={12} className="text-white" />
             </div>
           )}
@@ -101,7 +101,7 @@ function CheckboxCardGroup({
             key={opt}
             className={`flex items-center gap-2 rounded-xl border px-4 py-3 cursor-pointer transition-all duration-200 text-sm ${
               checked
-                ? 'border-accent-mid bg-accent-mid/5 text-text-primary'
+                ? 'border-accent-purple bg-accent-purple/5 text-text-primary'
                 : 'border-border-custom bg-bg-tertiary text-text-secondary hover:border-border-visible'
             }`}
           >
@@ -113,7 +113,7 @@ function CheckboxCardGroup({
             />
             <div
               className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-colors ${
-                checked ? 'bg-accent-mid' : 'border border-border-custom bg-bg-tertiary'
+                checked ? 'bg-accent-purple' : 'border border-border-custom bg-bg-tertiary'
               }`}
             >
               {checked && <Check size={10} className="text-white" />}
@@ -194,7 +194,7 @@ function DynamicEntityList({
         <button
           type="button"
           onClick={addEntity}
-          className="inline-flex items-center gap-1.5 text-sm text-accent-mid hover:text-accent-start transition-colors font-medium"
+          className="inline-flex items-center gap-1.5 text-sm text-accent-purple hover:text-accent-blue transition-colors font-medium"
         >
           <Plus size={14} />
           Add Resource
@@ -369,7 +369,7 @@ export function IntakeForm() {
           </p>
           <p className="text-text-tertiary text-sm">
             Not sure yet?{' '}
-            <Link href="/free-audit" className="text-accent-mid hover:underline">
+            <Link href="/free-audit" className="text-accent-purple hover:underline">
               Start with a free assessment instead.
             </Link>
           </p>
@@ -398,7 +398,7 @@ export function IntakeForm() {
                     <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <label htmlFor="intake-name" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Your name <span className="text-accent-mid">*</span>
+                        Your name <span className="text-accent-purple">*</span>
                       </label>
                       <input
                         id="intake-name"
@@ -412,7 +412,7 @@ export function IntakeForm() {
                     </div>
                     <div>
                       <label htmlFor="intake-email" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Work email <span className="text-accent-mid">*</span>
+                        Work email <span className="text-accent-purple">*</span>
                       </label>
                       <input
                         id="intake-email"
@@ -445,7 +445,7 @@ export function IntakeForm() {
                     <button
                       type="submit"
                       disabled={submittingStep1}
-                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-4 text-base bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-4 text-base bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {submittingStep1 ? (
                         <Loader2 className="animate-spin" size={20} />
@@ -477,7 +477,7 @@ export function IntakeForm() {
                   <div className="space-y-6">
                     <div>
                       <label htmlFor="intake-apptype" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Type of application <span className="text-accent-mid">*</span>
+                        Type of application <span className="text-accent-purple">*</span>
                       </label>
                       <select
                         id="intake-apptype"
@@ -499,7 +499,7 @@ export function IntakeForm() {
                         exit={{ opacity: 0, height: 0 }}
                       >
                         <label htmlFor="intake-apptype-other" className="block text-sm font-medium text-text-secondary mb-1.5">
-                          Describe your app type <span className="text-accent-mid">*</span>
+                          Describe your app type <span className="text-accent-purple">*</span>
                         </label>
                         <input
                           id="intake-apptype-other"
@@ -514,7 +514,7 @@ export function IntakeForm() {
 
                     <div>
                       <p className="text-sm font-medium text-text-secondary mb-3">
-                        Budget tier <span className="text-accent-mid">*</span>
+                        Budget tier <span className="text-accent-purple">*</span>
                       </p>
                       <RadioCardGroup
                         options={BUDGET_TIERS}
@@ -539,7 +539,7 @@ export function IntakeForm() {
                       <button
                         type="button"
                         onClick={handleStep2Next}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-3.5 text-base bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-3.5 text-base bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25"
                       >
                         Next: Scope
                         <ArrowRight size={18} />
@@ -569,7 +569,7 @@ export function IntakeForm() {
                   <div className="space-y-6">
                     <div>
                       <label className="block text-sm font-medium text-text-secondary mb-3">
-                        Resources / Entities <span className="text-accent-mid">*</span>
+                        Resources / Entities <span className="text-accent-purple">*</span>
                       </label>
                       <DynamicEntityList
                         entities={formData.entities}
@@ -579,7 +579,7 @@ export function IntakeForm() {
 
                     <div>
                       <label htmlFor="intake-deploy" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Deployment target <span className="text-accent-mid">*</span>
+                        Deployment target <span className="text-accent-purple">*</span>
                       </label>
                       <select
                         id="intake-deploy"
@@ -610,7 +610,7 @@ export function IntakeForm() {
                       <button
                         type="button"
                         onClick={handleStep3Next}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-3.5 text-base bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-3.5 text-base bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25"
                       >
                         Next: Integrations
                         <ArrowRight size={18} />
@@ -698,7 +698,7 @@ export function IntakeForm() {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-4 text-base bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-4 text-base bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {submitting ? (
                           <Loader2 className="animate-spin" size={20} />
@@ -720,7 +720,7 @@ export function IntakeForm() {
           <p className="text-text-tertiary text-xs text-center mt-6 flex items-center justify-center gap-1.5">
             <Shield size={12} />
             Your data is confidential. We never share your information.{' '}
-            <Link href="/privacy" className="text-accent-mid hover:underline">Privacy Policy</Link>
+            <Link href="/privacy" className="text-accent-purple hover:underline">Privacy Policy</Link>
           </p>
         </div>
       </div>

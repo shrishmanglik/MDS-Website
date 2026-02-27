@@ -136,7 +136,7 @@ export default function BuildPage() {
           </p>
           <p className="text-text-tertiary text-sm max-w-xl mx-auto">
             Looking for packaged services like audits, websites, or content systems?{' '}
-            <a href="/services" className="text-accent-mid hover:underline">See our service packages instead.</a>
+            <a href="/services" className="text-accent-purple hover:underline">See our service packages instead.</a>
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function BuildPage() {
                 key={step.number}
                 className="rounded-2xl border border-border-custom bg-bg-secondary p-6"
               >
-                <span className="font-mono text-sm text-accent-mid font-semibold">{step.number}</span>
+                <span className="font-mono text-sm text-accent-purple font-semibold">{step.number}</span>
                 <h3 className="font-heading text-xl font-semibold text-text-primary mt-2 mb-2">
                   {step.title}
                 </h3>

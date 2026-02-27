@@ -49,7 +49,7 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <Mail size={20} className="text-accent-primary shrink-0" aria-hidden="true" />
+                <Mail size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
                 <a
                   href={`mailto:${SITE.email}`}
                   className="text-text-secondary hover:text-text-primary transition-colors"
@@ -60,14 +60,14 @@ export default function ContactPage() {
 
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <Calendar size={20} className="text-accent-primary shrink-0" aria-hidden="true" />
+                  <Calendar size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
                   <span className="text-text-secondary">Or book a call directly</span>
                 </div>
                 <a
                   href="https://calendly.com/milliondollarstudio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-accent-primary hover:text-accent-secondary transition-colors font-medium ml-8"
+                  className="inline-flex items-center gap-1.5 text-accent-blue hover:text-accent-purple transition-colors font-medium ml-8"
                 >
                   Book a Call <ArrowRight size={16} aria-hidden="true" />
                 </a>
@@ -88,15 +88,15 @@ export default function ContactPage() {
             {/* Trust badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
               <div className="flex items-center gap-2 text-text-tertiary text-xs">
-                <Lock size={14} className="text-accent-primary" aria-hidden="true" />
+                <Lock size={14} className="text-accent-blue" aria-hidden="true" />
                 <span>Your data stays private</span>
               </div>
               <div className="flex items-center gap-2 text-text-tertiary text-xs">
-                <Clock size={14} className="text-accent-primary" aria-hidden="true" />
+                <Clock size={14} className="text-accent-blue" aria-hidden="true" />
                 <span>Response within 24 hrs</span>
               </div>
               <div className="flex items-center gap-2 text-text-tertiary text-xs">
-                <Shield size={14} className="text-accent-primary" aria-hidden="true" />
+                <Shield size={14} className="text-accent-blue" aria-hidden="true" />
                 <span>No spam, ever</span>
               </div>
             </div>

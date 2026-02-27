@@ -47,7 +47,7 @@ const itemVariants = {
 }
 
 const inputStyles =
-  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-mid focus:outline-none focus:border-accent-mid transition-colors min-h-[44px]'
+  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-purple focus:outline-none focus:border-accent-purple transition-colors min-h-[44px]'
 
 const automationTypes = [
   'Data Entry & Processing',
@@ -151,7 +151,7 @@ export function AuditForm() {
           </p>
           <p className="text-text-tertiary text-sm max-w-xl mx-auto">
             Want deeper analysis? This assessment is the first step toward our{' '}
-            <Link href="/services" className="text-accent-mid hover:underline">paid AI Audit</Link>
+            <Link href="/services" className="text-accent-purple hover:underline">paid AI Audit</Link>
             {' '}&mdash; but the report alone is often enough to get started.
           </p>
         </motion.div>
@@ -174,10 +174,10 @@ export function AuditForm() {
               initial={{ width: 0 }}
               animate={{ width: `${(SLOTS_CLAIMED / SLOTS_TOTAL) * 100}%` }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="bg-gradient-to-r from-accent-start to-accent-end h-2.5 rounded-full"
+              className="bg-gradient-to-r from-accent-blue to-accent-gold h-2.5 rounded-full"
             />
           </div>
-          <p className="text-accent-mid text-xs font-medium">
+          <p className="text-accent-purple text-xs font-medium">
             {SLOTS_CLAIMED} of {SLOTS_TOTAL} slots claimed this month
           </p>
         </motion.div>
@@ -195,8 +195,8 @@ export function AuditForm() {
               variants={itemVariants}
               className="bg-bg-secondary border border-border-custom rounded-2xl p-5 text-center"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent-mid/10 flex items-center justify-center mx-auto mb-3">
-                <item.icon size={24} className="text-accent-mid" />
+              <div className="w-12 h-12 rounded-xl bg-accent-purple/10 flex items-center justify-center mx-auto mb-3">
+                <item.icon size={24} className="text-accent-purple" />
               </div>
               <h3 className="font-heading text-sm font-semibold text-text-primary mb-1">
                 {item.title}
@@ -212,13 +212,13 @@ export function AuditForm() {
         <div className="max-w-xl mx-auto">
           {/* Progress indicator */}
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className={`flex items-center gap-2 text-sm font-medium ${step >= 1 ? 'text-accent-mid' : 'text-text-tertiary'}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step >= 1 ? 'bg-accent-mid text-white' : 'bg-bg-tertiary text-text-tertiary'}`}>1</span>
+            <div className={`flex items-center gap-2 text-sm font-medium ${step >= 1 ? 'text-accent-purple' : 'text-text-tertiary'}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step >= 1 ? 'bg-accent-purple text-white' : 'bg-bg-tertiary text-text-tertiary'}`}>1</span>
               Basics
             </div>
-            <div className={`w-8 h-0.5 ${step >= 2 ? 'bg-accent-mid' : 'bg-bg-tertiary'}`} />
-            <div className={`flex items-center gap-2 text-sm font-medium ${step >= 2 ? 'text-accent-mid' : 'text-text-tertiary'}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step >= 2 ? 'bg-accent-mid text-white' : 'bg-bg-tertiary text-text-tertiary'}`}>2</span>
+            <div className={`w-8 h-0.5 ${step >= 2 ? 'bg-accent-purple' : 'bg-bg-tertiary'}`} />
+            <div className={`flex items-center gap-2 text-sm font-medium ${step >= 2 ? 'text-accent-purple' : 'text-text-tertiary'}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step >= 2 ? 'bg-accent-purple text-white' : 'bg-bg-tertiary text-text-tertiary'}`}>2</span>
               Details
             </div>
           </div>
@@ -238,7 +238,7 @@ export function AuditForm() {
                     <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <div>
                       <label htmlFor="automation-type" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        What type of work do you want to automate? <span className="text-accent-mid">*</span>
+                        What type of work do you want to automate? <span className="text-accent-purple">*</span>
                       </label>
                       <select
                         id="automation-type"
@@ -256,7 +256,7 @@ export function AuditForm() {
 
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Your name <span className="text-accent-mid">*</span>
+                        Your name <span className="text-accent-purple">*</span>
                       </label>
                       <input
                         id="name"
@@ -271,7 +271,7 @@ export function AuditForm() {
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1.5">
-                        Work email <span className="text-accent-mid">*</span>
+                        Work email <span className="text-accent-purple">*</span>
                       </label>
                       <input
                         id="email"
@@ -293,7 +293,7 @@ export function AuditForm() {
                     <button
                       type="submit"
                       disabled={submittingStep1}
-                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-4 text-lg bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25 hover:shadow-xl hover:shadow-accent-mid/35 disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-4 text-lg bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25 hover:shadow-xl hover:shadow-accent-purple/35 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {submittingStep1 ? (
                         <Loader2 className="animate-spin" size={20} />
@@ -381,7 +381,7 @@ export function AuditForm() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-mid focus:outline-none px-8 py-4 text-lg bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25 hover:shadow-xl hover:shadow-accent-mid/35 disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:ring-2 focus:ring-accent-purple focus:outline-none px-8 py-4 text-lg bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25 hover:shadow-xl hover:shadow-accent-purple/35 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {submitting ? (
                         <Loader2 className="animate-spin" size={20} />
@@ -397,7 +397,7 @@ export function AuditForm() {
                     <p className="text-text-tertiary text-xs text-center flex items-center justify-center gap-1.5">
                       <Shield size={12} />
                       Your data is confidential. We never share your information.{' '}
-                      <Link href="/privacy" className="text-accent-mid hover:underline">Privacy Policy</Link>
+                      <Link href="/privacy" className="text-accent-purple hover:underline">Privacy Policy</Link>
                     </p>
                   </form>
                 </div>

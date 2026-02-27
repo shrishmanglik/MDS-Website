@@ -46,22 +46,22 @@ export function FlowMotif({ className = '' }: { className?: string }) {
       <line x1="260" y1="30" x2="340" y2="85" stroke="url(#flow-grad)" strokeWidth="0.5" opacity="0.1" />
 
       {/* Nodes — primary pipeline */}
-      <circle cx="60" cy="60" r="4" fill="#5B7FFF" opacity="0.6">
+      <circle cx="60" cy="60" r="4" fill="#2962FF" opacity="0.6">
         {!prefersReducedMotion && (
           <animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite" />
         )}
       </circle>
-      <circle cx="140" cy="40" r="5" fill="#7B9CFF" opacity="0.5">
+      <circle cx="140" cy="40" r="5" fill="#4D7FFF" opacity="0.5">
         {!prefersReducedMotion && (
           <animate attributeName="r" values="4;6;4" dur="3s" begin="0.3s" repeatCount="indefinite" />
         )}
       </circle>
-      <circle cx="220" cy="70" r="6" fill="#A855F7" opacity="0.5">
+      <circle cx="220" cy="70" r="6" fill="#7C3AED" opacity="0.5">
         {!prefersReducedMotion && (
           <animate attributeName="r" values="5;7;5" dur="3s" begin="0.6s" repeatCount="indefinite" />
         )}
       </circle>
-      <circle cx="300" cy="50" r="5" fill="#FF9F43" opacity="0.4">
+      <circle cx="300" cy="50" r="5" fill="#D4AF37" opacity="0.4">
         {!prefersReducedMotion && (
           <animate attributeName="r" values="4;6;4" dur="3s" begin="0.9s" repeatCount="indefinite" />
         )}
@@ -73,17 +73,17 @@ export function FlowMotif({ className = '' }: { className?: string }) {
       </circle>
 
       {/* Secondary nodes */}
-      <circle cx="80" cy="90" r="2" fill="#5B7FFF" opacity="0.3" />
-      <circle cx="180" cy="80" r="2.5" fill="#7B9CFF" opacity="0.25" />
-      <circle cx="260" cy="30" r="2" fill="#A855F7" opacity="0.25" />
-      <circle cx="340" cy="85" r="2.5" fill="#FF9F43" opacity="0.2" />
+      <circle cx="80" cy="90" r="2" fill="#2962FF" opacity="0.3" />
+      <circle cx="180" cy="80" r="2.5" fill="#4D7FFF" opacity="0.25" />
+      <circle cx="260" cy="30" r="2" fill="#7C3AED" opacity="0.25" />
+      <circle cx="340" cy="85" r="2.5" fill="#D4AF37" opacity="0.2" />
 
       {/* Gradient definition */}
       <defs>
         <linearGradient id="flow-grad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#5B7FFF" />
-          <stop offset="50%" stopColor="#A855F7" />
-          <stop offset="100%" stopColor="#FF9F43" />
+          <stop offset="0%" stopColor="#2962FF" />
+          <stop offset="50%" stopColor="#7C3AED" />
+          <stop offset="100%" stopColor="#D4AF37" />
         </linearGradient>
       </defs>
     </svg>

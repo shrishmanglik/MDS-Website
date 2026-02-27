@@ -15,7 +15,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
       className="group block h-full rounded-2xl border border-border-custom bg-bg-secondary shimmer-border card-hover overflow-hidden"
     >
       {product.featured && (
-        <div className="px-4 py-1.5 bg-gradient-to-r from-accent-primary/20 via-accent-end/20 to-accent-primary/20 border-b border-accent-primary/30">
+        <div className="px-4 py-1.5 bg-gradient-to-r from-accent-blue/20 via-accent-gold/20 to-accent-blue/20 border-b border-accent-blue/30">
           <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
             Flagship
           </span>
@@ -58,7 +58,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           </div>
         )}
 
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary group-hover:gap-2.5 transition-all">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue group-hover:gap-2.5 transition-all">
           Learn More
           <ArrowRight size={14} />
         </span>

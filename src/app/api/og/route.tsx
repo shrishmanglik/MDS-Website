@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
             left: 0,
             right: 0,
             height: '6px',
-            background: 'linear-gradient(90deg, #6366F1, #8B5CF6, #A855F7)',
+            background: 'linear-gradient(90deg, #2962FF, #7C3AED, #D4AF37)',
           }}
         />
         {/* Brand */}
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
               width: '48px',
               height: '48px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #6366F1, #A855F7)',
+              background: 'linear-gradient(135deg, #2962FF, #7C3AED)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
           >
             M
           </div>
-          <span style={{ color: '#9E9EAE', fontSize: '20px', fontWeight: 500 }}>
+          <span style={{ color: '#B8B8C8', fontSize: '20px', fontWeight: 500 }}>
             Million Dollar AI Studio
           </span>
         </div>
@@ -67,7 +67,7 @@ export async function GET(request: NextRequest) {
           style={{
             fontSize: '56px',
             fontWeight: 700,
-            color: '#F5F5F7',
+            color: '#F5F0E8',
             lineHeight: 1.2,
             marginBottom: '20px',
             maxWidth: '900px',
@@ -79,7 +79,7 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             fontSize: '24px',
-            color: '#9E9EAE',
+            color: '#B8B8C8',
             lineHeight: 1.5,
             maxWidth: '700px',
           }}

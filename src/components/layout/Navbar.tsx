@@ -53,13 +53,16 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`nav-underline px-4 py-2 text-sm font-medium transition-colors focus:ring-2 focus:ring-accent-primary/50 focus:outline-none rounded-lg ${
+                  className={`nav-underline relative px-4 py-2 text-sm font-medium transition-colors focus:ring-2 focus:ring-accent-blue/50 focus:outline-none rounded-lg ${
                     isActive
                       ? 'text-text-primary'
                       : 'text-text-secondary hover:text-text-primary'
                   }`}
                 >
                   {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent-blue" />
+                  )}
                 </Link>
               )
             })}
@@ -73,7 +76,7 @@ export function Navbar() {
             </div>
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-primary/50 focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
+              className="lg:hidden p-2.5 text-text-secondary hover:text-text-primary transition-colors focus:ring-2 focus:ring-accent-blue/50 focus:outline-none rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Open menu"
             >
               <Menu size={24} />

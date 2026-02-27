@@ -21,7 +21,7 @@ export default function Error({
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white font-medium hover:brightness-110 transition-all"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white font-medium hover:brightness-110 transition-all"
           >
             Try Again
           </button>

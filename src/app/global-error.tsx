@@ -9,7 +9,7 @@ export default function GlobalError({
 }) {
   return (
     <html>
-      <body style={{ background: '#0A0A0F', color: '#F0F0F5', fontFamily: 'system-ui, sans-serif' }}>
+      <body style={{ background: '#0A0A0F', color: '#F5F0E8', fontFamily: 'system-ui, sans-serif' }}>
         <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
           <div style={{ textAlign: 'center' }}>
             <h1 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem' }}>
@@ -21,7 +21,7 @@ export default function GlobalError({
               style={{
                 padding: '0.75rem 1.5rem',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)',
+                background: 'linear-gradient(135deg, #2962FF, #7C3AED, #D4AF37)',
                 color: 'white',
                 fontWeight: 500,
                 border: 'none',

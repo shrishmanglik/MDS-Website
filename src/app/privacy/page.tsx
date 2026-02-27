@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
               data when you use our website at{' '}
               <a
                 href={SITE.url}
-                className="text-accent-mid hover:underline"
+                className="text-accent-purple hover:underline"
               >
                 {SITE.domain}
               </a>.
@@ -117,7 +117,7 @@ export default function PrivacyPolicyPage() {
               information at any time. To make such a request, please contact us at{' '}
               <a
                 href={`mailto:${SITE.email}`}
-                className="text-accent-mid hover:underline"
+                className="text-accent-purple hover:underline"
               >
                 {SITE.email}
               </a>. We will respond to your request within a reasonable timeframe.
@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
                 Email:{' '}
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-accent-mid hover:underline"
+                  className="text-accent-purple hover:underline"
                 >
                   {SITE.email}
                 </a>
@@ -173,7 +173,7 @@ export default function PrivacyPolicyPage() {
                 Website:{' '}
                 <a
                   href={SITE.url}
-                  className="text-accent-mid hover:underline"
+                  className="text-accent-purple hover:underline"
                 >
                   {SITE.domain}
                 </a>

@@ -15,7 +15,7 @@ const capabilities = [
     description:
       'Our deterministic-first approach means XBRL parsing and calculations handle the heavy lifting. AI only interprets what computation can\'t — keeping costs near zero.',
     href: '/technology',
-    gradient: 'from-[#5B7FFF] to-[#A855F7]',
+    gradient: 'from-[#2962FF] to-[#7C3AED]',
   },
   {
     icon: Box,
@@ -26,7 +26,7 @@ const capabilities = [
     description:
       'Astrology, chemistry education, fashion supply chain, financial analysis — each built with the same deterministic-first architecture that keeps operating costs under $200/month.',
     href: '/products',
-    gradient: 'from-[#10b981] to-[#5B7FFF]',
+    gradient: 'from-[#10b981] to-[#2962FF]',
   },
   {
     icon: Cog,
@@ -37,7 +37,7 @@ const capabilities = [
     description:
       'Custom systems with full code ownership, built on the MIDAS framework. 95% of processing is deterministic — you only pay for AI when it\'s actually needed.',
     href: '/services',
-    gradient: 'from-[#A855F7] to-[#FF9F43]',
+    gradient: 'from-[#7C3AED] to-[#D4AF37]',
   },
 ]
 
@@ -65,10 +65,10 @@ export function CaseStudiesPreview() {
             <motion.div key={cap.title} variants={fadeUpVariant}>
               <Link
                 href={cap.href}
-                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-mid/30 transition-all duration-200 h-full card-tilt"
+                className="block group bg-bg-secondary border border-border-custom rounded-2xl p-6 hover:border-accent-purple/30 transition-all duration-200 h-full card-tilt"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xs font-medium text-accent-mid bg-accent-mid/10 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-medium text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded-full">
                     {cap.tag}
                   </span>
                 </div>
@@ -94,7 +94,7 @@ export function CaseStudiesPreview() {
         <motion.div className="text-center mt-12" variants={fadeUpVariant}>
           <Link
             href="/technology"
-            className="inline-flex items-center gap-2 text-accent-start hover:text-accent-mid transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-accent-blue hover:text-accent-purple transition-colors font-medium"
           >
             See our approach
             <ArrowRight size={16} aria-hidden="true" />

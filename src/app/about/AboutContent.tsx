@@ -73,7 +73,7 @@ export function AboutContent() {
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-1">
               {SITE.founder}
             </h2>
-            <p className="text-accent-primary font-medium mb-6">{SITE.founderTitle}</p>
+            <p className="text-accent-blue font-medium mb-6">{SITE.founderTitle}</p>
             <p className="text-text-secondary leading-relaxed max-w-prose mb-6">
               Systems architect with expertise spanning financial technology, prompt engineering,
               and full-stack AI architecture. Founded MDS to prove that one builder with the
@@ -128,8 +128,8 @@ export function AboutContent() {
                 variants={fadeUpVariant}
                 className="rounded-2xl border border-border-custom bg-bg-secondary p-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-4">
-                  <value.icon size={24} className="text-accent-primary" aria-hidden="true" />
+                <div className="w-12 h-12 rounded-xl bg-accent-blue/10 flex items-center justify-center mb-4">
+                  <value.icon size={24} className="text-accent-blue" aria-hidden="true" />
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-text-primary mb-3">
                   {value.title}

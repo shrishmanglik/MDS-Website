@@ -56,7 +56,7 @@ export function HowWeWork() {
                   <div
                     className="w-full h-px"
                     style={{
-                      background: 'linear-gradient(90deg, var(--accent-primary), var(--accent-end))',
+                      background: 'linear-gradient(90deg, var(--accent-blue), var(--accent-gold))',
                       opacity: 0.3,
                     }}
                   />
@@ -69,7 +69,7 @@ export function HowWeWork() {
                   <div
                     className="w-px h-full mx-auto"
                     style={{
-                      background: 'linear-gradient(180deg, var(--accent-primary), transparent)',
+                      background: 'linear-gradient(180deg, var(--accent-blue), transparent)',
                       opacity: 0.3,
                     }}
                   />

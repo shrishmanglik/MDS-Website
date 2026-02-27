@@ -34,7 +34,7 @@ export default function NotFound() {
         </div>
         <p className="text-text-tertiary text-xs mt-8">
           Something genuinely broken? Email us at{' '}
-          <a href={`mailto:${SITE.email}`} className="text-accent-mid hover:underline">
+          <a href={`mailto:${SITE.email}`} className="text-accent-purple hover:underline">
             {SITE.email}
           </a>
         </p>

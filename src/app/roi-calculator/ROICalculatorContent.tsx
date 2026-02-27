@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 const inputStyles =
-  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-mid focus:outline-none focus:border-accent-mid transition-colors'
+  'w-full rounded-xl bg-bg-tertiary border border-border-custom px-4 py-3.5 text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-purple focus:outline-none focus:border-accent-purple transition-colors'
 
 export function ROICalculatorContent() {
   const [teamSize, setTeamSize] = useState('')
@@ -57,7 +57,7 @@ export function ROICalculatorContent() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-mid/10 text-accent-mid text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-purple/10 text-accent-purple text-sm font-semibold mb-6">
             <Calculator size={16} />
             Free Estimate
           </div>
@@ -136,7 +136,7 @@ export function ROICalculatorContent() {
                 <button
                   onClick={handleCalculate}
                   disabled={team <= 0 || hours <= 0 || cost <= 0}
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 px-6 py-3.5 bg-gradient-to-r from-accent-start via-accent-mid to-accent-end text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-mid/25 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 px-6 py-3.5 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold text-white hover:brightness-110 hover:scale-[1.02] shadow-lg shadow-accent-purple/25 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <Calculator size={18} />
                   Calculate ROI
@@ -144,7 +144,7 @@ export function ROICalculatorContent() {
                 {showResults && (
                   <button
                     onClick={handleReset}
-                    className="px-4 py-3.5 rounded-xl border border-border-custom text-text-secondary hover:text-text-primary hover:border-accent-mid/30 transition-colors"
+                    className="px-4 py-3.5 rounded-xl border border-border-custom text-text-secondary hover:text-text-primary hover:border-accent-purple/30 transition-colors"
                   >
                     <RotateCcw size={18} />
                   </button>
@@ -183,14 +183,14 @@ export function ROICalculatorContent() {
                       <p className="text-2xl font-bold text-green-400">${yearlySavings.toLocaleString()}</p>
                       <p className="text-text-tertiary text-xs">Annual savings (80% automation)</p>
                     </div>
-                    <div className="bg-bg-secondary border border-accent-mid/20 rounded-2xl p-5">
-                      <Clock size={20} className="text-accent-mid mb-2" />
-                      <p className="text-2xl font-bold text-accent-mid">{monthlyHoursSaved.toLocaleString()} hrs</p>
+                    <div className="bg-bg-secondary border border-accent-purple/20 rounded-2xl p-5">
+                      <Clock size={20} className="text-accent-purple mb-2" />
+                      <p className="text-2xl font-bold text-accent-purple">{monthlyHoursSaved.toLocaleString()} hrs</p>
                       <p className="text-text-tertiary text-xs">Hours saved per month</p>
                     </div>
-                    <div className="bg-bg-secondary border border-accent-mid/20 rounded-2xl p-5">
-                      <TrendingUp size={20} className="text-accent-mid mb-2" />
-                      <p className="text-2xl font-bold text-accent-mid">{paybackMonths} months</p>
+                    <div className="bg-bg-secondary border border-accent-purple/20 rounded-2xl p-5">
+                      <TrendingUp size={20} className="text-accent-purple mb-2" />
+                      <p className="text-2xl font-bold text-accent-purple">{paybackMonths} months</p>
                       <p className="text-text-tertiary text-xs">Estimated payback period</p>
                     </div>
                     <div className="bg-bg-secondary border border-green-500/20 rounded-2xl p-5">

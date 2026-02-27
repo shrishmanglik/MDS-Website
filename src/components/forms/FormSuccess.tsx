@@ -44,7 +44,7 @@ export function FormSuccess({ headline, message, nextSteps, waitLinks }: FormSuc
           <ol className="space-y-3">
             {nextSteps.map((step, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-accent-mid/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-mid">
+                <span className="w-6 h-6 rounded-full bg-accent-purple/10 flex items-center justify-center shrink-0 text-xs font-bold text-accent-purple">
                   {i + 1}
                 </span>
                 <div>
@@ -61,7 +61,7 @@ export function FormSuccess({ headline, message, nextSteps, waitLinks }: FormSuc
             <p>While you wait:</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               {waitLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-accent-mid hover:text-accent-end transition-colors">
+                <Link key={link.href} href={link.href} className="text-accent-purple hover:text-accent-gold transition-colors">
                   {link.label} &rarr;
                 </Link>
               ))}

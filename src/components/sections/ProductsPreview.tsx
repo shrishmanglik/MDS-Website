@@ -38,7 +38,7 @@ export function ProductsPreview() {
         <motion.div className="text-center mt-12" variants={fadeUpVariant}>
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-accent-start hover:text-accent-mid transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-accent-blue hover:text-accent-purple transition-colors font-medium"
           >
             View all products
             <ArrowRight size={16} />

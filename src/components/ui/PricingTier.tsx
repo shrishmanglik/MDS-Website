@@ -30,12 +30,12 @@ export function PricingTier({
     <div
       className={`relative rounded-2xl border bg-bg-secondary overflow-hidden transition-all duration-200 hover:scale-[1.02] ${
         popular
-          ? 'border-accent-start ring-1 ring-accent-start/20'
+          ? 'border-accent-blue ring-1 ring-accent-blue/20'
           : 'border-border-custom hover:border-border-visible'
       }`}
     >
       {popular && (
-        <div className="flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-accent-start to-accent-mid text-white text-xs font-semibold uppercase tracking-wider">
+        <div className="flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-accent-blue to-accent-purple text-white text-xs font-semibold uppercase tracking-wider">
           <Star size={12} aria-hidden="true" />
           Popular
         </div>

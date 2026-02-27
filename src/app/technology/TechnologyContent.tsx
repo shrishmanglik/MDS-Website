@@ -37,14 +37,14 @@ const costTiers = [
     label: 'Tier 1: Templates & Rules',
     cost: '$0.00/call',
     percentage: 70,
-    color: 'bg-accent-primary',
+    color: 'bg-accent-blue',
     description: 'Pre-computed templates, lookup tables, cached results. Zero API cost.',
   },
   {
     label: 'Tier 2: Rule Engine',
     cost: '~$0.001/call',
     percentage: 25,
-    color: 'bg-accent-end',
+    color: 'bg-accent-gold',
     description: 'Business logic, validation, transformations. Near-zero cost.',
   },
   {
@@ -67,7 +67,7 @@ function CostVisualization() {
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-text-primary">{tier.label}</span>
             <div className="flex items-center gap-3">
-              <span className="text-sm font-mono text-accent-primary">{tier.cost}</span>
+              <span className="text-sm font-mono text-accent-blue">{tier.cost}</span>
               <span className="text-sm font-mono text-text-tertiary">{tier.percentage}%</span>
             </div>
           </div>
@@ -127,7 +127,7 @@ export function TechnologyContent() {
         >
           <motion.div className="max-w-3xl" variants={fadeUpVariant}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-visible bg-bg-secondary/50 text-text-secondary text-sm font-medium mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
               Our Approach
             </span>
             <h1 className="text-text-primary mb-6">
@@ -221,7 +221,7 @@ export function TechnologyContent() {
                 variants={fadeUpVariant}
                 className="group flex items-start gap-6 p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-border-visible transition-colors"
               >
-                <span className="font-mono text-2xl font-bold text-bg-hover group-hover:text-accent-primary transition-colors shrink-0">
+                <span className="font-mono text-2xl font-bold text-bg-hover group-hover:text-accent-blue transition-colors shrink-0">
                   {step.step}
                 </span>
                 <div>
