@@ -173,15 +173,13 @@ function MorphingParticles({
 }
 
 /**
- * Connection lines between nearby particles.
- * Uses a simplified static approach instead of O(n²) per-frame.
+ * Subtle connection lines between nearby particles.
+ * Very faint — meant to suggest connectivity, not dominate.
  */
 function ConnectionLines({ count }: { count: number }) {
   const linesRef = useRef<THREE.LineSegments>(null)
-  const mousePos = useRef(new THREE.Vector2(0, 0))
-  const { viewport } = useThree()
 
-  const MAX_CONNECTIONS = 200
+  const MAX_CONNECTIONS = 80
 
   const morphTargets = useMemo(() => generateAllMorphTargets(count), [count])
 
@@ -192,27 +190,18 @@ function ConnectionLines({ count }: { count: number }) {
     return { positions, colors }
   }, [])
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mousePos.current.x = (e.clientX / window.innerWidth) * 2 - 1
-      mousePos.current.y = -(e.clientY / window.innerHeight) * 2 + 1
-    }
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   useFrame((state) => {
     if (!linesRef.current) return
 
     const time = state.clock.elapsedTime
-    const positions = morphTargets.neural // Use neural positions as base
+    const positions = morphTargets.neural
     const lp = lineBuffers.positions
     const lc = lineBuffers.colors
 
-    const CONNECTION_DISTANCE = 2.2
+    // Much shorter connection distance — only very close neighbours
+    const CONNECTION_DISTANCE = 1.2
     let lineIndex = 0
 
-    // Simple O(n²) but capped at MAX_CONNECTIONS
     for (let i = 0; i < count && lineIndex < MAX_CONNECTIONS; i++) {
       for (let j = i + 1; j < count && lineIndex < MAX_CONNECTIONS; j++) {
         const ix = i * 3, jx = j * 3
@@ -222,12 +211,12 @@ function ConnectionLines({ count }: { count: number }) {
         const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
 
         if (dist < CONNECTION_DISTANCE) {
-          const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.15
+          // Very faint alpha — suggests connectivity without dominating
+          const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.06
           const idx = lineIndex * 6
 
-          // Add subtle floating motion to match particles
-          const noiseI = Math.sin(time * 0.5 + i * 0.1) * 0.15
-          const noiseJ = Math.sin(time * 0.5 + j * 0.1) * 0.15
+          const noiseI = Math.sin(time * 0.3 + i * 0.1) * 0.08
+          const noiseJ = Math.sin(time * 0.3 + j * 0.1) * 0.08
 
           lp[idx] = positions[ix] + noiseI
           lp[idx + 1] = positions[ix + 1]
@@ -236,13 +225,13 @@ function ConnectionLines({ count }: { count: number }) {
           lp[idx + 4] = positions[jx + 1]
           lp[idx + 5] = positions[jx + 2]
 
-          // Blue-purple gradient
-          lc[idx] = 0.16 * alpha * 3
-          lc[idx + 1] = 0.38 * alpha * 3
-          lc[idx + 2] = 1.0 * alpha * 3
-          lc[idx + 3] = 0.49 * alpha * 3
-          lc[idx + 4] = 0.23 * alpha * 3
-          lc[idx + 5] = 0.93 * alpha * 3
+          // Faint blue tint
+          lc[idx] = 0.16 * alpha
+          lc[idx + 1] = 0.38 * alpha
+          lc[idx + 2] = 1.0 * alpha
+          lc[idx + 3] = 0.49 * alpha
+          lc[idx + 4] = 0.23 * alpha
+          lc[idx + 5] = 0.93 * alpha
 
           lineIndex++
         }
@@ -277,7 +266,7 @@ function ConnectionLines({ count }: { count: number }) {
           args={[lineBuffers.colors, 3]}
         />
       </bufferGeometry>
-      <lineBasicMaterial vertexColors transparent opacity={0.3} />
+      <lineBasicMaterial vertexColors transparent opacity={0.08} />
     </lineSegments>
   )
 }
