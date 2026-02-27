@@ -172,105 +172,6 @@ function MorphingParticles({
   )
 }
 
-/**
- * Subtle connection lines between nearby particles.
- * Very faint — meant to suggest connectivity, not dominate.
- */
-function ConnectionLines({ count }: { count: number }) {
-  const linesRef = useRef<THREE.LineSegments>(null)
-
-  const MAX_CONNECTIONS = 80
-
-  const morphTargets = useMemo(() => generateAllMorphTargets(count), [count])
-
-  // Pre-allocate line buffers
-  const lineBuffers = useMemo(() => {
-    const positions = new Float32Array(MAX_CONNECTIONS * 6)
-    const colors = new Float32Array(MAX_CONNECTIONS * 6)
-    return { positions, colors }
-  }, [])
-
-  useFrame((state) => {
-    if (!linesRef.current) return
-
-    const time = state.clock.elapsedTime
-    const positions = morphTargets.neural
-    const lp = lineBuffers.positions
-    const lc = lineBuffers.colors
-
-    // Much shorter connection distance — only very close neighbours
-    const CONNECTION_DISTANCE = 1.2
-    let lineIndex = 0
-
-    for (let i = 0; i < count && lineIndex < MAX_CONNECTIONS; i++) {
-      for (let j = i + 1; j < count && lineIndex < MAX_CONNECTIONS; j++) {
-        const ix = i * 3, jx = j * 3
-        const dx = positions[ix] - positions[jx]
-        const dy = positions[ix + 1] - positions[jx + 1]
-        const dz = positions[ix + 2] - positions[jx + 2]
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
-
-        if (dist < CONNECTION_DISTANCE) {
-          // Very faint alpha — suggests connectivity without dominating
-          const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.06
-          const idx = lineIndex * 6
-
-          const noiseI = Math.sin(time * 0.3 + i * 0.1) * 0.08
-          const noiseJ = Math.sin(time * 0.3 + j * 0.1) * 0.08
-
-          lp[idx] = positions[ix] + noiseI
-          lp[idx + 1] = positions[ix + 1]
-          lp[idx + 2] = positions[ix + 2]
-          lp[idx + 3] = positions[jx] + noiseJ
-          lp[idx + 4] = positions[jx + 1]
-          lp[idx + 5] = positions[jx + 2]
-
-          // Faint blue tint
-          lc[idx] = 0.16 * alpha
-          lc[idx + 1] = 0.38 * alpha
-          lc[idx + 2] = 1.0 * alpha
-          lc[idx + 3] = 0.49 * alpha
-          lc[idx + 4] = 0.23 * alpha
-          lc[idx + 5] = 0.93 * alpha
-
-          lineIndex++
-        }
-      }
-    }
-
-    // Zero remaining
-    for (let i = lineIndex * 6; i < lp.length; i++) {
-      lp[i] = 0
-      lc[i] = 0
-    }
-
-    const geom = linesRef.current.geometry
-    const posAttr = geom.getAttribute('position') as THREE.BufferAttribute
-    const colAttr = geom.getAttribute('color') as THREE.BufferAttribute
-    if (posAttr && colAttr) {
-      posAttr.needsUpdate = true
-      colAttr.needsUpdate = true
-      geom.setDrawRange(0, lineIndex * 2)
-    }
-  })
-
-  return (
-    <lineSegments ref={linesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[lineBuffers.positions, 3]}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[lineBuffers.colors, 3]}
-        />
-      </bufferGeometry>
-      <lineBasicMaterial vertexColors transparent opacity={0.08} />
-    </lineSegments>
-  )
-}
-
 // Error boundary for WebGL failures
 class ParticleErrorBoundary extends Component<
   { children: ReactNode; fallback: ReactNode },
@@ -331,7 +232,6 @@ export function ParticleNetwork({ scrollProgress = 0 }: ParticleNetworkProps) {
         dpr={[1, 1.5]}
       >
         <MorphingParticles count={particleCount} scrollProgress={scrollProgress} />
-        <ConnectionLines count={particleCount} />
       </Canvas>
     </ParticleErrorBoundary>
   )

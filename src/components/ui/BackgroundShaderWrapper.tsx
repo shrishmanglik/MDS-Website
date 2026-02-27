@@ -1,16 +1,10 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-
-// Lazy-load heavy WebGL background shader — not in critical rendering path
-const BackgroundShader = dynamic(
-  () => import('@/components/ui/BackgroundShader').then(m => ({ default: m.BackgroundShader })),
-  { ssr: false }
-)
+import { BackgroundShader } from '@/components/ui/BackgroundShader'
 
 /**
- * Client-side wrapper for BackgroundShader to allow ssr: false dynamic import.
- * This wrapper is needed because layout.tsx is a Server Component.
+ * Client-side wrapper for BackgroundShader.
+ * BackgroundShader is now CSS-only (no WebGL), so no dynamic import needed.
  */
 export function BackgroundShaderWrapper() {
   return <BackgroundShader />

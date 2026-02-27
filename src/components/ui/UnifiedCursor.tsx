@@ -118,6 +118,26 @@ export function UnifiedCursor() {
     document.addEventListener('mouseleave', onMouseLeave)
     document.addEventListener('mouseenter', onMouseEnter)
 
+    // Cache interactive element positions — re-query every 500ms, NOT every frame
+    // This eliminates the biggest perf bottleneck: querySelectorAll + getBoundingClientRect on 60fps
+    let cachedRects: Array<{ cx: number; cy: number }> = []
+    let lastCacheTime = 0
+    const CACHE_INTERVAL = 500
+
+    const updateInteractiveCache = () => {
+      const els = document.querySelectorAll(INTERACTIVE_SELECTORS)
+      cachedRects = []
+      els.forEach((el) => {
+        const rect = el.getBoundingClientRect()
+        if (rect.width > 0 && rect.height > 0) {
+          cachedRects.push({
+            cx: rect.left + rect.width / 2,
+            cy: rect.top + rect.height / 2,
+          })
+        }
+      })
+    }
+
     // Animation loop
     let currentRingSize = RING_SIZE_DEFAULT
 
@@ -159,14 +179,16 @@ export function UnifiedCursor() {
         }
       }
 
-      // Draw neural connections to nearby interactive elements
-      const interactiveEls = document.querySelectorAll(INTERACTIVE_SELECTORS)
+      // Draw neural connections using CACHED element positions (updated every 500ms)
+      const now = performance.now()
+      if (now - lastCacheTime > CACHE_INTERVAL) {
+        updateInteractiveCache()
+        lastCacheTime = now
+      }
+
       let connections = 0
-      interactiveEls.forEach((el) => {
-        if (connections >= MAX_CONNECTIONS) return
-        const rect = el.getBoundingClientRect()
-        const cx = rect.left + rect.width / 2
-        const cy = rect.top + rect.height / 2
+      for (let i = 0; i < cachedRects.length && connections < MAX_CONNECTIONS; i++) {
+        const { cx, cy } = cachedRects[i]
         const dist = Math.hypot(mx - cx, my - cy)
 
         if (dist < CONNECTION_RANGE && dist > 20) {
@@ -175,7 +197,6 @@ export function UnifiedCursor() {
 
           ctx.beginPath()
           ctx.moveTo(mx, my)
-          // Quadratic bezier for organic curve
           const midX = (mx + cx) / 2 + (my - cy) * 0.1
           const midY = (my + cy) / 2 + (cx - mx) * 0.1
           ctx.quadraticCurveTo(midX, midY, cx, cy)
@@ -183,7 +204,7 @@ export function UnifiedCursor() {
           ctx.lineWidth = 1
           ctx.stroke()
         }
-      })
+      }
 
       // Draw ring (spring-follow)
       ctx.beginPath()

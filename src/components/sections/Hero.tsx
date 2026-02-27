@@ -195,23 +195,27 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
             variants={fadeUp}
           >
-            <MagneticButton className="flex flex-col items-center gap-1.5">
-              <Button href="/free-audit" variant="cta" size="lg">
-                Get Your Free AI Audit
-                <ArrowRight size={18} />
-              </Button>
-              <span className="text-text-tertiary text-xs">
-                Free · 5-page report · 48hr delivery
-              </span>
+            <MagneticButton>
+              <div className="flex flex-col items-center gap-1.5">
+                <Button href="/free-audit" variant="cta" size="lg">
+                  Get Your Free AI Audit
+                  <ArrowRight size={18} />
+                </Button>
+                <span className="text-text-tertiary text-xs">
+                  Free · 5-page report · 48hr delivery
+                </span>
+              </div>
             </MagneticButton>
-            <MagneticButton className="flex flex-col items-center gap-1.5">
-              <Button href="/case-studies" variant="secondary" size="lg">
-                See How We Build
-                <ArrowRight size={18} />
-              </Button>
-              <span className="text-text-tertiary text-xs">
-                Real systems, real results
-              </span>
+            <MagneticButton>
+              <div className="flex flex-col items-center gap-1.5">
+                <Button href="/case-studies" variant="secondary" size="lg">
+                  See How We Build
+                  <ArrowRight size={18} />
+                </Button>
+                <span className="text-text-tertiary text-xs">
+                  Real systems, real results
+                </span>
+              </div>
             </MagneticButton>
           </motion.div>
         </div>
