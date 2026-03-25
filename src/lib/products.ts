@@ -2,7 +2,7 @@ export interface Product {
   slug: string
   name: string
   tagline: string
-  status: 'coming-soon' | 'in-development' | 'beta' | 'live' | 'desktop'
+  status: 'coming-soon' | 'in-development' | 'beta' | 'live' | 'desktop' | 'built' | 'prd' | 'internal'
   description: string
   longDescription: string
   features: string[]
@@ -12,115 +12,170 @@ export interface Product {
   waitlistEnabled: boolean
   story: string
   featured: boolean
+  highlight: string
 }
 
 export const products: Product[] = [
   {
-    slug: 'finsight-ai',
-    name: 'FinSight AI',
-    tagline: 'The AI that never hallucinates financial data.',
-    status: 'coming-soon',
+    slug: 'francaisiq',
+    name: 'FrançaisIQ',
+    tagline: 'French exam prep for TEF Canada / Express Entry.',
+    status: 'live',
     description:
-      'XBRL-native financial intelligence platform. We parse the machine-readable truth in SEC filings — not the HTML. Every number verified, every source cited.',
-    longDescription: `Every AI tool today reads SEC filings like a human: scraping HTML, guessing at numbers, hallucinating financial data. XBRL International's own research shows these tools achieve only 0-17% accuracy on structured financial data extraction.
+      'French exam prep for TEF Canada / Express Entry',
+    longDescription: `FrançaisIQ prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
 
-FinSight is different. We parse the machine-readable XBRL data embedded in every SEC filing since 2009. This means every number comes from structured, tagged financial data — not guesswork. We then layer AI reasoning on top of this verified foundation for interpretation, comparison, and analysis.
-
-The result: zero-hallucination financial data with full source citations. Every figure links back to its exact SEC filing and XBRL concept tag.`,
+The original AI prototype relied on 25+ Gemini API calls per session with an exposed API key. We rebuilt the entire system with 9 deterministic scoring engines, pre-validated lookup tables, and the Web Speech API for pronunciation assessment. The result: 4,000+ practice items running at $0 per interaction.`,
     features: [
-      'XBRL-native data extraction from all SEC EDGAR filings',
-      'Natural language financial queries with verified, sourced answers',
-      'Multi-company comparison tables with standardized metrics',
-      'Every number links to its SEC XBRL source — click to verify',
-      'AI-powered interpretation that never generates or guesses numbers',
-      'Coverage: Every US public company since 2009',
+      '4,000+ practice items across all four TEF Canada sections',
+      '9 deterministic scoring engines — zero AI at runtime',
+      'Web Speech API integration for pronunciation assessment',
+      'CLB level mapping aligned to IRCC requirements',
+      'Progress tracking with section-by-section analytics',
+      'Spaced repetition for vocabulary retention',
     ],
-    techStack: ['FastAPI', 'React', 'XBRL', 'SEC EDGAR', 'Claude AI', 'PostgreSQL'],
-    buildTime: 'In development',
-    externalUrl: null,
-    waitlistEnabled: true,
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Vercel'],
+    buildTime: 'Live — deployed at tef.milliondollarstudio.ai',
+    externalUrl: 'https://tef.milliondollarstudio.ai',
+    waitlistEnabled: false,
     story:
-      'We found that AI tools score 0-17% on financial data accuracy. We knew we could build something that scores 95%+. FinSight is our answer to the hallucination problem in financial AI.',
+      'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 9 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
     featured: true,
+    highlight: '4,000+ practice items, 9 deterministic scoring engines, zero AI at runtime',
   },
   {
-    slug: 'thread-intelligence',
-    name: 'Thread Intelligence',
-    tagline: 'AI-powered fashion manufacturing platform.',
+    slug: 'jyotishai',
+    name: 'JyotishAI',
+    tagline: 'Vedic astrology for professional astrologers.',
     status: 'in-development',
     description:
-      'End-to-end platform for fashion brands and manufacturers. Design generation, costing, quoting, and supply chain management.',
-    longDescription: `Thread Intelligence bridges the gap between fashion design intent and manufacturing execution. Brands describe what they want — the platform handles AI-powered design generation, material costing, manufacturer matching, and quote management.
+      'Vedic astrology for professional astrologers',
+    longDescription: `JyotishAI is a desktop application for professional Vedic astrologers who need offline capability and astronomical-grade precision. Built with Tauri v2 and a Python FastAPI sidecar running Swiss Ephemeris, the engine performs complete kundali generation — including all 16 divisional charts, Shadbala planetary strength analysis, Ashtakavarga calculations, and Vimshottari dasha timelines — entirely offline in a 75MB self-contained package.
 
-Built for the fashion supply chain where communication gaps between brands and manufacturers cost millions in wasted samples, misunderstood specs, and delayed production. Thread Intelligence makes the design-to-production pipeline transparent, fast, and accurate.`,
+The architecture separates the deterministic calculation engine (pure Python, no AI dependencies) from the optional AI interpretation layer. Professional astrologers get precision tools without internet requirements or per-query costs.`,
     features: [
-      'AI design generation from text descriptions and mood boards',
-      'Automated material costing and quote calculation',
-      'Manufacturer matching based on capability and capacity',
-      'Order management and production tracking',
-      'Client portal for brand-manufacturer collaboration',
-      'Multi-currency support for global supply chains',
-    ],
-    techStack: ['Next.js', 'React', 'Tailwind CSS', 'AI Design Engine', 'Vercel'],
-    buildTime: '27 files, 8,199 lines — built in 1 day',
-    externalUrl: null,
-    waitlistEnabled: true,
-    story:
-      'Built in partnership with a manufacturing partner who supplies Zara, H&M, and other global brands. The fashion supply chain runs on WhatsApp and spreadsheets — we\'re fixing that.',
-    featured: false,
-  },
-  {
-    slug: 'astroai-studio',
-    name: 'AstroAI Studio',
-    tagline: 'Vedic astrology, calculated by the stars.',
-    status: 'in-development',
-    description:
-      'Comprehensive Vedic astrology platform with Swiss Ephemeris accuracy. Kundli, divisional charts, Shadbala, compatibility, and AI interpretations.',
-    longDescription: `AstroAI Studio brings astronomical-grade precision to Vedic astrology. Powered by the Swiss Ephemeris — the same engine used by NASA — every planetary calculation is accurate to arc-second precision.
-
-Unlike most astrology apps that use simplified lookup tables, AstroAI Studio computes complete Vedic charts including all 16 divisional charts (Varga), Shadbala planetary strength calculations, Ashtakavarga analysis, dasha timelines, and transit overlays. The AI interpretation layer provides detailed, personalized readings without sacrificing computational accuracy.`,
-    features: [
-      'Swiss Ephemeris integration for NASA-grade planetary calculations',
-      'Complete Kundli generation with all 16 divisional charts',
+      '50+ yoga calculations with traditional rule-based detection',
+      '16 divisional charts (Varga) with Swiss Ephemeris precision',
       'Shadbala (six-fold planetary strength) analysis',
       'Ashtakavarga point calculations for transit prediction',
-      'AI-powered personalized interpretations',
-      'Compatibility (Kundli matching) analysis',
-      'Dasha timeline visualization with period predictions',
+      'Vimshottari dasha timeline with multi-level periods',
+      'Ashtakoot compatibility matching (Kundli Milan)',
+      'Complete offline operation — zero internet required',
     ],
-    techStack: ['FastAPI', 'React', 'Swiss Ephemeris', 'Docker', 'Claude AI'],
-    buildTime: 'Multiple iterations',
+    techStack: ['Tauri v2', 'React', 'Python', 'FastAPI', 'Swiss Ephemeris', 'SQLite'],
+    buildTime: 'In development — desktop app',
     externalUrl: null,
     waitlistEnabled: true,
     story:
-      'Most astrology software uses approximations. We wanted arc-second accuracy with Swiss Ephemeris — the same engine astronomers use. Then we layered AI to make the depth of Vedic astrology accessible to anyone.',
+      'Professional astrologers in India need offline capability and precision. We built a 75MB self-contained engine with Swiss Ephemeris — the same library used by astronomical observatories — wrapped in a Tauri v2 desktop shell.',
     featured: false,
+    highlight: '50+ yoga calculations, 16 divisional charts, Swiss Ephemeris, 75MB offline engine',
   },
   {
-    slug: 'chemai-studio',
-    name: 'ChemAI Studio',
-    tagline: 'AI chemistry tutor that actually teaches.',
-    status: 'in-development',
+    slug: 'chemai',
+    name: 'ChemAI',
+    tagline: 'Chemistry education for Indian JEE/NEET students.',
+    status: 'built',
     description:
-      'Interactive chemistry education platform. AI tutoring, practice problems, molecule visualization, and exam prep.',
-    longDescription: `ChemAI Studio is an AI-powered chemistry education platform designed for students and educators. Instead of generic AI chatbots that give vague answers, ChemAI understands chemistry deeply — molecular structures, reaction mechanisms, stoichiometry, and thermodynamics.
+      'Chemistry education for Indian JEE/NEET students',
+    longDescription: `ChemAI is a chemistry education platform targeting Indian students preparing for JEE and NEET competitive exams. The core innovation is the blueprint exam paper generation engine — it constructs complete, exam-accurate practice papers from a pre-validated question bank, matching the exact topic distribution, difficulty curve, and question-type mix of real exams.
 
-The platform combines interactive molecule visualization, step-by-step problem solving, adaptive practice questions, and an AI tutor trained specifically on chemistry curriculum. Students don't just get answers — they get explanations that build understanding.`,
+The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review scheduling and a deterministic scoring engine for instant grading. All 130 tests pass. No AI API calls at test time.`,
     features: [
-      'AI tutor trained on chemistry curriculum (Grade 9 through university)',
-      'Interactive 3D molecule visualization',
-      'Step-by-step reaction mechanism walkthroughs',
-      'Adaptive practice problem generator',
-      'Exam preparation mode with timed assessments',
-      'Progress tracking and weakness identification',
+      'Blueprint engine generates exam-accurate practice papers',
+      'FSRS spaced repetition for optimized study scheduling',
+      'Deterministic scoring — instant grading, zero AI cost',
+      'Topic-wise and chapter-wise practice modes',
+      'Performance analytics with weakness identification',
+      'Complete JEE/NEET chemistry syllabus coverage',
     ],
-    techStack: ['Electron', 'Next.js', 'SQLite', 'AI Tutor Engine', '3Dmol.js'],
-    buildTime: 'Desktop application',
+    techStack: ['Next.js', 'TypeScript', 'Python', 'SQLite', 'FSRS', 'Tailwind CSS'],
+    buildTime: 'Built — 130/130 tests passing, pending deployment',
     externalUrl: null,
     waitlistEnabled: true,
     story:
-      'Chemistry education hasn\'t changed in decades. Students memorize formulas instead of understanding concepts. ChemAI teaches the way a great private tutor would — adaptive, visual, and patient.',
+      'Indian competitive exam prep is a $10B+ market running on outdated methods. We built a blueprint engine that generates exam-accurate papers deterministically — no AI needed at test time.',
     featured: false,
+    highlight: 'Blueprint exam paper generation, FSRS spaced repetition, 130/130 tests passing',
+  },
+  {
+    slug: 'atlas',
+    name: 'ATLAS',
+    tagline: 'Cross-border tax intelligence for Indian newcomers to Canada.',
+    status: 'built',
+    description:
+      'Cross-border tax intelligence for Indian newcomers to Canada',
+    longDescription: `ATLAS encodes the India-Canada Double Taxation Avoidance Agreement (DTAA) and provincial tax rules as pure computation. Cross-border tax rules are deterministic — there is no ambiguity in whether a treaty article applies or what a provincial tax rate is. Using AI for this adds hallucination risk to a domain where accuracy is non-negotiable.
+
+The engine handles DTAA treaty analysis, provincial tax comparison across all Canadian provinces, residency status determination, and investment income tax optimization. 44/44 tests pass with zero LLM dependencies. Submitted to the Wealthsimple accelerator program.`,
+    features: [
+      'DTAA treaty analysis — India-Canada tax treaty encoded as rules',
+      'Provincial tax comparison across all Canadian provinces',
+      'Residency status determination engine',
+      'Investment income tax optimization',
+      'Zero LLM dependencies — pure deterministic computation',
+      'NRI/OCI tax obligation analysis',
+    ],
+    techStack: ['Python', 'FastAPI', 'Pydantic', 'pytest'],
+    buildTime: 'Built — 44/44 tests passing, submitted to Wealthsimple',
+    externalUrl: null,
+    waitlistEnabled: true,
+    story:
+      'Tax rules are deterministic. AI adds risk. We encoded DTAA treaties and provincial rules as pure computation — 44/44 tests, zero AI costs, zero hallucination risk.',
+    featured: false,
+    highlight: 'DTAA treaty analysis, provincial tax comparison, 44/44 tests, zero LLM dependencies',
+  },
+  {
+    slug: 'nestiq',
+    name: 'NestIQ',
+    tagline: "Canada's rental intelligence platform.",
+    status: 'prd',
+    description:
+      "Canada's rental intelligence platform",
+    longDescription: `NestIQ encodes Canadian rental regulations across provinces as deterministic rule engines. Phase 1 covers Ontario, British Columbia, and Alberta — the three provinces with the highest rental volumes and most complex regulatory frameworks.
+
+The platform provides landlord-tenant rights analysis, rent increase calculations (tied to provincial CPI guidelines), investment property analysis, and regulatory compliance checking. All 13 provincial regulatory frameworks are being encoded as rule engines — no AI interpretation of laws that have definitive answers.`,
+    features: [
+      '13 provincial regulatory frameworks encoded as rule engines',
+      'Rent increase calculations tied to provincial CPI guidelines',
+      'Landlord-tenant rights analysis by province',
+      'Investment property ROI analysis',
+      'Regulatory compliance checking',
+      'Phase 1: Ontario, British Columbia, Alberta',
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Python', 'Supabase', 'Tailwind CSS'],
+    buildTime: 'PRD complete — Phase 1: ON/BC/AB',
+    externalUrl: null,
+    waitlistEnabled: true,
+    story:
+      'Canadian rental laws vary by province and change annually. We are encoding all 13 regulatory frameworks as deterministic rule engines — no AI guessing at tenant rights.',
+    featured: false,
+    highlight: '13 provincial regulatory frameworks as rule engines, investment analysis',
+  },
+  {
+    slug: 'jobflow',
+    name: 'JobFlow',
+    tagline: 'Job application automation pipeline.',
+    status: 'internal',
+    description:
+      'Job application automation pipeline',
+    longDescription: `JobFlow is an internal tool that automates the job application pipeline. It handles resume tailoring, cover letter generation, application tracking, and follow-up scheduling. Built as a personal productivity tool — it works but is not productized for commercial distribution.
+
+The tool demonstrates the MDS approach applied to personal workflow automation: deterministic pipeline orchestration with AI used only for content generation steps.`,
+    features: [
+      'Automated application pipeline orchestration',
+      'Resume tailoring based on job description matching',
+      'Application tracking and status management',
+      'Follow-up scheduling automation',
+    ],
+    techStack: ['Python', 'Automation scripts'],
+    buildTime: 'Internal tool — personal use',
+    externalUrl: null,
+    waitlistEnabled: false,
+    story:
+      'Built as an internal tool to automate the repetitive parts of job applications. Not productized — but it demonstrates the deterministic-first approach applied to personal workflows.',
+    featured: false,
+    highlight: 'Internal tooling, automated application pipeline',
   },
 ]
 

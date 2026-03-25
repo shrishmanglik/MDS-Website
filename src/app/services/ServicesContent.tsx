@@ -10,96 +10,88 @@ const packages = [
   {
     name: 'AI Audit',
     price: '$500 – $2,000',
-    tagline: 'The starting point. Most clients begin here.',
+    tagline: '5-page AI Opportunity Report identifying 3-5 highest-ROI AI applications, with architecture recommendations and budget estimates.',
     included: [
       'Comprehensive operations analysis',
-      'AI opportunity identification across your workflows',
+      'AI opportunity scoring matrix',
       'ROI projections per opportunity',
       'Implementation roadmap with priorities',
+      '30-minute walkthrough call',
     ],
-    timeline: '1-2 weeks',
+    timeline: '5-7 business days',
     ctaText: 'Book an Audit',
-    ctaHref: '/contact',
+    ctaHref: '/services/audit',
     recommended: true,
   },
   {
     name: 'AI Launchpad',
     price: '$3,000 – $5,000',
-    tagline: 'Get off the ground with AI at the core.',
+    tagline: 'A working AI system deployed and ready for your team. Single-purpose: one workflow automated, one process transformed.',
     included: [
-      'AI-powered website (custom designed, SEO-optimized)',
-      'Basic marketing automation setup',
-      'Brand voice AI training',
-      '30-day post-launch support',
+      'Custom AI system design',
+      'Full development and deployment',
+      'Documentation and training session',
+      '30 days bug-fix support',
     ],
-    timeline: '2-3 weeks',
-    ctaText: 'Start Your Launch',
-    ctaHref: '/contact',
+    timeline: '2-4 weeks',
+    ctaText: 'Start Your Build',
+    ctaHref: '/services/launchpad',
   },
   {
     name: 'Growth Engine',
     price: '$3,000 – $8,000/month',
-    tagline: 'Ongoing AI-powered growth.',
+    tagline: 'Ongoing AI partnership. We build, optimize, and expand your AI infrastructure month over month.',
     included: [
-      'Everything in Launchpad',
-      'Content system (blog, social, email — AI-generated, human-reviewed)',
-      'Monthly AI audit and optimization',
-      'Performance dashboards',
-      'Priority support',
+      'Monthly development sprints',
+      'Performance monitoring and optimization',
+      'Priority support channel',
+      'Monthly progress reports',
     ],
-    timeline: 'Ongoing monthly',
+    timeline: 'Ongoing, minimum 3 months',
     ctaText: 'Accelerate Growth',
-    ctaHref: '/contact',
+    ctaHref: '/services/growth',
   },
   {
     name: 'Full Stack AI Build',
-    price: '$10K – $50K',
-    tagline: 'When you need serious AI engineering.',
+    price: '$10,000 – $50,000+',
+    tagline: 'Enterprise-grade AI system. Multi-department integration, custom training data, fully documented.',
     included: [
-      'Custom AI system design and architecture',
+      'Custom AI system architecture',
       'Full development and deployment',
-      'Process automation implementation',
+      'API documentation and admin dashboard',
       'Team training and knowledge transfer',
-      'Dedicated support channel',
+      '90 days dedicated support',
     ],
-    timeline: '4-8 weeks',
+    timeline: '4-12 weeks',
     ctaText: 'Discuss Your Project',
-    ctaHref: '/contact',
+    ctaHref: '/services/enterprise',
   },
 ]
 
 const faqItems = [
   {
     question: 'How fast can you deliver?',
-    answer: 'Most projects ship in 2-4 weeks. AI Audits in 1 week.',
-  },
-  {
-    question: 'What\'s the difference between Services and Build With Us?',
-    answer:
-      'Services are packaged engagements with defined deliverables — audits, websites, content systems, and one-off builds. Build With Us is for custom AI systems scoped to your exact specifications with tiered pricing based on complexity. Not sure which fits? Start with the AI Audit.',
-  },
-  {
-    question: 'What\'s the free assessment vs the paid AI Audit?',
-    answer:
-      'The free assessment is a quick 5-page opportunity report based on your form responses — it shows where AI could fit. The paid AI Audit ($500–$2K) is a deep-dive engagement where we analyze your actual operations, interview stakeholders, and deliver a detailed implementation roadmap with ROI projections.',
+    answer: 'AI Audits: 1 week. Launchpad builds: 2-4 weeks. Full Stack: 4-12 weeks. We scope accurately because we\'ve built six of our own products using the same architecture.',
   },
   {
     question: 'Do I own the code?',
-    answer: 'Yes. 100% code ownership. We build it, you own it.',
+    answer: '100%. We transfer all code, infrastructure credentials, documentation, and IP. You can take everything to another developer tomorrow and they\'ll be able to maintain it. No lock-in.',
   },
   {
-    question: 'What tech stack do you use?',
-    answer:
-      'Next.js, FastAPI, React, Python, Docker. We pick what\'s right for the project.',
+    question: 'What if it doesn\'t work?',
+    answer: 'We build iteratively with weekly demos. You see progress and give feedback throughout. If at any checkpoint you\'re not satisfied, we stop and you only pay for completed work.',
   },
   {
-    question: 'Can you work with my existing systems?',
-    answer: 'Yes. We integrate with whatever you\'re already using.',
+    question: 'How is this different from hiring a freelancer?',
+    answer: 'Freelancers build from scratch every time. We use a proven architecture (deterministic-first) that we\'ve refined across six products. Your system gets the benefit of everything we\'ve learned.',
   },
   {
-    question: 'What if I need something not listed here?',
-    answer:
-      'We build custom. Tell us what you need — we\'ll scope it.',
+    question: 'What AI models do you use?',
+    answer: 'The cheapest one that works. Our architecture handles 95%+ of computation without any AI model — lookup tables, rule engines, pre-computed data. AI only touches genuinely creative tasks. That\'s why our systems cost less than $0.01 per interaction.',
+  },
+  {
+    question: 'I\'m not technical. Will I understand what you build?',
+    answer: 'Yes. Every engagement includes documentation written for non-technical stakeholders, a walkthrough session, and ongoing support.',
   },
 ]
 
@@ -116,11 +108,10 @@ export function ServicesContent() {
           className="text-center mb-20"
         >
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
-            AI That Runs Your Business.
+            AI Services — Fixed Price, Full Ownership
           </h1>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            We don&apos;t sell hours. We sell outcomes. Every engagement has clear
-            deliverables, fixed pricing, and a deadline.
+            Every engagement has clear deliverables, a transparent price, and ends with you owning everything we built.
           </p>
         </motion.section>
 

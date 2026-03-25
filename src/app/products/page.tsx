@@ -3,20 +3,20 @@ import { products } from '@/lib/products'
 import { ProductCard } from '@/components/ui/ProductCard'
 
 export const metadata: Metadata = {
-  title: 'AI Products | AstroAI, ChemAI, Thread Intelligence',
+  title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
   description:
-    'Vertical AI products built on deterministic-first architecture. 95% computation, 5% AI — designed for scale at $0.01/interaction.',
+    'Each product proves the thesis: AI builds it, deterministic systems run it. See what we\'ve built — and the architecture behind each one.',
   alternates: { canonical: '/products' },
   openGraph: {
-    title: 'AI Products | Million Dollar AI Studio',
+    title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
     description:
-      'Vertical AI products built on deterministic-first architecture. 95% computation, 5% AI — designed for scale.',
+      'Each product proves the thesis: AI builds it, deterministic systems run it. See what we\'ve built — and the architecture behind each one.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Products | Million Dollar AI Studio',
+    title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
     description:
-      'Vertical AI products built on deterministic-first architecture.',
+      'Each product proves the thesis: AI builds it, deterministic systems run it.',
   },
 }
 
@@ -26,14 +26,14 @@ export default function ProductsPage() {
       <div className="max-w-content mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-text-primary mb-4">
-            AI products we{' '}
+            6 products.{' '}
             <span className="gradient-text">
-              build and operate.
+              One architecture. Zero AI costs.
             </span>
           </h1>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto">
-            Real AI systems across finance, fashion, education, and science &mdash;
-            designed, architected, and built by MDS. Each one proves what we ship for clients.
+            Each product proves the thesis: AI builds it, deterministic systems run it.
+            See what we&apos;ve built &mdash; and the architecture behind each one.
           </p>
         </div>
 

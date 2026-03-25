@@ -38,18 +38,19 @@ export function AboutContent() {
         >
           <motion.div variants={fadeUpVariant} className="max-w-3xl">
             <h1 className="text-text-primary mb-8">
-              I&apos;m Shrish Manglik.
+              Built by an Engineer Who Ships.
             </h1>
             <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-6">
-              I don&apos;t consult about AI. I build AI systems.
+              I&apos;m Shrish Manglik. I build AI systems — not slide decks about AI.
             </p>
             <p className="text-text-secondary text-lg leading-relaxed mb-6">
-              Every product on this site — the architecture, the code, the deployment — was built
-              by me and my AI development infrastructure. Not a team of 50.
-              Just the right stack.
+              Before MDS, I worked at TELUS Health on benefits administration systems.
+              I kept seeing companies spend $50K+ on AI systems that cost $1,000/month to run —
+              when 95% of what those systems did could be pre-computed for $0.
             </p>
             <p className="text-text-secondary text-lg leading-relaxed">
-              That stack is now available to your business.
+              So I built a methodology to do it right. Then I proved it works by building
+              six products with it. Now that methodology is available to your business.
             </p>
           </motion.div>
         </motion.section>
@@ -75,10 +76,9 @@ export function AboutContent() {
             </h2>
             <p className="text-accent-blue font-medium mb-6">{SITE.founderTitle}</p>
             <p className="text-text-secondary leading-relaxed max-w-prose mb-6">
-              Systems architect with expertise spanning financial technology, prompt engineering,
-              and full-stack AI architecture. Founded MDS to prove that one builder with the
-              right stack can outperform teams of ten — and then made that stack available
-              to clients.
+              Systems architect with experience in financial technology and full-stack AI development.
+              Founded MDS to build AI systems with a deterministic-first methodology —
+              refined across 6 product builds. Every system I build makes the next one faster.
             </p>
             <a
               href={SOCIAL.linkedin.url}
@@ -105,7 +105,7 @@ export function AboutContent() {
         >
           <blockquote className="text-center">
             <p className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-text-primary leading-snug max-w-3xl mx-auto">
-              &ldquo;One founder with the right stack can outperform teams of ten.&rdquo;
+              &ldquo;AI-native methodology refined across 6 product builds. Every system makes the next one faster.&rdquo;
             </p>
           </blockquote>
         </motion.section>

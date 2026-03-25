@@ -31,24 +31,24 @@ export function FounderStory() {
           preset="scramble"
           className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-6"
         >
-          Built by One Person. Trusted by Many.
+          The Builder Behind It All.
         </SplitText>
 
         <motion.p
           className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4"
           variants={fadeUpVariant}
         >
-          Shrish Manglik built every product in this portfolio — solo. Using
-          AI-assisted development and deterministic-first architecture, one
-          builder consistently delivers what teams of ten struggle to ship.
+          Shrish Manglik — systems architect, former TELUS Health engineer. 6
+          products built using the same deterministic-first architecture. Every
+          system I build makes the next one faster.
         </motion.p>
 
         <motion.p
           className="text-text-tertiary text-base md:text-lg leading-relaxed mb-10"
           variants={fadeUpVariant}
         >
-          That&apos;s not a boast — it&apos;s the methodology we bring to every
-          client project. Speed, precision, and full ownership.
+          AI-assisted development, deterministic-first architecture, and full
+          code ownership on every project.
         </motion.p>
 
         <motion.div variants={fadeUpVariant}>

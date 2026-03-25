@@ -18,16 +18,16 @@ export async function generateMetadata({
   if (!study) return { title: 'Case Study Not Found' }
 
   return {
-    title: `${study.title} — Case Study`,
+    title: `${study.title} — Build Log`,
     description: study.subtitle,
     alternates: { canonical: `/case-studies/${slug}` },
     openGraph: {
-      title: `${study.title} — Case Study`,
+      title: `${study.title} — Build Log`,
       description: study.subtitle,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${study.title} — Case Study`,
+      title: `${study.title} — Build Log`,
       description: study.subtitle,
     },
   }
@@ -52,7 +52,7 @@ export default async function CaseStudyPage({
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: 'Home', url: '/' },
-              { name: 'Case Studies', url: '/case-studies' },
+              { name: 'Build Logs', url: '/case-studies' },
               { name: study.title, url: `/case-studies/${slug}` },
             ])
           ),

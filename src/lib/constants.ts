@@ -24,7 +24,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Products', href: '/products' },
   { label: 'Technology', href: '/technology' },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Build Logs', href: '/case-studies' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
 ] as const
@@ -37,16 +37,17 @@ export const SERVICE_TIERS = [
 ] as const
 
 export const METRICS = [
-  { value: '<$0.01', label: 'Per Interaction', proof: '/technology#cost-model' },
-  { value: '99.5%', label: 'Gross Margins', proof: '/technology#economics' },
-  { value: '3', label: 'Vertical Stacks', proof: '/products' },
-  { value: '2 wks', label: 'To Production', proof: '/case-studies' },
+  { value: '$0', label: 'AI Cost at Runtime', proof: '/technology#cost-model' },
+  { value: '99.8%', label: 'Gross Margin', proof: '/technology#economics' },
+  { value: '6', label: 'Products Built', proof: '/products' },
+  { value: '~$105', label: '/mo at 5K Users', proof: '/technology' },
 ] as const
 
 export const TECH_CAPABILITIES = {
-  ai: ['Claude', 'GPT-4', 'Gemini', 'Open-source Models', 'Fine-tuning'],
-  frontend: ['React', 'Next.js', 'Electron'],
-  backend: ['FastAPI', 'Node.js', 'Python'],
-  infrastructure: ['Docker', 'Vercel', 'Cloudflare', 'AWS'],
-  specialized: ['Swiss Ephemeris', 'MCP Protocol', 'Multi-agent Systems'],
+  frontend: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS'],
+  desktop: ['Tauri v2', 'React', 'Python FastAPI sidecar'],
+  backend: ['Python', 'FastAPI', 'Pydantic', 'SQLite'],
+  infrastructure: ['Vercel ($0)', 'Railway ($5/mo)', 'Supabase'],
+  payments: ['Stripe (CAD)', 'Razorpay (INR)'],
+  ai: ['Claude (build only)', 'Web Speech API', 'FSRS'],
 } as const

@@ -26,70 +26,70 @@ const tiers = [
   {
     name: 'AI Audit',
     price: '$500 – $2,000',
-    tagline: 'The starting point. Most clients begin here.',
+    tagline: 'Where do I start?',
     recommended: true,
     features: [
-      { text: 'Comprehensive operations analysis', included: true },
-      { text: 'AI opportunity identification', included: true },
+      { text: 'Report + roadmap', included: true },
+      { text: 'AI opportunity scoring matrix', included: true },
       { text: 'ROI projections per opportunity', included: true },
-      { text: 'Implementation roadmap', included: true },
+      { text: 'Implementation roadmap with priorities', included: true },
       { text: 'Development & deployment', included: false },
       { text: 'Ongoing optimization', included: false },
     ],
-    timeline: '1–2 weeks',
+    timeline: '1 week',
     ctaText: 'Book an Audit',
-    ctaHref: '/contact',
+    ctaHref: '/services/audit',
   },
   {
     name: 'AI Launchpad',
     price: '$3,000 – $5,000',
-    tagline: 'Get off the ground with AI at the core.',
+    tagline: 'One specific problem',
     recommended: false,
     features: [
-      { text: 'AI-powered website (custom design)', included: true },
-      { text: 'SEO optimization', included: true },
-      { text: 'Basic marketing automation', included: true },
-      { text: 'Brand voice AI training', included: true },
-      { text: '30-day post-launch support', included: true },
-      { text: 'Ongoing content system', included: false },
+      { text: 'Deployed system', included: true },
+      { text: '100% code ownership', included: true },
+      { text: 'Custom AI system design', included: true },
+      { text: 'Documentation and training session', included: true },
+      { text: '30 days bug-fix support', included: true },
+      { text: 'Ongoing optimization', included: false },
     ],
-    timeline: '2–3 weeks',
-    ctaText: 'Start Your Launch',
-    ctaHref: '/contact',
+    timeline: '2–4 weeks',
+    ctaText: 'Start Your Build',
+    ctaHref: '/services/launchpad',
   },
   {
     name: 'Growth Engine',
     price: '$3,000 – $8,000/mo',
-    tagline: 'Ongoing AI-powered growth.',
+    tagline: 'Ongoing AI partner',
     recommended: false,
     features: [
-      { text: 'Everything in Launchpad', included: true },
-      { text: 'AI content system (blog, social, email)', included: true },
-      { text: 'Monthly AI audit & optimization', included: true },
-      { text: 'Performance dashboards', included: true },
-      { text: 'Priority support', included: true },
-      { text: 'Custom AI system builds', included: false },
+      { text: 'Monthly sprints', included: true },
+      { text: '100% code ownership', included: true },
+      { text: 'Performance monitoring and optimization', included: true },
+      { text: 'Priority support channel', included: true },
+      { text: 'Monthly progress reports', included: true },
+      { text: 'Minimum 3 months', included: true },
     ],
-    timeline: 'Ongoing monthly',
+    timeline: 'Ongoing',
     ctaText: 'Accelerate Growth',
-    ctaHref: '/contact',
+    ctaHref: '/services/growth',
   },
   {
     name: 'Full Stack AI Build',
-    price: '$10K – $50K',
-    tagline: 'Serious AI engineering, scoped to you.',
+    price: '$10K – $50K+',
+    tagline: 'Transform operations',
     recommended: false,
     features: [
-      { text: 'Custom AI system architecture', included: true },
-      { text: 'Full development & deployment', included: true },
-      { text: 'Process automation', included: true },
-      { text: 'Team training & knowledge transfer', included: true },
-      { text: 'Dedicated support channel', included: true },
+      { text: 'Enterprise system', included: true },
       { text: '100% code ownership', included: true },
+      { text: 'Custom AI system architecture', included: true },
+      { text: 'API documentation and admin dashboard', included: true },
+      { text: 'Team training & knowledge transfer', included: true },
+      { text: '90 days dedicated support', included: true },
     ],
-    timeline: '4–8 weeks',
+    timeline: '4–12 weeks',
     ctaText: 'Discuss Your Project',
-    ctaHref: '/contact',
+    ctaHref: '/services/enterprise',
   },
 ]
 
@@ -149,29 +149,34 @@ const exampleProjects = [
 
 const faqItems = [
   {
-    question: 'Can I start with the audit and upgrade later?',
+    question: 'How fast can you deliver?',
     answer:
-      'Yes — most clients do exactly that. The AI Audit identifies your best opportunities, and we use those findings to scope the next engagement. Audit fees are credited toward any follow-on project.',
-  },
-  {
-    question: 'Are there any hidden fees?',
-    answer:
-      'No. Every engagement has a fixed scope and price agreed upfront. If scope changes during the project, we discuss it before any additional cost is incurred.',
+      'AI Audits: 1 week. Launchpad builds: 2-4 weeks. Full Stack: 4-12 weeks. We scope accurately because we\'ve built six of our own products using the same architecture.',
   },
   {
     question: 'Do I own the code?',
     answer:
-      'Yes. 100% code ownership on every engagement. No licensing, no lock-in, no recurring fees for what we built.',
+      '100%. We transfer all code, infrastructure credentials, documentation, and IP. You can take everything to another developer tomorrow and they\'ll be able to maintain it. No lock-in.',
   },
   {
-    question: 'What payment methods do you accept?',
+    question: 'What if it doesn\'t work?',
     answer:
-      'Bank transfer (ACH/wire), credit card via Stripe (CAD/USD), and Razorpay for INR payments. We invoice 50% upfront and 50% on delivery for project work.',
+      'We build iteratively with weekly demos. You see progress and give feedback throughout. If at any checkpoint you\'re not satisfied, we stop and you only pay for completed work.',
   },
   {
-    question: 'What if my project doesn\'t fit these tiers?',
+    question: 'How is this different from hiring a freelancer?',
     answer:
-      'These tiers cover 90% of engagements. If your project is unusual, book a scoping call and we\'ll create a custom proposal.',
+      'Freelancers build from scratch every time. We use a proven architecture (deterministic-first) that we\'ve refined across six products. Your system gets the benefit of everything we\'ve learned.',
+  },
+  {
+    question: 'What AI models do you use?',
+    answer:
+      'The cheapest one that works. Our architecture handles 95%+ of computation without any AI model — lookup tables, rule engines, pre-computed data. AI only touches genuinely creative tasks. That\'s why our systems cost less than $0.01 per interaction.',
+  },
+  {
+    question: 'I\'m not technical. Will I understand what you build?',
+    answer:
+      'Yes. Every engagement includes documentation written for non-technical stakeholders, a walkthrough session, and ongoing support.',
   },
 ]
 
@@ -285,6 +290,11 @@ export function PricingContent() {
               </ScrollReveal>
             ))}
           </div>
+          <ScrollReveal delay={0.2}>
+            <p className="text-text-secondary text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+              Every engagement ends with you owning the code. No platform fees. No lock-in. No recurring charges unless you choose our Growth Engine.
+            </p>
+          </ScrollReveal>
         </section>
 
         <SectionDivider variant="gold" className="mb-24" />

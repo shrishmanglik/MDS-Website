@@ -14,20 +14,20 @@ const HowWeWork = dynamic(() => import('@/components/sections/HowWeWork').then(m
 const FounderStory = dynamic(() => import('@/components/sections/FounderStory').then(m => ({ default: m.FounderStory })))
 
 export const metadata: Metadata = {
-  title: { absolute: 'Million Dollar AI Studio | AI Systems You Actually Own' },
+  title: { absolute: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI' },
   description:
-    'AI systems you actually own. Custom AI builds, SaaS products, and enterprise systems with full code ownership — not prototypes, not demos.',
+    'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Million Dollar AI Studio | AI Systems You Actually Own',
+    title: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI',
     description:
-      'AI systems you actually own. Custom AI builds, SaaS products, and enterprise systems with full code ownership — not prototypes, not demos.',
+      'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Million Dollar AI Studio | AI Systems You Actually Own',
+    title: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI',
     description:
-      'AI systems you actually own. Production AI with full code ownership.',
+      'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
   },
 }
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Clock, Quote, ArrowRight, Shield } from 'lucide-react'
+import { Clock, Quote, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import type { CaseStudy } from '@/lib/case-studies'
@@ -22,7 +22,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
       <div className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
-          { label: 'Case Studies', href: '/case-studies' },
+          { label: 'Build Logs', href: '/case-studies' },
           { label: study.title },
         ]} />
 
@@ -62,7 +62,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">The Challenge</h2>
+          <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">The Problem</h2>
           <p className="text-text-secondary leading-relaxed">{study.challenge}</p>
         </motion.section>
 
@@ -74,7 +74,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">The Solution</h2>
+          <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">What We Built</h2>
           <p className="text-text-secondary leading-relaxed">{study.solution}</p>
         </motion.section>
 
@@ -86,7 +86,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           viewport={{ once: true, margin: '-80px' }}
           className="mb-16"
         >
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">Our Approach</h2>
+          <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">How We Built It</h2>
           <div className="space-y-4">
             {study.approach.map((step, i) => (
               <motion.div
@@ -144,7 +144,7 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           </div>
         </motion.section>
 
-        {/* Builder Insight */}
+        {/* Build Insight */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,20 +170,16 @@ export function CaseStudyDetailContent({ study }: { study: CaseStudy }) {
           className="text-center bg-bg-secondary border border-border-custom rounded-2xl p-12"
         >
           <h2 className="font-heading text-3xl font-bold mb-4">
-            <span className="bg-gradient-primary gradient-text">Want Something Like This Built?</span>
+            <span className="bg-gradient-primary gradient-text">Explore More Build Logs</span>
           </h2>
           <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-            Every engagement starts with a free AI assessment. We&apos;ll find your biggest automation
-            opportunities and show you exactly what&apos;s possible.
+            Every product follows the same deterministic-first architecture.
+            See how we applied it across education, finance, and desktop software.
           </p>
-          <Button href="/free-audit" variant="primary" size="lg">
-            Get Your Free AI Assessment
+          <Button href="/case-studies" variant="primary" size="lg">
+            All Build Logs
             <ArrowRight size={18} />
           </Button>
-          <p className="text-text-tertiary text-xs mt-3 flex items-center justify-center gap-1.5">
-            <Shield size={12} />
-            No commitment. Delivered within 48 hours.
-          </p>
         </motion.section>
       </div>
     </div>

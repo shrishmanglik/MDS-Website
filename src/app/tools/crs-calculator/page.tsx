@@ -4,9 +4,9 @@ import { webPageJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Free CRS Calculator — Express Entry Score | Million Dollar AI Studio',
+  title: 'Free CRS Calculator 2026 — Express Entry Score | MDS',
   description:
-    'Calculate your Comprehensive Ranking System (CRS) score for Canada Express Entry. Matches the official IRCC calculator. Free, instant, no signup required.',
+    'Calculate your CRS score for Canada Express Entry instantly. Matches the IRCC official calculator exactly. Age, education, language, work experience — all factors included. Free, no signup.',
   alternates: { canonical: '/tools/crs-calculator' },
   openGraph: {
     title: 'Free CRS Calculator — Express Entry Score | Million Dollar AI Studio',

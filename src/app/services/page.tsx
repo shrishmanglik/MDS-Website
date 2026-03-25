@@ -3,54 +3,47 @@ import { ServicesContent } from './ServicesContent'
 import { faqJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
-  title: 'AI Services & Custom Builds',
+  title: 'AI Services — Fixed Price, Full Ownership | Million Dollar AI Studio',
   description:
-    'From $500 AI audits to $200K+ enterprise systems. We design, build, and deploy production AI that runs your business.',
+    'From $500 AI audits to $50K+ enterprise builds. Clear deliverables, transparent pricing, full code ownership. Toronto, Canada.',
   alternates: { canonical: '/services' },
   openGraph: {
-    title: 'AI Services & Custom Builds',
+    title: 'AI Services — Fixed Price, Full Ownership | Million Dollar AI Studio',
     description:
-      'From $500 AI audits to $200K+ enterprise systems. We design, build, and deploy production AI that runs your business.',
+      'From $500 AI audits to $50K+ enterprise builds. Clear deliverables, transparent pricing, full code ownership. Toronto, Canada.',
     images: [{ url: '/api/og?title=AI+Services+%26+Custom+Builds&subtitle=From+audits+to+enterprise+systems.+Production+AI+you+own.', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Services & Custom Builds',
-    description: 'From $500 AI audits to $200K+ enterprise systems.',
+    title: 'AI Services — Fixed Price, Full Ownership | Million Dollar AI Studio',
+    description: 'From $500 AI audits to $50K+ enterprise builds. Clear deliverables, transparent pricing, full code ownership. Toronto, Canada.',
   },
 }
 
 const serviceFaqs = [
   {
     question: 'How fast can you deliver?',
-    answer: 'Most projects ship in 2-4 weeks. AI Audits in 1 week.',
-  },
-  {
-    question: "What's the difference between Services and Build With Us?",
-    answer:
-      'Services are packaged engagements with defined deliverables — audits, websites, content systems, and one-off builds. Build With Us is for custom AI systems scoped to your exact specifications with tiered pricing based on complexity. Not sure which fits? Start with the AI Audit.',
-  },
-  {
-    question: "What's the free assessment vs the paid AI Audit?",
-    answer:
-      'The free assessment is a quick 5-page opportunity report based on your form responses — it shows where AI could fit. The paid AI Audit ($500–$2K) is a deep-dive engagement where we analyze your actual operations, interview stakeholders, and deliver a detailed implementation roadmap with ROI projections.',
+    answer: 'AI Audits: 1 week. Launchpad builds: 2-4 weeks. Full Stack: 4-12 weeks. We scope accurately because we\'ve built six of our own products using the same architecture.',
   },
   {
     question: 'Do I own the code?',
-    answer: 'Yes. 100% code ownership. We build it, you own it.',
+    answer: '100%. We transfer all code, infrastructure credentials, documentation, and IP. You can take everything to another developer tomorrow and they\'ll be able to maintain it. No lock-in.',
   },
   {
-    question: 'What tech stack do you use?',
-    answer:
-      "Next.js, FastAPI, React, Python, Docker. We pick what's right for the project.",
+    question: 'What if it doesn\'t work?',
+    answer: 'We build iteratively with weekly demos. You see progress and give feedback throughout. If at any checkpoint you\'re not satisfied, we stop and you only pay for completed work.',
   },
   {
-    question: 'Can you work with my existing systems?',
-    answer: "Yes. We integrate with whatever you're already using.",
+    question: 'How is this different from hiring a freelancer?',
+    answer: 'Freelancers build from scratch every time. We use a proven architecture (deterministic-first) that we\'ve refined across six products. Your system gets the benefit of everything we\'ve learned.',
   },
   {
-    question: 'What if I need something not listed here?',
-    answer: "We build custom. Tell us what you need — we'll scope it.",
+    question: 'What AI models do you use?',
+    answer: 'The cheapest one that works. Our architecture handles 95%+ of computation without any AI model — lookup tables, rule engines, pre-computed data. AI only touches genuinely creative tasks. That\'s why our systems cost less than $0.01 per interaction.',
+  },
+  {
+    question: 'I\'m not technical. Will I understand what you build?',
+    answer: 'Yes. Every engagement includes documentation written for non-technical stakeholders, a walkthrough session, and ongoing support.',
   },
 ]
 

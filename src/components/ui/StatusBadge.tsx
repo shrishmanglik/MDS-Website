@@ -1,5 +1,5 @@
 interface StatusBadgeProps {
-  status: 'coming-soon' | 'in-development' | 'beta' | 'live' | 'desktop'
+  status: 'coming-soon' | 'in-development' | 'beta' | 'live' | 'desktop' | 'built' | 'prd' | 'internal'
 }
 
 const statusConfig = {
@@ -26,6 +26,21 @@ const statusConfig = {
   desktop: {
     label: 'Desktop App',
     classes: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+    pulse: false,
+  },
+  built: {
+    label: 'Built',
+    classes: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
+    pulse: false,
+  },
+  prd: {
+    label: 'PRD Complete',
+    classes: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+    pulse: false,
+  },
+  internal: {
+    label: 'Internal',
+    classes: 'bg-zinc-500/10 text-zinc-400 border-zinc-500/20',
     pulse: false,
   },
 }

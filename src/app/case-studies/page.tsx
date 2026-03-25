@@ -2,18 +2,18 @@ import type { Metadata } from 'next'
 import { CaseStudiesContent } from './CaseStudiesContent'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — AI System Capabilities',
+  title: 'Build Logs — How We Built Each Product | Million Dollar AI Studio',
   description:
-    'Capability demonstrations showing what our AI systems can do. Document processing, privacy-first recruitment AI, and full-stack legal tech products.',
+    'Real architecture decisions. Real cost data. Real trade-offs. No anonymized hypotheticals.',
   alternates: { canonical: '/case-studies' },
   openGraph: {
-    title: 'Case Studies — AI System Capabilities | Million Dollar AI Studio',
-    description: 'Capability demonstrations showing what our AI systems can do across finance, healthcare, and legal tech.',
+    title: 'Build Logs — How We Built Each Product | Million Dollar AI Studio',
+    description: 'Real architecture decisions. Real cost data. Real trade-offs. No anonymized hypotheticals.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case Studies — AI System Capabilities',
-    description: 'See what our AI systems can do. Real architectures, real code, real capability.',
+    title: 'Build Logs — How We Built Each Product',
+    description: 'Real architecture decisions. Real cost data. Real trade-offs. No anonymized hypotheticals.',
   },
 }
 

@@ -158,7 +158,7 @@ export function Hero() {
               triggerOnScroll={false}
               delay={0.3}
             >
-              AI Systems
+              We Build AI Systems
             </SplitText>
             <SplitText
               as="span"
@@ -167,7 +167,7 @@ export function Hero() {
               triggerOnScroll={false}
               delay={0.8}
             >
-              You Actually Own.
+              That Run Without AI.
             </SplitText>
           </div>
         </div>
@@ -175,17 +175,10 @@ export function Hero() {
         {/* Subtitle/description — medium parallax layer (1.2x) */}
         <div ref={subtitleLayerRef} className="will-change-transform">
           <motion.p
-            className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-4 leading-relaxed"
+            className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
             variants={fadeUp}
           >
-            We design, build, and deploy production AI. You get the code, the infrastructure, and the system. No lock-in.
-          </motion.p>
-
-          <motion.p
-            className="text-text-tertiary text-base md:text-lg max-w-xl mx-auto mb-12"
-            variants={fadeUp}
-          >
-            From $3K prototypes to $200K enterprise builds — you own everything we ship.
+            Use AI to construct sophisticated rule engines, lookup tables, and computation systems. Then they run forever at $0. You own everything.
           </motion.p>
         </div>
 
@@ -196,26 +189,16 @@ export function Hero() {
             variants={fadeUp}
           >
             <MagneticButton>
-              <div className="flex flex-col items-center gap-1.5">
-                <Button href="/free-audit" variant="cta" size="lg">
-                  Get Your Free AI Audit
-                  <ArrowRight size={18} />
-                </Button>
-                <span className="text-text-tertiary text-xs">
-                  Free · 5-page report · 48hr delivery
-                </span>
-              </div>
+              <Button href="/products" variant="cta" size="lg">
+                See Our Work
+                <ArrowRight size={18} />
+              </Button>
             </MagneticButton>
             <MagneticButton>
-              <div className="flex flex-col items-center gap-1.5">
-                <Button href="/case-studies" variant="secondary" size="lg">
-                  See How We Build
-                  <ArrowRight size={18} />
-                </Button>
-                <span className="text-text-tertiary text-xs">
-                  Real systems, real results
-                </span>
-              </div>
+              <Button href="/technology" variant="secondary" size="lg">
+                See How We Build
+                <ArrowRight size={18} />
+              </Button>
             </MagneticButton>
           </motion.div>
         </div>
@@ -227,10 +210,10 @@ export function Hero() {
         >
           <TerminalText
             lines={[
-              { text: 'mds --stack', type: 'command' },
-              { text: 'Next.js · Claude API · React · Python · FastAPI · Docker', type: 'output', delay: 200 },
-              { text: 'mds --status', type: 'command', delay: 400 },
-              { text: '✓ All systems production-ready', type: 'highlight', delay: 200 },
+              { text: 'mds --products', type: 'command' },
+              { text: '6 products built · 3 deployed · $0 AI cost at runtime', type: 'output', delay: 200 },
+              { text: 'mds --architecture', type: 'command', delay: 400 },
+              { text: '✓ 95% deterministic · 5% AI · 100% yours', type: 'highlight', delay: 200 },
             ]}
             speed={20}
             linePause={300}

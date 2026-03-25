@@ -12,17 +12,17 @@ import { useReducedMotion } from '@/lib/useReducedMotion'
 const steps = [
   {
     number: '01',
-    title: 'Tell Us What You Need',
+    title: 'Discovery Call',
     description:
-      'Share your challenge. We scope the system, identify automation opportunities, and map the architecture in a free strategy call.',
+      '15 minutes. Tell us the problem. We\u2019ll tell you if AI is the right solution (sometimes it isn\u2019t).',
     tint: 'var(--bg-tint-blue)',
     accent: 'var(--accent-blue)',
   },
   {
     number: '02',
-    title: 'We Architect & Build',
+    title: 'Architecture & Build',
     description:
-      'Deterministic-first development. 95% rule-based logic, AI only where it adds real value. Weekly builds, full transparency.',
+      'Deterministic-first design. We build the system. You see progress weekly.',
     tint: 'var(--bg-tint-purple)',
     accent: 'var(--accent-purple)',
   },
@@ -30,7 +30,7 @@ const steps = [
     number: '03',
     title: 'You Own Everything',
     description:
-      'Complete code ownership. Your infrastructure, your IP, your system. No vendor lock-in, no recurring platform fees.',
+      'Code, infrastructure, documentation, IP. No lock-in. No recurring platform fees.',
     tint: '#1A150A', // warm gold tint
     accent: 'var(--accent-gold)',
   },

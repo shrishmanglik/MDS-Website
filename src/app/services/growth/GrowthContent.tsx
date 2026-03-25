@@ -356,6 +356,18 @@ export function GrowthContent() {
           <Accordion items={faqItems} />
         </ScrollReveal>
 
+        {/* Example Project */}
+        <ScrollReveal className="mb-20">
+          <GlassCard padding="lg">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-4">
+              Example Project
+            </h2>
+            <p className="text-text-secondary text-base leading-relaxed">
+              We operate 6 products across education, immigration, and astrology — each built on the same deterministic-first stack, each running at near-zero cost.
+            </p>
+          </GlassCard>
+        </ScrollReveal>
+
         {/* Bottom CTA */}
         <ScrollReveal>
           <section className="text-center bg-bg-secondary border border-border-custom rounded-2xl p-12 md:p-16">

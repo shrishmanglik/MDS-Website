@@ -23,7 +23,7 @@ export function CaseStudiesContent() {
       <div className="max-w-7xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
-          { label: 'Case Studies' },
+          { label: 'Build Logs' },
         ]} />
 
         <motion.div
@@ -34,12 +34,12 @@ export function CaseStudiesContent() {
         >
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-primary gradient-text">
-              What We Build.
+              Build Logs — How We Built Each Product
             </span>
           </h1>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Capability demonstrations showing what our AI systems can do.
-            Each project represents a real system we designed, built, and tested.
+            Real architecture decisions. Real cost data. Real trade-offs.
+            No anonymized hypotheticals.
           </p>
         </motion.div>
 
@@ -80,7 +80,7 @@ export function CaseStudiesContent() {
                       </div>
 
                       <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-purple group-hover:gap-2.5 transition-all">
-                        Read full case study
+                        Read full build log
                         <ArrowRight size={14} />
                       </span>
                     </div>
@@ -100,13 +100,13 @@ export function CaseStudiesContent() {
           className="text-center bg-bg-secondary border border-border-custom rounded-2xl p-12"
         >
           <h2 className="font-heading text-3xl font-bold mb-4">
-            <span className="bg-gradient-primary gradient-text">Want Something Like This Built?</span>
+            <span className="bg-gradient-primary gradient-text">See the Architecture in Action</span>
           </h2>
           <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8">
-            Every engagement starts with a free AI assessment. We&apos;ll analyze your operations and show you exactly what&apos;s possible.
+            Every product runs on the same deterministic-first architecture. Explore the technology behind the builds.
           </p>
-          <Button href="/free-audit" variant="primary" size="lg">
-            Get Your Free AI Assessment
+          <Button href="/technology" variant="primary" size="lg">
+            See Our Technology
             <ArrowRight size={18} />
           </Button>
         </motion.div>

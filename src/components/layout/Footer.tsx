@@ -6,14 +6,14 @@ import { ReducedMotionToggle } from '@/components/ui/ReducedMotionToggle'
 
 const STUDIO_LINKS = [
   { label: 'Services', href: '/services' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Products', href: '/products' },
   { label: 'Technology', href: '/technology' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Build With Us', href: '/build' },
-  { label: 'Project Intake', href: '/intake' },
+  { label: 'Build Logs', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
+  { label: 'CRS Calculator', href: '/tools/crs-calculator' },
 ] as const
 
 const LEGAL_LINKS = [
