@@ -359,13 +359,10 @@ export function TechnologyContent() {
               Every product in our portfolio runs on this architecture.
               See the build logs for real cost data and architecture decisions.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex items-center justify-center">
               <Button href="/products" variant="primary" size="lg">
                 See Our Products
                 <ArrowRight size={18} />
-              </Button>
-              <Button href="/case-studies" variant="secondary" size="lg">
-                Read Build Logs
               </Button>
             </div>
           </motion.div>

@@ -154,7 +154,7 @@ export function Hero() {
             <SplitText
               as="h1"
               preset="blur-in"
-              className="text-text-primary"
+              className="text-text-primary whitespace-nowrap"
               triggerOnScroll={false}
               delay={0.3}
             >
@@ -163,7 +163,7 @@ export function Hero() {
             <SplitText
               as="span"
               preset="scramble"
-              className="gradient-text text-4xl md:text-5xl lg:text-6xl font-heading font-bold inline-block"
+              className="gradient-text text-3xl md:text-5xl lg:text-6xl font-heading font-bold inline-block"
               triggerOnScroll={false}
               delay={0.8}
             >
@@ -185,18 +185,12 @@ export function Hero() {
         {/* CTA buttons — base parallax layer (1x) */}
         <div ref={ctaLayerRef} className="will-change-transform">
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex items-center justify-center"
             variants={fadeUp}
           >
             <MagneticButton>
               <Button href="/products" variant="cta" size="lg">
                 See Our Work
-                <ArrowRight size={18} />
-              </Button>
-            </MagneticButton>
-            <MagneticButton>
-              <Button href="/technology" variant="secondary" size="lg">
-                See How We Build
                 <ArrowRight size={18} />
               </Button>
             </MagneticButton>
