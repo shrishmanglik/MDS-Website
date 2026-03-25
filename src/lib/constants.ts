@@ -25,15 +25,22 @@ export const NAV_LINKS = [
   { label: 'Products', href: '/products' },
   { label: 'Technology', href: '/technology' },
   { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
 ] as const
 
+export const SERVICE_TIERS = [
+  { label: 'AI Audit', href: '/services/audit', price: '$500 – $2K' },
+  { label: 'AI Launchpad', href: '/services/launchpad', price: '$3K – $5K' },
+  { label: 'Growth Engine', href: '/services/growth', price: '$3K – $8K/mo' },
+  { label: 'Full Stack Build', href: '/services/enterprise', price: '$10K – $50K' },
+] as const
+
 export const METRICS = [
-  { value: '4', label: 'AI Products in Development' },
-  { value: '4', label: 'Industries Served' },
-  { value: '100%', label: 'Code Ownership Transferred' },
-  { value: '1', label: 'Founder Who Builds Everything' },
+  { value: '<$0.01', label: 'Per Interaction', proof: '/technology#cost-model' },
+  { value: '99.5%', label: 'Gross Margins', proof: '/technology#economics' },
+  { value: '3', label: 'Vertical Stacks', proof: '/products' },
+  { value: '2 wks', label: 'To Production', proof: '/case-studies' },
 ] as const
 
 export const TECH_CAPABILITIES = {

@@ -5,15 +5,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  async redirects() {
-    return [
-      {
-        source: '/pricing',
-        destination: '/services',
-        permanent: true,
-      },
-    ]
-  },
   async headers() {
     return [
       {
