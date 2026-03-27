@@ -154,7 +154,7 @@ export function Hero() {
             <SplitText
               as="h1"
               preset="blur-in"
-              className="text-text-primary whitespace-nowrap"
+              className="text-text-primary whitespace-normal md:whitespace-nowrap"
               triggerOnScroll={false}
               delay={0.3}
             >
@@ -176,17 +176,17 @@ export function Hero() {
         {/* CTA buttons — base parallax layer (1x) */}
         <div ref={ctaLayerRef} className="will-change-transform">
           <motion.div
-            className="flex items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
             variants={fadeUp}
           >
             <MagneticButton>
-              <Button href="/for-people" variant="cta" size="lg">
+              <Button href="/for-people" variant="cta" size="lg" className="w-full sm:w-auto">
                 See Our Products
                 <ArrowRight size={18} />
               </Button>
             </MagneticButton>
             <MagneticButton>
-              <Button href="/for-businesses" variant="secondary" size="lg">
+              <Button href="/for-businesses" variant="secondary" size="lg" className="w-full sm:w-auto">
                 Build With Us
                 <ArrowRight size={18} />
               </Button>
@@ -196,7 +196,7 @@ export function Hero() {
 
         {/* Tech trust bar — terminal-style, anchored, no parallax */}
         <motion.div
-          className="mt-20 max-w-lg mx-auto"
+          className="mt-12 md:mt-20 max-w-lg mx-auto overflow-hidden"
           variants={fadeUp}
         >
           <TerminalText

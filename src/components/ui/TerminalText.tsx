@@ -161,7 +161,7 @@ export function TerminalText({
       </div>
 
       {/* Terminal lines */}
-      <div className="space-y-1" aria-hidden="true">
+      <div className="space-y-1 overflow-x-auto" aria-hidden="true">
         {displayedLines.map((line, i) => (
           <div key={i} className="flex">
             {line.type === 'command' && (

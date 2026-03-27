@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Calculator, FlaskConical, Star } from 'lucide-react'
+import { ArrowRight, Calculator, FlaskConical, Languages, Star } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { Badge } from '@/components/ui/Badge'
@@ -23,6 +23,16 @@ const tools = [
     status: 'live' as const,
   },
   {
+    name: 'TEF Score Estimator',
+    description:
+      'Estimate your TEF Canada scores and see CLB levels for Express Entry. Convert TEF section scores to Canadian Language Benchmarks instantly.',
+    href: '/tools/tef-score-estimator',
+    icon: Languages,
+    badge: 'TEF Canada to CLB',
+    featured: true,
+    status: 'live' as const,
+  },
+  {
     name: 'Equation Balancer',
     description:
       'Balance any chemical equation deterministically. Built on the ChemAI engine.',
@@ -33,14 +43,14 @@ const tools = [
     status: 'coming-soon' as const,
   },
   {
-    name: 'Free Kundali',
+    name: 'Free Kundli Generator',
     description:
-      'Generate a basic Vedic birth chart with planetary positions. Powered by the JyotishAI engine.',
-    href: '#',
+      'Generate a Vedic birth chart (Kundli) with planetary positions, nakshatras, and North Indian Rashi chart. Powered by the JyotishAI engine.',
+    href: '/tools/kundli-generator',
     icon: Star,
-    badge: null,
-    featured: false,
-    status: 'coming-soon' as const,
+    badge: '74K+ monthly searches',
+    featured: true,
+    status: 'live' as const,
   },
 ]
 
@@ -129,7 +139,7 @@ export function ToolsContent() {
                     <div className="flex-shrink-0">
                       {tool.status === 'live' ? (
                         <Button href={tool.href} variant="primary" size="md">
-                          Calculate Now
+                          Try Now
                           <ArrowRight size={14} />
                         </Button>
                       ) : (
