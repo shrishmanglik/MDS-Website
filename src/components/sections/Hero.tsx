@@ -154,11 +154,20 @@ export function Hero() {
             <SplitText
               as="h1"
               preset="blur-in"
-              className="text-text-primary whitespace-normal md:whitespace-nowrap"
+              className="text-text-primary !text-[clamp(2rem,5vw,4.5rem)] !leading-[1.1]"
               triggerOnScroll={false}
               delay={0.3}
             >
-              AI systems that cost $0.00 per interaction.
+              AI Systems That Cost
+            </SplitText>
+            <SplitText
+              as="span"
+              preset="blur-in"
+              className="gradient-text !text-[clamp(2.5rem,6vw,5.5rem)] font-heading font-bold block mt-1"
+              triggerOnScroll={false}
+              delay={0.6}
+            >
+              $0.00 to Run.
             </SplitText>
           </div>
         </div>
@@ -166,10 +175,11 @@ export function Hero() {
         {/* Subtitle/description — medium parallax layer (1.2x) */}
         <div ref={subtitleLayerRef} className="will-change-transform">
           <motion.p
-            className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-text-secondary text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
             variants={fadeUp}
           >
-            We build deterministic-first software. No API dependency. Near-zero marginal cost. Products for people. Systems for businesses. Architecture that compounds.
+            We use AI to build sophisticated rule engines and computation systems.
+            Then they run forever at zero cost. You own everything.
           </motion.p>
         </div>
 
