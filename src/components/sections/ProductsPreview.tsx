@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { products } from '@/lib/products'
+import { FEATURED_PRODUCT_SLUGS } from '@/lib/constants'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { SplitText } from '@/components/ui/SplitText'
@@ -37,7 +38,7 @@ export function ProductsPreview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {products.map((product) => (
+          {products.filter((p) => (FEATURED_PRODUCT_SLUGS as readonly string[]).includes(p.slug)).map((product) => (
             <motion.div key={product.slug} variants={fadeUpVariant}>
               <ProductCard product={product} compact />
             </motion.div>
@@ -46,10 +47,10 @@ export function ProductsPreview() {
 
         <motion.div className="text-center mt-12" variants={fadeUpVariant}>
           <Link
-            href="/products"
+            href="/for-people"
             className="inline-flex items-center gap-2 text-accent-blue hover:text-accent-purple transition-colors font-medium"
           >
-            View all products
+            See all products
             <ArrowRight size={16} />
           </Link>
           <p className="text-text-tertiary text-xs mt-2">

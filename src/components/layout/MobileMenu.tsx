@@ -188,15 +188,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 exit="exit"
               >
                 <Button
-                  href="/contact"
+                  href="/for-businesses"
                   variant="cta"
                   size="lg"
                   className="w-full"
                 >
-                  Build Your AI With Us
+                  Get Started →
                 </Button>
                 <p className="text-text-tertiary text-xs text-center mt-3">
-                  Free consultation · No commitment
+                  Free assessment · No commitment
                 </p>
               </motion.div>
             </nav>

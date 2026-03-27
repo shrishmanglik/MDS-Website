@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { SplitText } from '@/components/ui/SplitText'
+import { METRICS } from '@/lib/constants'
 
 export function SocialProof() {
   return (
@@ -29,30 +30,18 @@ export function SocialProof() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 p-6 md:p-8 rounded-2xl border border-border-custom bg-bg-elevated/50 backdrop-blur-sm"
           variants={fadeUpVariant}
         >
-          <Link href="/products" className="text-center md:border-r md:border-border-custom hover:opacity-80 transition-opacity">
-            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
-              6
-            </p>
-            <p className="text-text-secondary text-sm">Products Built</p>
-          </Link>
-          <Link href="/technology#cost-model" className="text-center md:border-r md:border-border-custom hover:opacity-80 transition-opacity">
-            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
-              &lt;$0.01
-            </p>
-            <p className="text-text-secondary text-sm">Per Interaction</p>
-          </Link>
-          <Link href="/technology#infrastructure" className="text-center md:border-r md:border-border-custom hover:opacity-80 transition-opacity">
-            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
-              $0
-            </p>
-            <p className="text-text-secondary text-sm">Hosting Baseline</p>
-          </Link>
-          <Link href="/services" className="text-center hover:opacity-80 transition-opacity">
-            <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
-              From $3K
-            </p>
-            <p className="text-text-secondary text-sm">Services Starting Price</p>
-          </Link>
+          {METRICS.map((metric, i) => (
+            <Link
+              key={metric.label}
+              href={metric.proof}
+              className={`text-center hover:opacity-80 transition-opacity${i < METRICS.length - 1 ? ' md:border-r md:border-border-custom' : ''}`}
+            >
+              <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+                {metric.value}
+              </p>
+              <p className="text-text-secondary text-sm">{metric.label}</p>
+            </Link>
+          ))}
         </motion.div>
 
         {/* Quote */}

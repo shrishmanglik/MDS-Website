@@ -7,27 +7,27 @@ import { professionalServiceJsonLd } from '@/lib/structured-data'
 
 // Lazy-load below-fold sections to reduce initial JS bundle
 const PersonaRouter = dynamic(() => import('@/components/sections/PersonaRouter').then(m => ({ default: m.PersonaRouter })))
-const ThreeStreams = dynamic(() => import('@/components/sections/ThreeStreams').then(m => ({ default: m.ThreeStreams })))
+
 const CaseStudiesPreview = dynamic(() => import('@/components/sections/CaseStudiesPreview').then(m => ({ default: m.CaseStudiesPreview })))
 const ProductsPreview = dynamic(() => import('@/components/sections/ProductsPreview').then(m => ({ default: m.ProductsPreview })))
 const HowWeWork = dynamic(() => import('@/components/sections/HowWeWork').then(m => ({ default: m.HowWeWork })))
 const FounderStory = dynamic(() => import('@/components/sections/FounderStory').then(m => ({ default: m.FounderStory })))
 
 export const metadata: Metadata = {
-  title: { absolute: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI' },
+  title: { absolute: 'Million Dollar AI Studio | AI Systems That Cost $0.00 Per Interaction' },
   description:
-    'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
+    'We build deterministic-first AI systems. Products for people. Systems for businesses. Near-zero marginal cost. You own everything.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI',
+    title: 'Million Dollar AI Studio | AI Systems That Cost $0.00 Per Interaction',
     description:
-      'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
+      'We build deterministic-first AI systems. Products for people. Systems for businesses. Near-zero marginal cost. You own everything.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Million Dollar AI Studio | We Build AI Systems That Run Without AI',
+    title: 'Million Dollar AI Studio | AI Systems That Cost $0.00 Per Interaction',
     description:
-      'We build AI systems that cost $0 to run. 6 products built on deterministic-first architecture. Custom AI development from $3K. Toronto, Canada.',
+      'We build deterministic-first AI systems. Products for people. Systems for businesses. Near-zero marginal cost. You own everything.',
   },
 }
 
@@ -44,9 +44,6 @@ export default function HomePage() {
       <SectionDivider variant="glow" />
       <SocialProof />
       <PersonaRouter />
-      <SectionDivider variant="gradient" />
-      <ThreeStreams />
-      <SectionDivider variant="dots" />
       <CaseStudiesPreview />
       <SectionDivider variant="gradient" />
       <ProductsPreview />

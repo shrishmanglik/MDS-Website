@@ -3,17 +3,17 @@ import Image from 'next/image'
 import { SITE, SOCIAL } from '@/lib/constants'
 import { products } from '@/lib/products'
 import { ReducedMotionToggle } from '@/components/ui/ReducedMotionToggle'
+import { NewsletterForm } from '@/components/ui/NewsletterForm'
 
 const STUDIO_LINKS = [
-  { label: 'Services', href: '/services' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Products', href: '/products' },
-  { label: 'Technology', href: '/technology' },
-  { label: 'Build Logs', href: '/case-studies' },
+  { label: 'For People', href: '/for-people' },
+  { label: 'For Businesses', href: '/for-businesses' },
+  { label: 'How We Build', href: '/how-we-build' },
   { label: 'About', href: '/about' },
+  { label: 'Build Logs', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
-  { label: 'CRS Calculator', href: '/tools/crs-calculator' },
+  { label: 'Free Tools', href: '/tools' },
 ] as const
 
 const LEGAL_LINKS = [
@@ -132,6 +132,20 @@ export function Footer() {
             >
               {SITE.email}
             </a>
+          </div>
+        </div>
+
+        {/* Newsletter signup */}
+        <div className="mt-12 pt-8 relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-visible to-transparent" />
+          <div className="max-w-md mx-auto text-center">
+            <h4 className="font-heading font-semibold text-text-primary text-sm mb-2">
+              Stay Updated
+            </h4>
+            <p className="text-text-secondary text-sm mb-4">
+              Product launches, build logs, and engineering insights.
+            </p>
+            <NewsletterForm className="max-w-sm mx-auto" />
           </div>
         </div>
 

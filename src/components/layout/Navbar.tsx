@@ -1,23 +1,17 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu } from 'lucide-react'
+import { Menu, ArrowRight } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import { Button } from '@/components/ui/Button'
 import { MobileMenu } from './MobileMenu'
-import { MegaMenu } from './MegaMenu'
-
-/** Nav items that open a mega-menu panel on hover */
-const MEGA_MENU_ITEMS = new Set(['Services', 'Products'])
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [megaMenu, setMegaMenu] = useState<string | null>(null)
-  const megaMenuTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -25,40 +19,6 @@ export function Navbar() {
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Close mega-menu on route change
-  useEffect(() => {
-    setMegaMenu(null)
-  }, [pathname])
-
-  const openMegaMenu = useCallback((label: string) => {
-    if (megaMenuTimeout.current) {
-      clearTimeout(megaMenuTimeout.current)
-      megaMenuTimeout.current = null
-    }
-    setMegaMenu(label)
-  }, [])
-
-  const scheduleMegaMenuClose = useCallback(() => {
-    megaMenuTimeout.current = setTimeout(() => {
-      setMegaMenu(null)
-    }, 150)
-  }, [])
-
-  const closeMegaMenu = useCallback(() => {
-    if (megaMenuTimeout.current) {
-      clearTimeout(megaMenuTimeout.current)
-      megaMenuTimeout.current = null
-    }
-    setMegaMenu(null)
-  }, [])
-
-  const keepMegaMenuOpen = useCallback(() => {
-    if (megaMenuTimeout.current) {
-      clearTimeout(megaMenuTimeout.current)
-      megaMenuTimeout.current = null
-    }
   }, [])
 
   return (
@@ -82,14 +42,10 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav
-            className="hidden lg:flex items-center gap-1"
-            onMouseLeave={scheduleMegaMenuClose}
-          >
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => {
               const isActive =
                 pathname === link.href || pathname.startsWith(link.href + '/')
-              const hasMegaMenu = MEGA_MENU_ITEMS.has(link.label)
 
               return (
                 <Link
@@ -100,9 +56,6 @@ export function Navbar() {
                       ? 'text-text-primary'
                       : 'text-text-secondary hover:text-text-primary'
                   }`}
-                  onMouseEnter={
-                    hasMegaMenu ? () => openMegaMenu(link.label) : () => setMegaMenu(null)
-                  }
                 >
                   {link.label}
                   {isActive && (
@@ -115,8 +68,8 @@ export function Navbar() {
 
           <div className="flex items-center gap-3">
             <div className="hidden lg:block">
-              <Button href="/contact" variant="cta" size="sm">
-                Build Your AI With Us
+              <Button href="/for-businesses" variant="cta" size="sm">
+                Get Started <ArrowRight className="inline ml-1 w-4 h-4" />
               </Button>
             </div>
             <button
@@ -129,14 +82,6 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mega-menu dropdown — desktop only */}
-        <div className="hidden lg:block">
-          <MegaMenu
-            activeMenu={megaMenu}
-            onClose={closeMegaMenu}
-            onMouseEnter={keepMegaMenuOpen}
-          />
-        </div>
       </header>
 
       <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />

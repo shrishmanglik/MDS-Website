@@ -11,6 +11,7 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
 import { ExitIntentModal } from '@/components/ui/ExitIntentModal'
+import { PlausibleProvider } from '@/components/providers/PlausibleProvider'
 import { BackgroundShaderWrapper } from '@/components/ui/BackgroundShaderWrapper'
 import './globals.css'
 
@@ -136,6 +137,7 @@ export default function RootLayout({
           <Footer />
           <BackToTop />
           <ExitIntentModal />
+          <PlausibleProvider />
         </MotionProvider>
         <script
           type="application/ld+json"

@@ -78,16 +78,15 @@ export function ExitIntentModal() {
                   id="exit-modal-title"
                   className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-3"
                 >
-                  Get a Free{' '}
-                  <span className="gradient-text">AI Assessment</span>
+                  Free{' '}
+                  <span className="gradient-text">CRS Calculator</span>
                 </h2>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  Discover where AI can reduce costs and accelerate your operations.
-                  Personalized report delivered in 48 hours. No commitment.
+                  Calculate your Express Entry CRS score instantly. 110,000+ monthly searches. Free, no signup required.
                 </p>
 
-                <Button href="/free-audit" variant="primary" size="lg" className="w-full mb-3">
-                  Get Your Free Assessment
+                <Button href="/tools/crs-calculator" variant="primary" size="lg" className="w-full mb-3">
+                  Calculate Your CRS Score
                   <ArrowRight size={16} aria-hidden="true" />
                 </Button>
 

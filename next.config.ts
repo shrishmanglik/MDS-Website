@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  async redirects() {
+    return [
+      { source: '/technology', destination: '/how-we-build', permanent: true },
+      { source: '/build', destination: '/for-businesses', permanent: true },
+      { source: '/pricing', destination: '/for-businesses', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

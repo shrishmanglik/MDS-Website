@@ -101,7 +101,7 @@ export function Button({
   const content = loading ? (
     <Loader2 className="animate-spin" size={16} />
   ) : (
-    <span className="relative z-[1]">{children}</span>
+    <span className="relative z-[1] inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
   )
 
   if (href) {

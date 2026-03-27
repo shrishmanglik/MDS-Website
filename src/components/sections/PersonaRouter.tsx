@@ -7,25 +7,25 @@ import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 
 const personas = [
   {
-    icon: Wrench,
-    title: 'I need AI built for my business',
-    description: 'Custom AI systems scoped to your workflows. From $3K prototypes to full enterprise builds.',
-    cta: 'Explore Services',
-    href: '/services',
+    icon: Box,
+    title: 'For People',
+    description: 'Smart tools that work without internet, without subscriptions, without AI costs. Explore our products.',
+    cta: 'Explore Products',
+    href: '/for-people',
   },
   {
-    icon: Box,
-    title: 'I want to use an AI product',
-    description: 'Production SaaS tools for finance, astrology, chemistry, and more. Ready to deploy.',
-    cta: 'Browse Products',
-    href: '/products',
+    icon: Wrench,
+    title: 'For Businesses',
+    description: 'AI systems you own completely. Near-zero marginal cost. No vendor lock-in. See our services.',
+    cta: 'See Services',
+    href: '/for-businesses',
   },
   {
     icon: Cog,
-    title: 'I need a technical partner',
-    description: 'Enterprise-grade AI architecture, built by one person who moves faster than teams of ten.',
-    cta: 'Build With Us',
-    href: '/build',
+    title: 'The Engine',
+    description: 'The MIDAS framework. Deterministic-first architecture. Learn how we build.',
+    cta: 'Learn Our Method',
+    href: '/how-we-build',
   },
 ] as const
 

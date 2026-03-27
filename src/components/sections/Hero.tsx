@@ -143,7 +143,7 @@ export function Hero() {
           <motion.div variants={fadeUp} className="mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-visible bg-bg-secondary/50 text-text-secondary text-sm font-medium backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
-              Production AI Systems
+              AI Systems Company — Toronto, Canada
             </span>
           </motion.div>
         </div>
@@ -158,16 +158,7 @@ export function Hero() {
               triggerOnScroll={false}
               delay={0.3}
             >
-              We Build AI Systems
-            </SplitText>
-            <SplitText
-              as="span"
-              preset="scramble"
-              className="gradient-text text-3xl md:text-5xl lg:text-6xl font-heading font-bold inline-block"
-              triggerOnScroll={false}
-              delay={0.8}
-            >
-              That Run Without AI.
+              AI systems that cost $0.00 per interaction.
             </SplitText>
           </div>
         </div>
@@ -178,19 +169,25 @@ export function Hero() {
             className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
             variants={fadeUp}
           >
-            Use AI to construct sophisticated rule engines, lookup tables, and computation systems. Then they run forever at $0. You own everything.
+            We build deterministic-first software. No API dependency. Near-zero marginal cost. Products for people. Systems for businesses. Architecture that compounds.
           </motion.p>
         </div>
 
         {/* CTA buttons — base parallax layer (1x) */}
         <div ref={ctaLayerRef} className="will-change-transform">
           <motion.div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center gap-4"
             variants={fadeUp}
           >
             <MagneticButton>
-              <Button href="/products" variant="cta" size="lg">
-                See Our Work
+              <Button href="/for-people" variant="cta" size="lg">
+                See Our Products
+                <ArrowRight size={18} />
+              </Button>
+            </MagneticButton>
+            <MagneticButton>
+              <Button href="/for-businesses" variant="secondary" size="lg">
+                Build With Us
                 <ArrowRight size={18} />
               </Button>
             </MagneticButton>
@@ -204,10 +201,10 @@ export function Hero() {
         >
           <TerminalText
             lines={[
-              { text: 'mds --products', type: 'command' },
-              { text: '6 products built · 3 deployed · $0 AI cost at runtime', type: 'output', delay: 200 },
-              { text: 'mds --architecture', type: 'command', delay: 400 },
-              { text: '✓ 95% deterministic · 5% AI · 100% yours', type: 'highlight', delay: 200 },
+              { text: 'mds --status', type: 'command' },
+              { text: '3 products live · 100K+ lines of content · $0.00 per interaction', type: 'output', delay: 200 },
+              { text: 'mds --margin', type: 'command', delay: 400 },
+              { text: '✓ 99%+ gross margin · deterministic-first · 100% yours', type: 'highlight', delay: 200 },
             ]}
             speed={20}
             linePause={300}

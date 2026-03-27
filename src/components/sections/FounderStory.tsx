@@ -28,27 +28,17 @@ export function FounderStory() {
 
         <SplitText
           as="h2"
-          preset="scramble"
+          preset="blur-in"
           className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-6"
         >
-          The Builder Behind It All.
+          The Systems Company
         </SplitText>
 
         <motion.p
-          className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4"
+          className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10"
           variants={fadeUpVariant}
         >
-          Shrish Manglik — systems architect, former TELUS Health engineer. 6
-          products built using the same deterministic-first architecture. Every
-          system I build makes the next one faster.
-        </motion.p>
-
-        <motion.p
-          className="text-text-tertiary text-base md:text-lg leading-relaxed mb-10"
-          variants={fadeUpVariant}
-        >
-          AI-assisted development, deterministic-first architecture, and full
-          code ownership on every project.
+          I&apos;m Shrish — founder of Million Dollar AI Studio in Toronto. I watched the AI industry build products that get MORE expensive with every user. That&apos;s backwards. So I&apos;m building the opposite: AI systems where intelligence is manufactured once and served forever at near-zero cost. Every product we ship teaches our framework something new. Every business we build for proves the architecture works. The engine compounds. The products multiply.
         </motion.p>
 
         <motion.div variants={fadeUpVariant}>

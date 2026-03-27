@@ -21,11 +21,9 @@ export const SOCIAL = {
 } as const
 
 export const NAV_LINKS = [
-  { label: 'Services', href: '/services' },
-  { label: 'Products', href: '/products' },
-  { label: 'Technology', href: '/technology' },
-  { label: 'Build Logs', href: '/case-studies' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'For People', href: '/for-people' },
+  { label: 'For Businesses', href: '/for-businesses' },
+  { label: 'How We Build', href: '/how-we-build' },
   { label: 'About', href: '/about' },
 ] as const
 
@@ -37,11 +35,13 @@ export const SERVICE_TIERS = [
 ] as const
 
 export const METRICS = [
-  { value: '$0', label: 'AI Cost at Runtime', proof: '/technology#cost-model' },
-  { value: '99.8%', label: 'Gross Margin', proof: '/technology#economics' },
-  { value: '6', label: 'Products Built', proof: '/products' },
-  { value: '~$105', label: '/mo at 5K Users', proof: '/technology' },
+  { value: '99%+', label: 'Gross Margin', sublabel: 'Deterministic architecture', proof: '/how-we-build' },
+  { value: '$0.00', label: 'Per Interaction', sublabel: 'No API dependency at runtime', proof: '/how-we-build' },
+  { value: '3', label: 'Live Products', sublabel: 'Deployed and serving users', proof: '/for-people' },
+  { value: '100K+', label: 'Lines of Content', sublabel: 'Manufactured knowledge', proof: '/how-we-build' },
 ] as const
+
+export const FEATURED_PRODUCT_SLUGS = ['francaisiq', 'jyotishai', 'chemai'] as const
 
 export const TECH_CAPABILITIES = {
   frontend: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS'],
