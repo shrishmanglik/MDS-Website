@@ -1,15 +1,12 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
-import { SocialProof } from '@/components/sections/SocialProof'
 import { SectionDivider } from '@/components/ui/SectionTransition'
 import { ScrollVelocityText } from '@/components/ui/ScrollVelocityText'
 import { professionalServiceJsonLd } from '@/lib/structured-data'
 
 // Lazy-load below-fold sections to reduce initial JS bundle
-const PersonaRouter = dynamic(() => import('@/components/sections/PersonaRouter').then(m => ({ default: m.PersonaRouter })))
-
-const CaseStudiesPreview = dynamic(() => import('@/components/sections/CaseStudiesPreview').then(m => ({ default: m.CaseStudiesPreview })))
+const BentoShowcase = dynamic(() => import('@/components/sections/BentoShowcase').then(m => ({ default: m.BentoShowcase })))
 const ProductsPreview = dynamic(() => import('@/components/sections/ProductsPreview').then(m => ({ default: m.ProductsPreview })))
 const HowWeWork = dynamic(() => import('@/components/sections/HowWeWork').then(m => ({ default: m.HowWeWork })))
 const FounderStory = dynamic(() => import('@/components/sections/FounderStory').then(m => ({ default: m.FounderStory })))
@@ -43,10 +40,7 @@ export default function HomePage() {
       />
       <Hero />
       <ScrollVelocityText text="DETERMINISTIC-FIRST · ZERO API COSTS · FULL OWNERSHIP · 99.8% MARGINS" />
-      <SectionDivider variant="glow" />
-      <SocialProof />
-      <PersonaRouter />
-      <CaseStudiesPreview />
+      <BentoShowcase />
       <SectionDivider variant="gradient" />
       <ProductsPreview />
       <ScrollVelocityText text="RULE ENGINES · LOOKUP TABLES · COMPUTATION SYSTEMS · KNOWLEDGE MANUFACTURING" baseVelocity={1.5} />
