@@ -12,6 +12,7 @@ const personas = [
     description: 'Smart tools that work without internet, without subscriptions, without AI costs. Explore our products.',
     cta: 'Explore Products',
     href: '/for-people',
+    accent: 'blue' as const,
   },
   {
     icon: Wrench,
@@ -19,6 +20,7 @@ const personas = [
     description: 'AI systems you own completely. Near-zero marginal cost. No vendor lock-in. See our services.',
     cta: 'See Services',
     href: '/for-businesses',
+    accent: 'gold' as const,
   },
   {
     icon: Cog,
@@ -26,8 +28,30 @@ const personas = [
     description: 'The MIDAS framework. Deterministic-first architecture. Learn how we build.',
     cta: 'Learn Our Method',
     href: '/how-we-build',
+    accent: 'purple' as const,
   },
 ] as const
+
+const accentStyles = {
+  blue: {
+    hoverBorder: 'hover:border-accent-blue/30',
+    hoverGlow: 'hover:shadow-[0_0_30px_rgba(41,98,255,0.1)]',
+    iconGlow: 'bg-accent-blue/10',
+    iconColor: 'text-accent-blue',
+  },
+  gold: {
+    hoverBorder: 'hover:border-accent-gold/30',
+    hoverGlow: 'hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]',
+    iconGlow: 'bg-accent-gold/10',
+    iconColor: 'text-accent-gold',
+  },
+  purple: {
+    hoverBorder: 'hover:border-accent-purple/30',
+    hoverGlow: 'hover:shadow-[0_0_30px_rgba(124,58,237,0.1)]',
+    iconGlow: 'bg-accent-purple/10',
+    iconColor: 'text-accent-purple',
+  },
+} as const
 
 export function PersonaRouter() {
   return (
@@ -51,18 +75,20 @@ export function PersonaRouter() {
             <motion.div key={persona.href} variants={fadeUpVariant}>
               <Link
                 href={persona.href}
-                className="group block p-6 rounded-2xl border border-border-custom bg-bg-secondary hover:border-accent-blue/30 transition-colors h-full card-tilt"
+                className={`group block p-6 rounded-2xl border border-border-custom bg-bg-secondary ${accentStyles[persona.accent].hoverBorder} ${accentStyles[persona.accent].hoverGlow} transition-all duration-300 h-full card-tilt`}
               >
-                <persona.icon className="w-8 h-8 text-accent-blue mb-4" aria-hidden="true" />
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${accentStyles[persona.accent].iconGlow} mb-4 transition-colors`}>
+                  <persona.icon className={`w-6 h-6 ${accentStyles[persona.accent].iconColor}`} aria-hidden="true" />
+                </div>
                 <h3 className="text-text-primary text-lg font-semibold mb-2 font-heading">
                   {persona.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   {persona.description}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-accent-blue text-sm font-medium group-hover:gap-2.5 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-accent-blue text-sm font-medium transition-all">
                   {persona.cta}
-                  <ArrowRight size={14} aria-hidden="true" />
+                  <ArrowRight size={14} aria-hidden="true" className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             </motion.div>

@@ -9,7 +9,7 @@ import { METRICS } from '@/lib/constants'
 
 export function SocialProof() {
   return (
-    <section className="relative py-20 px-6 border-t border-border-custom">
+    <section className="relative py-20 px-6 border-t border-border-custom dashboard-grid">
       <motion.div
         className="max-w-content mx-auto"
         variants={staggerContainer}
@@ -36,17 +36,18 @@ export function SocialProof() {
               href={metric.proof}
               className={`text-center hover:opacity-80 transition-opacity${i < METRICS.length - 1 ? ' md:border-r md:border-border-custom' : ''}`}
             >
-              <p className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-1">
+              <p className="text-3xl md:text-4xl font-mono font-bold gradient-text mb-1">
                 {metric.value}
               </p>
               <p className="text-text-secondary text-sm">{metric.label}</p>
+              <div className="mt-2 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-accent-blue/40 to-transparent animate-pulse" />
             </Link>
           ))}
         </motion.div>
 
         {/* Quote */}
         <motion.blockquote
-          className="max-w-2xl mx-auto mb-10 border-l-2 border-accent-gold pl-6"
+          className="max-w-2xl mx-auto mb-10 gradient-left-border pl-6"
           variants={fadeUpVariant}
         >
           <p className="text-text-secondary text-base leading-relaxed italic mb-3">

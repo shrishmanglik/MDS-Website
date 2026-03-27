@@ -16,7 +16,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
     >
       {product.featured && (
         <div className="px-4 py-1.5 bg-gradient-to-r from-accent-blue/20 via-accent-gold/20 to-accent-blue/20 border-b border-accent-blue/30">
-          <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
+          <span className="text-xs font-semibold uppercase tracking-wider gradient-text shimmer-badge">
             Flagship
           </span>
         </div>

@@ -6,6 +6,7 @@ import { ArrowRight, DollarSign, Box, Cog } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { SplitText } from '@/components/ui/SplitText'
+import { AmbientGrid } from '@/components/ui/AmbientGrid'
 import { useGSAP } from '@/hooks/useGSAP'
 
 const capabilities = [
@@ -89,8 +90,9 @@ export function CaseStudiesPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-bg-tint-teal ambient-orb ambient-orb--teal"
+      className="relative overflow-hidden bg-bg-tint-teal ambient-orb ambient-orb--teal"
     >
+      <AmbientGrid />
       {/* ===== Desktop: Horizontal Scroll Gallery ===== */}
       <div className="hidden md:flex flex-col h-screen">
         {/* Section header */}

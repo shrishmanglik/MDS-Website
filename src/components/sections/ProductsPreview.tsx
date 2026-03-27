@@ -28,6 +28,7 @@ export function ProductsPreview() {
           >
             Products we've built
           </SplitText>
+          <div className="w-24 h-0.5 mx-auto mb-2 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold rounded-full" />
           <motion.p
             className="text-text-secondary text-lg max-w-2xl mx-auto"
             variants={fadeUpVariant}
