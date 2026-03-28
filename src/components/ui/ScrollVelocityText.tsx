@@ -12,9 +12,9 @@ export function ScrollVelocityText({ text, className = '', baseVelocity = 2 }: S
   const repeatedText = Array(8).fill(text).join(' · ')
 
   return (
-    <div className={`overflow-hidden py-6 ${className}`}>
+    <div className={`overflow-hidden py-6 max-w-[100vw] ${className}`} style={{ contain: 'paint' }}>
       <motion.div
-        className="flex whitespace-nowrap"
+        className="flex whitespace-nowrap w-max"
         animate={{ x: [0, -2000] }}
         transition={{
           x: {

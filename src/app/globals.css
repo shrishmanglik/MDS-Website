@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 html {
   background-color: #050508;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -88,6 +89,7 @@ body {
   color: var(--text-primary);
   line-height: 1.65;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* === Typography Scale === */
