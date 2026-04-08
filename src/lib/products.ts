@@ -1,3 +1,5 @@
+import { PRODUCT_URLS } from './constants'
+
 export interface Product {
   slug: string
   name: string
@@ -8,6 +10,10 @@ export interface Product {
   features: string[]
   techStack: string[]
   buildTime: string
+  /**
+   * Do NOT set this directly. It is derived from PRODUCT_URLS in constants.ts.
+   * To make a product clickable, set its URL in PRODUCT_URLS.
+   */
   externalUrl: string | null
   waitlistEnabled: boolean
   story: string
@@ -15,35 +21,32 @@ export interface Product {
   highlight: string
 }
 
-export const products: Product[] = [
+const rawProducts: Array<Omit<Product, 'externalUrl'>> = [
   {
     slug: 'francaisiq',
     name: 'FrançaisIQ',
     tagline: 'French exam prep for TEF Canada / Express Entry.',
     status: 'built',
     description:
-      'TEF Canada preparation platform with 9 deterministic scoring engines and 4,000+ practice items. Rebuilt from an AI prototype to eliminate 25+ API calls per session.',
+      'TEF Canada preparation platform with 10 deterministic scoring engines and 1,500+ practice items. Rebuilt from an AI prototype to eliminate 25+ API calls per session.',
     longDescription: `FrançaisIQ prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
 
-The original AI prototype relied on 25+ Gemini API calls per session with an exposed API key. We rebuilt the entire system with 9 deterministic scoring engines, pre-validated lookup tables, and the Web Speech API for pronunciation assessment. The result: 4,000+ practice items running at $0 per interaction.`,
+The original AI prototype relied on 25+ Gemini API calls per session with an exposed API key. We rebuilt the entire system with 10 deterministic scoring engines, pre-validated lookup tables, and the Web Speech API for pronunciation assessment. The result: 1,500+ practice items running at $0 per interaction.`,
     features: [
-      '4,000+ practice items across all four TEF Canada sections',
-      '9 deterministic scoring engines — zero AI at runtime',
+      '1,500+ practice items across all four TEF Canada sections',
+      '10 deterministic scoring engines — zero AI at runtime',
       'Web Speech API integration for pronunciation assessment',
       'CLB level mapping aligned to IRCC requirements',
       'Progress tracking with section-by-section analytics',
       'Spaced repetition for vocabulary retention',
     ],
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Vercel'],
+    techStack: ['Vite', 'React 19', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Stripe', 'Vercel'],
     buildTime: 'Built — deterministic rebuild complete, relaunching soon',
-    // TODO(F-003): restore externalUrl once tef.milliondollarstudio.ai DNS is live.
-    // Previously: 'https://tef.milliondollarstudio.ai' — currently NXDOMAIN.
-    externalUrl: null,
     waitlistEnabled: true,
     story:
-      'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 9 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
+      'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 10 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
     featured: true,
-    highlight: '4,000+ practice items, 9 deterministic scoring engines, zero AI at runtime',
+    highlight: '1,500+ practice items, 10 deterministic scoring engines, zero AI at runtime',
   },
   {
     slug: 'jyotishai',
@@ -66,7 +69,6 @@ The architecture separates the deterministic calculation engine (pure Python, no
     ],
     techStack: ['Tauri v2', 'React', 'Python', 'FastAPI', 'Swiss Ephemeris', 'SQLite'],
     buildTime: 'In development — desktop app',
-    externalUrl: null,
     waitlistEnabled: true,
     story:
       'Professional astrologers in India need offline capability and precision. We built a 75MB self-contained engine with Swiss Ephemeris — the same library used by astronomical observatories — wrapped in a Tauri v2 desktop shell.',
@@ -93,7 +95,6 @@ The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review s
     ],
     techStack: ['Next.js', 'TypeScript', 'Python', 'SQLite', 'FSRS', 'Tailwind CSS'],
     buildTime: 'Built — 130/130 tests passing, pending deployment',
-    externalUrl: null,
     waitlistEnabled: true,
     story:
       'Indian competitive exam prep is a $10B+ market running on outdated methods. We built a blueprint engine that generates exam-accurate papers deterministically — no AI needed at test time.',
@@ -120,7 +121,6 @@ The engine handles DTAA treaty analysis, provincial tax comparison across all Ca
     ],
     techStack: ['Python', 'FastAPI', 'Pydantic', 'pytest'],
     buildTime: 'Built — 44/44 tests passing, submitted to Wealthsimple',
-    externalUrl: null,
     waitlistEnabled: true,
     story:
       'Tax rules are deterministic. AI adds risk. We encoded DTAA treaties and provincial rules as pure computation — 44/44 tests, zero AI costs, zero hallucination risk.',
@@ -147,7 +147,6 @@ The platform provides landlord-tenant rights analysis, rent increase calculation
     ],
     techStack: ['Next.js', 'TypeScript', 'Python', 'Supabase', 'Tailwind CSS'],
     buildTime: 'PRD complete — Phase 1: ON/BC/AB',
-    externalUrl: null,
     waitlistEnabled: true,
     story:
       'Canadian rental laws vary by province and change annually. We are encoding all 13 regulatory frameworks as deterministic rule engines — no AI guessing at tenant rights.',
@@ -172,7 +171,6 @@ The tool demonstrates the MDS approach applied to personal workflow automation: 
     ],
     techStack: ['Python', 'Automation scripts'],
     buildTime: 'Internal tool — personal use',
-    externalUrl: null,
     waitlistEnabled: false,
     story:
       'Built as an internal tool to automate the repetitive parts of job applications. Not productized — but it demonstrates the deterministic-first approach applied to personal workflows.',
@@ -180,6 +178,24 @@ The tool demonstrates the MDS approach applied to personal workflow automation: 
     highlight: 'Internal tooling, automated application pipeline',
   },
 ]
+
+// Hydrate each product with its externalUrl from the central PRODUCT_URLS
+// registry. This is the single source of truth — updating PRODUCT_URLS in
+// constants.ts is the only place you need to touch to make a product clickable.
+export const products: Product[] = rawProducts.map((p) => ({
+  ...p,
+  externalUrl: PRODUCT_URLS[p.slug] ?? null,
+}))
+
+/** Products that should appear in the public /products listing. */
+export const publicProducts: Product[] = products.filter(
+  (p) => p.status !== 'internal',
+)
+
+/** Products that are actually live (have a real URL) right now. */
+export const liveProducts: Product[] = products.filter(
+  (p) => p.externalUrl !== null,
+)
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug)

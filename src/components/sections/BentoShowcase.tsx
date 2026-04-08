@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Cpu, Users, Wrench } from 'lucide-react'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
+import { products, liveProducts } from '@/lib/products'
 
 // Live cost counter that ticks up slowly to show real-time savings
 function LiveSavingsCounter() {
@@ -137,16 +138,19 @@ export function BentoShowcase() {
             <p className="text-text-tertiary text-xs mt-4">Industry avg: 25-40%</p>
           </motion.div>
 
-          {/* Cell 3: Products count */}
+          {/* Cell 3: Products count (dynamic from PRODUCT_URLS) */}
           <motion.div
             variants={fadeUpVariant}
             className="rounded-2xl border border-border-custom bg-bg-elevated/50 backdrop-blur-sm p-6 flex flex-col justify-between"
           >
             <div>
-              <p className="text-text-tertiary text-xs font-mono uppercase tracking-widest mb-2">Products Shipped</p>
-              <p className="text-4xl font-mono font-bold text-accent-blue">6</p>
+              <p className="text-text-tertiary text-xs font-mono uppercase tracking-widest mb-2">Products Built</p>
+              <p className="text-4xl font-mono font-bold text-accent-blue">{products.length}</p>
+              <p className="text-text-tertiary text-[10px] font-mono mt-1">
+                {liveProducts.length} live · {products.length - liveProducts.length} in progress
+              </p>
             </div>
-            <Link href="/for-people" className="text-accent-blue text-xs font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+            <Link href="/products" className="text-accent-blue text-xs font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
               View all <ArrowRight size={10} />
             </Link>
           </motion.div>

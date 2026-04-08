@@ -15,6 +15,53 @@ export const SITE = {
   calendlyUrl: null as string | null,
 } as const
 
+/**
+ * Central registry for product production URLs.
+ *
+ * WHY THIS EXISTS: Each product lives in a separate repo under
+ * F:\Million Dollar AI Studio\products\{slug}\ and deploys to its own domain.
+ * The marketing site (milliondollarstudio.ai) is the navigation layer that
+ * points visitors at the right product. This registry is the single source
+ * of truth for those URLs.
+ *
+ * TO TAKE A PRODUCT LIVE:
+ *   1. Deploy the product app (see GO-LIVE.md)
+ *   2. Replace `null` with the production URL here
+ *   3. `npm run build && git commit && git push`
+ *
+ * Setting a value to `null` causes:
+ *   - Product cards fall back to a "Join Waitlist" CTA
+ *   - /products/[slug] hides the "Try it" button
+ *   - Listing copy reflects a waitlist state
+ *
+ * Acceptable values:
+ *   - A real HTTPS URL, e.g. 'https://tef.milliondollarstudio.ai'
+ *   - `null` if the product is not yet live
+ */
+export const PRODUCT_URLS: Record<string, string | null> = {
+  // TODO(launch): set to 'https://tef.milliondollarstudio.ai' once DNS is live
+  //   and the tef-maitre Vercel project has its Supabase + Stripe live env vars.
+  francaisiq: null,
+
+  // TODO(launch): set to the production ChemAI URL (e.g. 'https://chemaistudio.com'
+  //   or 'https://chem.milliondollarstudio.ai') after the Vercel deploy + custom
+  //   domain are configured. Backend must be live on Render first.
+  chemai: null,
+
+  // JyotishAI web shell is empty scaffolding; the real product is a Tauri
+  // desktop app. No web URL until a web shell exists. Keep waitlist.
+  jyotishai: null,
+
+  // ATLAS web/engine directories are empty in the monorepo. Waitlist only.
+  atlas: null,
+
+  // NestIQ is a PRD (product requirements doc) only. Waitlist only.
+  nestiq: null,
+
+  // JobFlow is an internal personal productivity tool — not for public launch.
+  jobflow: null,
+} as const
+
 // Web3Forms key moved to server-side .env.local (see /api/submit-form)
 
 export const SOCIAL = {
