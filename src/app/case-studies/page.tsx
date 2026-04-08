@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { CaseStudiesContent } from './CaseStudiesContent'
 
 export const metadata: Metadata = {
-  title: 'Build Logs — How We Built Each Product | Million Dollar AI Studio',
+  title: 'Build Logs — How We Built Each Product',
   description:
     'Real architecture decisions. Real cost data. Real trade-offs. No anonymized hypotheticals.',
   alternates: { canonical: '/case-studies' },

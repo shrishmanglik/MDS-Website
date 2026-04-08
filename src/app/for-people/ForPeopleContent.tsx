@@ -45,6 +45,10 @@ export function ForPeopleContent() {
           >
             Smart tools that run at $0 per interaction. No AI costs, no lag, no
             hallucinations. Built on deterministic engines that work forever.
+            {' '}
+            <span className="text-text-tertiary text-base">
+              Some products are live, others are on the waitlist — join the list to hear when the next one ships.
+            </span>
           </motion.p>
         </motion.section>
 

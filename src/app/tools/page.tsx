@@ -3,7 +3,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 import { ToolsContent } from './ToolsContent'
 
 export const metadata: Metadata = {
-  title: 'Free Tools | Million Dollar AI Studio',
+  title: 'Free Tools',
   description:
     'Free tools that run at $0. No sign-up required. No AI fees. Ever. CRS Calculator, Equation Balancer, and more.',
   alternates: { canonical: '/tools' },

@@ -171,7 +171,7 @@ export function AuditContent() {
         <section className="text-center mb-20">
           <ScrollReveal>
             <Badge variant="ai" className="mb-4">
-              Most clients start here
+              Recommended starting point
             </Badge>
           </ScrollReveal>
           <SplitText
@@ -368,7 +368,8 @@ export function AuditContent() {
               Ready to find your AI opportunities?
             </h2>
             <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-              Most clients start with the audit. It pays for itself in the first recommendation alone.
+              Start with the audit. It&apos;s the fastest way to see where AI can cut your costs —
+              and the fee credits toward any follow-on build.
             </p>
             <Button href="/contact" variant="primary" size="lg">
               Book Your AI Audit

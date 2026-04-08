@@ -20,9 +20,9 @@ export const products: Product[] = [
     slug: 'francaisiq',
     name: 'FrançaisIQ',
     tagline: 'French exam prep for TEF Canada / Express Entry.',
-    status: 'live',
+    status: 'built',
     description:
-      'French exam prep for TEF Canada / Express Entry',
+      'TEF Canada preparation platform with 9 deterministic scoring engines and 4,000+ practice items. Rebuilt from an AI prototype to eliminate 25+ API calls per session.',
     longDescription: `FrançaisIQ prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
 
 The original AI prototype relied on 25+ Gemini API calls per session with an exposed API key. We rebuilt the entire system with 9 deterministic scoring engines, pre-validated lookup tables, and the Web Speech API for pronunciation assessment. The result: 4,000+ practice items running at $0 per interaction.`,
@@ -35,9 +35,11 @@ The original AI prototype relied on 25+ Gemini API calls per session with an exp
       'Spaced repetition for vocabulary retention',
     ],
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Vercel'],
-    buildTime: 'Live — deployed at tef.milliondollarstudio.ai',
-    externalUrl: 'https://tef.milliondollarstudio.ai',
-    waitlistEnabled: false,
+    buildTime: 'Built — deterministic rebuild complete, relaunching soon',
+    // TODO(F-003): restore externalUrl once tef.milliondollarstudio.ai DNS is live.
+    // Previously: 'https://tef.milliondollarstudio.ai' — currently NXDOMAIN.
+    externalUrl: null,
+    waitlistEnabled: true,
     story:
       'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 9 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
     featured: true,
@@ -49,7 +51,7 @@ The original AI prototype relied on 25+ Gemini API calls per session with an exp
     tagline: 'Vedic astrology for professional astrologers.',
     status: 'in-development',
     description:
-      'Vedic astrology for professional astrologers',
+      'Offline desktop app with Swiss Ephemeris precision. 16 divisional charts, 50+ yogas, Shadbala, Ashtakavarga, and Vimshottari dasha — all in a 75MB self-contained package.',
     longDescription: `JyotishAI is a desktop application for professional Vedic astrologers who need offline capability and astronomical-grade precision. Built with Tauri v2 and a Python FastAPI sidecar running Swiss Ephemeris, the engine performs complete kundali generation — including all 16 divisional charts, Shadbala planetary strength analysis, Ashtakavarga calculations, and Vimshottari dasha timelines — entirely offline in a 75MB self-contained package.
 
 The architecture separates the deterministic calculation engine (pure Python, no AI dependencies) from the optional AI interpretation layer. Professional astrologers get precision tools without internet requirements or per-query costs.`,
@@ -77,7 +79,7 @@ The architecture separates the deterministic calculation engine (pure Python, no
     tagline: 'Chemistry education for Indian JEE/NEET students.',
     status: 'built',
     description:
-      'Chemistry education for Indian JEE/NEET students',
+      'JEE/NEET chemistry prep with a blueprint exam generator, FSRS spaced repetition, and deterministic grading. 130/130 tests passing, zero AI at runtime.',
     longDescription: `ChemAI is a chemistry education platform targeting Indian students preparing for JEE and NEET competitive exams. The core innovation is the blueprint exam paper generation engine — it constructs complete, exam-accurate practice papers from a pre-validated question bank, matching the exact topic distribution, difficulty curve, and question-type mix of real exams.
 
 The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review scheduling and a deterministic scoring engine for instant grading. All 130 tests pass. No AI API calls at test time.`,
@@ -104,7 +106,7 @@ The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review s
     tagline: 'Cross-border tax intelligence for Indian newcomers to Canada.',
     status: 'built',
     description:
-      'Cross-border tax intelligence for Indian newcomers to Canada',
+      'DTAA treaty analysis and provincial tax comparison encoded as pure computation. 44/44 tests, zero LLM dependencies, zero hallucination risk.',
     longDescription: `ATLAS encodes the India-Canada Double Taxation Avoidance Agreement (DTAA) and provincial tax rules as pure computation. Cross-border tax rules are deterministic — there is no ambiguity in whether a treaty article applies or what a provincial tax rate is. Using AI for this adds hallucination risk to a domain where accuracy is non-negotiable.
 
 The engine handles DTAA treaty analysis, provincial tax comparison across all Canadian provinces, residency status determination, and investment income tax optimization. 44/44 tests pass with zero LLM dependencies. Submitted to the Wealthsimple accelerator program.`,
@@ -131,7 +133,7 @@ The engine handles DTAA treaty analysis, provincial tax comparison across all Ca
     tagline: "Canada's rental intelligence platform.",
     status: 'prd',
     description:
-      "Canada's rental intelligence platform",
+      'Canadian rental regulations encoded as rule engines across all 13 provinces. Landlord-tenant rights, rent increase calculations, and compliance checking. Phase 1: ON/BC/AB.',
     longDescription: `NestIQ encodes Canadian rental regulations across provinces as deterministic rule engines. Phase 1 covers Ontario, British Columbia, and Alberta — the three provinces with the highest rental volumes and most complex regulatory frameworks.
 
 The platform provides landlord-tenant rights analysis, rent increase calculations (tied to provincial CPI guidelines), investment property analysis, and regulatory compliance checking. All 13 provincial regulatory frameworks are being encoded as rule engines — no AI interpretation of laws that have definitive answers.`,
@@ -158,7 +160,7 @@ The platform provides landlord-tenant rights analysis, rent increase calculation
     tagline: 'Job application automation pipeline.',
     status: 'internal',
     description:
-      'Job application automation pipeline',
+      'Personal productivity tool: resume tailoring, cover letter generation, and follow-up automation. Internal use only — documented here as a case study in the MDS methodology.',
     longDescription: `JobFlow is an internal tool that automates the job application pipeline. It handles resume tailoring, cover letter generation, application tracking, and follow-up scheduling. Built as a personal productivity tool — it works but is not productized for commercial distribution.
 
 The tool demonstrates the MDS approach applied to personal workflow automation: deterministic pipeline orchestration with AI used only for content generation steps.`,

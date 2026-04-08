@@ -3,22 +3,25 @@ import { products } from '@/lib/products'
 import { ProductCard } from '@/components/ui/ProductCard'
 
 export const metadata: Metadata = {
-  title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
+  title: 'Products — One Architecture. Zero AI Costs.',
   description:
     'Each product proves the thesis: AI builds it, deterministic systems run it. See what we\'ve built — and the architecture behind each one.',
   alternates: { canonical: '/products' },
   openGraph: {
-    title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
+    title: 'Products — One Architecture. Zero AI Costs. | Million Dollar AI Studio',
     description:
       'Each product proves the thesis: AI builds it, deterministic systems run it. See what we\'ve built — and the architecture behind each one.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '6 Products. One Architecture. Zero AI Costs. | Million Dollar AI Studio',
+    title: 'Products — One Architecture. Zero AI Costs. | Million Dollar AI Studio',
     description:
       'Each product proves the thesis: AI builds it, deterministic systems run it.',
   },
 }
+
+// Exclude internal-only products from the public listing
+const publicProducts = products.filter((p) => p.status !== 'internal')
 
 export default function ProductsPage() {
   return (
@@ -26,7 +29,7 @@ export default function ProductsPage() {
       <div className="max-w-content mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-text-primary mb-4">
-            6 products.{' '}
+            {publicProducts.length} products.{' '}
             <span className="gradient-text">
               One architecture. Zero AI costs.
             </span>
@@ -38,7 +41,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {products.map((product) => (
+          {publicProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>

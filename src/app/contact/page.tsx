@@ -5,20 +5,20 @@ import { ContactForm } from '@/components/ui/ContactForm'
 import { webPageJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Get Started | Free AI Audit',
+  title: 'Contact',
   description:
-    'Start with a free AI audit. Discover where AI can reduce costs, accelerate operations, and create competitive advantage in your business.',
+    "Get in touch with Million Dollar AI Studio. We respond within 24 hours. For custom AI builds, project scoping, or general questions.",
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Get Started | Free AI Audit',
+    title: 'Contact Million Dollar AI Studio',
     description:
-      'Start with a free AI audit. Discover where AI can reduce costs and create competitive advantage.',
-    images: [{ url: '/api/og?title=Get+Started&subtitle=Free+AI+audit.+Discover+where+AI+fits+in+your+business.', width: 1200, height: 630 }],
+      'Get in touch. Custom AI builds, project scoping, or general questions. We respond within 24 hours.',
+    images: [{ url: '/api/og?title=Contact&subtitle=Let%27s+build+something.', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Get Started | Free AI Audit',
-    description: 'Start with a free AI audit.',
+    title: 'Contact Million Dollar AI Studio',
+    description: "Let's build something.",
   },
 }
 
@@ -29,8 +29,8 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(webPageJsonLd({
-            name: 'Get Started | Free AI Audit',
-            description: 'Start with a free AI audit. Discover where AI can reduce costs, accelerate operations, and create competitive advantage.',
+            name: 'Contact Million Dollar AI Studio',
+            description: "Get in touch. Custom AI builds, project scoping, or general questions. We respond within 24 hours.",
             path: '/contact',
           })),
         }}
@@ -58,20 +58,22 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <Calendar size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
-                  <span className="text-text-secondary">Or book a call directly</span>
+              {SITE.calendlyUrl && (
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Calendar size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
+                    <span className="text-text-secondary">Or book a call directly</span>
+                  </div>
+                  <a
+                    href={SITE.calendlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-accent-blue hover:text-accent-purple transition-colors font-medium ml-8"
+                  >
+                    Book a Call <ArrowRight size={16} aria-hidden="true" />
+                  </a>
                 </div>
-                <a
-                  href="https://calendly.com/milliondollarstudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-accent-blue hover:text-accent-purple transition-colors font-medium ml-8"
-                >
-                  Book a Call <ArrowRight size={16} aria-hidden="true" />
-                </a>
-              </div>
+              )}
             </div>
 
             <p className="text-text-tertiary text-sm mt-8">

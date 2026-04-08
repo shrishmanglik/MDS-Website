@@ -23,10 +23,10 @@ export async function generateMetadata({
 
   return {
     title: product.name,
-    description: `${product.tagline} ${product.description}`,
+    description: product.description,
     openGraph: {
       title: product.name,
-      description: product.tagline,
+      description: product.description,
       url: `/products/${slug}`,
       locale: 'en_US',
       type: 'website',
@@ -34,7 +34,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: product.name,
-      description: product.tagline,
+      description: product.description,
     },
     alternates: { canonical: `/products/${slug}` },
   }
@@ -93,7 +93,7 @@ export default async function ProductPage({
           </p>
         </div>
 
-        {/* CTA: Try or Waitlist */}
+        {/* CTA: Try or Waitlist or Contact fallback */}
         <div className="mb-10">
           {product.externalUrl ? (
             <Button
@@ -111,7 +111,18 @@ export default async function ProductPage({
               productName={product.name}
               productSlug={product.slug}
             />
-          ) : null}
+          ) : (
+            <div className="rounded-2xl border border-border-custom bg-bg-secondary p-6">
+              <p className="text-text-secondary text-sm mb-4">
+                {product.name} is an internal tool — not currently available to the public.
+                Interested in how we built it?
+              </p>
+              <Button href="/case-studies" variant="secondary" size="md">
+                Read the Build Log
+                <ArrowRight size={16} />
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Gradient placeholder for screenshot */}
@@ -187,6 +198,40 @@ export default async function ProductPage({
           </p>
         </section>
 
+        {/* Other products */}
+        {(() => {
+          const others = products
+            .filter((p) => p.slug !== product.slug && p.status !== 'internal')
+            .slice(0, 3)
+          if (others.length === 0) return null
+          return (
+            <section className="mb-12">
+              <h2 className="font-heading text-2xl font-semibold text-text-primary mb-4">
+                Other products
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {others.map((other) => (
+                  <Link
+                    key={other.slug}
+                    href={`/products/${other.slug}`}
+                    className="group rounded-2xl border border-border-custom bg-bg-secondary p-5 card-hover"
+                  >
+                    <h3 className="font-heading font-semibold text-text-primary group-hover:text-white transition-colors text-base mb-1">
+                      {other.name}
+                    </h3>
+                    <p className="text-text-secondary text-xs leading-relaxed mb-3">
+                      {other.tagline}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-accent-blue text-xs font-medium group-hover:gap-2 transition-all">
+                      View <ArrowRight size={12} />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )
+        })()}
+
         {/* Cross-sell CTA */}
         <div className="rounded-2xl border border-border-custom bg-bg-secondary p-8 text-center">
           <h3 className="font-heading text-xl font-semibold text-text-primary mb-2">
@@ -195,7 +240,7 @@ export default async function ProductPage({
           <p className="text-text-secondary text-sm mb-5">
             We build custom AI systems from scratch. Full code ownership.
           </p>
-          <Button href="/build" variant="primary" size="md">
+          <Button href="/for-businesses" variant="primary" size="md">
             Build Your AI With Us
             <ArrowRight size={16} />
           </Button>

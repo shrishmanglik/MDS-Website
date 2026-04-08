@@ -4,7 +4,7 @@ import { webPageJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Free TEF Canada Score Estimator | MDS',
+  title: 'Free TEF Canada Score Estimator',
   description:
     'Estimate your TEF Canada scores and see the corresponding CLB levels for Express Entry. Free TEF exam preparation tool and CLB level calculator. Instant results, no signup.',
   alternates: { canonical: '/tools/tef-score-estimator' },

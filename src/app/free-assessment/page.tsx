@@ -3,7 +3,7 @@ import { AssessmentContent } from './AssessmentContent'
 import { webPageJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Free AI Assessment | Million Dollar AI Studio',
+  title: 'Free AI Assessment',
   description:
     'Get a free AI readiness assessment for your business. Discover your top 3 automation opportunities, architecture recommendations, and cost estimates.',
   alternates: { canonical: '/free-assessment' },

@@ -92,7 +92,7 @@ export function ForBusinessesContent() {
             className="text-text-secondary text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
           >
             Your AI system. Your margins. Your data. We build custom AI systems
-            with 99%+ gross margins. Same intelligence. Fraction of the cost.
+            with 99.8% gross margins. Same intelligence. Fraction of the cost.
           </motion.p>
         </motion.section>
 
@@ -230,16 +230,22 @@ export function ForBusinessesContent() {
         <ScrollReveal>
           <section className="text-center">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-4">
-              Get a Free Assessment
+              Ready to start?
             </h2>
             <p className="text-text-secondary mb-8 max-w-xl mx-auto">
-              We&apos;ll analyze your current AI spend and show you exactly where
-              deterministic logic can replace API calls.
+              Not sure what you need? Start with a free assessment. Ready to scope a
+              build? Send us a structured project brief.
             </p>
-            <Button href="/free-assessment" variant="cta" size="lg">
-              Get a Free Assessment
-              <ArrowRight size={16} />
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="/free-assessment" variant="cta" size="lg">
+                Get a Free Assessment
+                <ArrowRight size={16} />
+              </Button>
+              <Button href="/intake" variant="secondary" size="lg">
+                Start a Project
+                <ArrowRight size={16} />
+              </Button>
+            </div>
           </section>
         </ScrollReveal>
       </div>

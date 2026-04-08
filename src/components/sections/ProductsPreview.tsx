@@ -43,7 +43,7 @@ export function ProductsPreview() {
             Systems We&apos;ve Shipped
           </SplitText>
           <p className="text-text-secondary text-lg max-w-xl">
-            Each product proves the architecture. Real code. Real users. Real economics.
+            Each product proves the architecture. Real code. Real tests. Real economics.
           </p>
         </motion.div>
 

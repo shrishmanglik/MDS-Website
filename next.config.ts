@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       { source: '/technology', destination: '/how-we-build', permanent: true },
       { source: '/build', destination: '/for-businesses', permanent: true },
       { source: '/pricing', destination: '/for-businesses', permanent: true },
+      // F-008: /services is orphaned; /for-businesses is the audience-split canonical
+      { source: '/services', destination: '/for-businesses', permanent: true },
+      // F-010: collapse /free-audit into /free-assessment (single canonical assessment funnel)
+      { source: '/free-audit', destination: '/free-assessment', permanent: true },
     ]
   },
   async headers() {

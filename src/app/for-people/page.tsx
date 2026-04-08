@@ -3,7 +3,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 import { ForPeopleContent } from './ForPeopleContent'
 
 export const metadata: Metadata = {
-  title: 'Products for People | Million Dollar AI Studio',
+  title: 'Products for People',
   description:
     'Smart tools that work forever. Practice French, generate Vedic birth charts, master chemistry. No AI costs, no lag, no hallucinations.',
   alternates: { canonical: '/for-people' },

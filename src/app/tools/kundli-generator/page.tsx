@@ -4,7 +4,7 @@ import { webPageJsonLd, breadcrumbJsonLd } from '@/lib/structured-data'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Free Kundli Generator — Vedic Birth Chart | MDS',
+  title: 'Free Kundli Generator — Vedic Birth Chart',
   description:
     'Generate your free Vedic Kundli (birth chart) online instantly. North Indian style Rashi chart with planetary positions, nakshatras, and house placements. No signup required.',
   alternates: { canonical: '/tools/kundli-generator' },

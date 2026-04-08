@@ -13,7 +13,10 @@ const STUDIO_LINKS = [
   { label: 'Build Logs', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Start a Project', href: '/intake' },
+  { label: 'Free AI Assessment', href: '/free-assessment' },
   { label: 'Free Tools', href: '/tools' },
+  { label: 'ROI Calculator', href: '/roi-calculator' },
 ] as const
 
 const LEGAL_LINKS = [

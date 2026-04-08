@@ -3,7 +3,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 import { HowWeBuildContent } from './HowWeBuildContent'
 
 export const metadata: Metadata = {
-  title: 'Deterministic-First Architecture | How We Build | MDS',
+  title: 'Deterministic-First Architecture | How We Build',
   description:
     '95% computed. 5% AI. 100% yours. The three-tier architecture behind 99.8% gross margins at 5,000 users. See the math.',
   alternates: { canonical: '/how-we-build' },

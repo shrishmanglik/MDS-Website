@@ -9,7 +9,7 @@ import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 const values = [
   {
     icon: Rocket,
-    title: 'Ship, don\u2019t plan',
+    title: 'Ship, then iterate',
     description: 'Products beat presentations every time. We measure progress in deployed systems, not slide decks.',
   },
   {

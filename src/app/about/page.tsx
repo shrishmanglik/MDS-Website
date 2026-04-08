@@ -3,7 +3,7 @@ import { AboutContent } from './AboutContent'
 import { webPageJsonLd } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
-  title: 'About — Built by an Engineer Who Ships | MDS',
+  title: 'About — Built by an Engineer Who Ships',
   description:
     'Shrish Manglik. Toronto. 6 AI products built on deterministic-first architecture. TELUS Health background. AI-native methodology that compounds with every build.',
   alternates: { canonical: '/about' },

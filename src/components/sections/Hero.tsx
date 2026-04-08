@@ -315,7 +315,7 @@ export function Hero() {
               { text: 'mds --status', type: 'command' },
               { text: '6 products built · 100K+ lines of content · $0.00 per interaction', type: 'output', delay: 200 },
               { text: 'mds --margin', type: 'command', delay: 400 },
-              { text: '\u2713 99%+ gross margin · deterministic-first · 100% yours', type: 'highlight', delay: 200 },
+              { text: '\u2713 99.8% gross margin · deterministic-first · 100% yours', type: 'highlight', delay: 200 },
             ]}
             speed={20}
             linePause={300}

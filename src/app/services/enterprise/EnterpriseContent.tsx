@@ -52,7 +52,7 @@ const deliverables = [
     icon: Headphones,
     title: 'Dedicated Support',
     description:
-      'Direct communication channel with the engineering team. Post-launch support period included in every tier.',
+      'Direct access to the engineer building your system. Post-launch support period included in every tier.',
   },
 ]
 
@@ -407,10 +407,15 @@ export function EnterpriseContent() {
               Tell us what you need. We will scope it, price it, and give you a timeline
               within one week.
             </p>
-            <Button href="/contact" variant="primary" size="lg">
-              Discuss Your Project
-            </Button>
-            <p className="text-text-tertiary text-sm mt-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="/intake" variant="primary" size="lg">
+                Start a Project
+              </Button>
+              <Button href="/contact" variant="secondary" size="lg">
+                Ask a Question First
+              </Button>
+            </div>
+            <p className="text-text-tertiary text-sm mt-4">
               Free scoping. 100% code ownership. Fixed pricing.
             </p>
           </section>

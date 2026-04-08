@@ -49,9 +49,16 @@ export function SplitText({
 }: SplitTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { prefersReducedMotion } = useReducedMotion()
+  const [isClient, setIsClient] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const config = textAnimationPresets[preset]
   const effectiveSplitMode = splitModeOverride || config.splitMode
+
+  // Only hide initial state AFTER hydration so SSR HTML is readable
+  // (fixes the case where JS is slow/disabled and users see a blank headline)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   // Split text into units
   const units = useMemo(() => {
@@ -187,6 +194,17 @@ export function SplitText({
   // Reduced motion: show text instantly
   if (prefersReducedMotion) {
     return <Tag className={className}>{children}</Tag>
+  }
+
+  // Before hydration OR no-JS: render the string as plain text so SSR HTML
+  // is readable by crawlers, link previews, and users with slow JS loads.
+  // GSAP will replace the inner content once it takes over on the client.
+  if (!isClient) {
+    return (
+      <Tag className={className} aria-label={children}>
+        {children}
+      </Tag>
+    )
   }
 
   return (

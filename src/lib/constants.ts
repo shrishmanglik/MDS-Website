@@ -9,6 +9,10 @@ export const SITE = {
   founderInitials: 'SM',
   email: 'shrishmanglik@milliondollarstudio.ai',
   formEmail: 'milliondollaraistudio@gmail.com',
+  // TODO(F-002): replace with the real Calendly URL before re-enabling the
+  // "Book a Call" button on /contact. The previous URL
+  // (https://calendly.com/milliondollarstudio) returned a 404.
+  calendlyUrl: null as string | null,
 } as const
 
 // Web3Forms key moved to server-side .env.local (see /api/submit-form)
@@ -35,7 +39,7 @@ export const SERVICE_TIERS = [
 ] as const
 
 export const METRICS = [
-  { value: '99%+', label: 'Gross Margin', sublabel: 'Deterministic architecture', proof: '/how-we-build' },
+  { value: '99.8%', label: 'Gross Margin', sublabel: 'Deterministic architecture', proof: '/how-we-build' },
   { value: '$0.00', label: 'Per Interaction', sublabel: 'No API dependency at runtime', proof: '/how-we-build' },
   { value: '6', label: 'Products Built', sublabel: '1 live, 5 in development or built', proof: '/products' },
   { value: '100K+', label: 'Lines of Content', sublabel: 'Manufactured knowledge', proof: '/how-we-build' },
