@@ -37,7 +37,7 @@ export const SERVICE_TIERS = [
 export const METRICS = [
   { value: '99%+', label: 'Gross Margin', sublabel: 'Deterministic architecture', proof: '/how-we-build' },
   { value: '$0.00', label: 'Per Interaction', sublabel: 'No API dependency at runtime', proof: '/how-we-build' },
-  { value: '3', label: 'Live Products', sublabel: 'Deployed and serving users', proof: '/for-people' },
+  { value: '6', label: 'Products Built', sublabel: '1 live, 5 in development or built', proof: '/products' },
   { value: '100K+', label: 'Lines of Content', sublabel: 'Manufactured knowledge', proof: '/how-we-build' },
 ] as const
 

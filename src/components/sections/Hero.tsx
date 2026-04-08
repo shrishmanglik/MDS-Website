@@ -313,7 +313,7 @@ export function Hero() {
           <TerminalText
             lines={[
               { text: 'mds --status', type: 'command' },
-              { text: '3 products live · 100K+ lines of content · $0.00 per interaction', type: 'output', delay: 200 },
+              { text: '6 products built · 100K+ lines of content · $0.00 per interaction', type: 'output', delay: 200 },
               { text: 'mds --margin', type: 'command', delay: 400 },
               { text: '\u2713 99%+ gross margin · deterministic-first · 100% yours', type: 'highlight', delay: 200 },
             ]}
