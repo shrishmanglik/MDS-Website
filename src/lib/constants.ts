@@ -19,47 +19,38 @@ export const SITE = {
  * Central registry for product production URLs.
  *
  * WHY THIS EXISTS: Each product lives in a separate repo under
- * F:\Million Dollar AI Studio\products\{slug}\ and deploys to its own domain.
- * The marketing site (milliondollarstudio.ai) is the navigation layer that
- * points visitors at the right product. This registry is the single source
- * of truth for those URLs.
+ * F:\Million Dollar AI Studio\products\{slug}\ and deploys to its own
+ * subdomain of milliondollarstudio.ai. The marketing site is the navigation
+ * layer that points visitors at the right product. This registry is the
+ * single source of truth for those URLs.
  *
  * TO TAKE A PRODUCT LIVE:
  *   1. Deploy the product app (see GO-LIVE.md)
- *   2. Replace `null` with the production URL here
- *   3. `npm run build && git commit && git push`
+ *   2. Confirm the subdomain resolves and the app serves 200 OK
+ *   3. No code change needed — the URLs below are the canonical targets
+ *   4. For a product that's not yet live: keep the key with `null`
  *
  * Setting a value to `null` causes:
  *   - Product cards fall back to a "Join Waitlist" CTA
  *   - /products/[slug] hides the "Try it" button
  *   - Listing copy reflects a waitlist state
- *
- * Acceptable values:
- *   - A real HTTPS URL, e.g. 'https://tef.milliondollarstudio.ai'
- *   - `null` if the product is not yet live
  */
 export const PRODUCT_URLS: Record<string, string | null> = {
-  // TODO(launch): set to 'https://tef.milliondollarstudio.ai' once DNS is live
-  //   and the tef-maitre Vercel project has its Supabase + Stripe live env vars.
-  francaisiq: null,
+  // LIVE SUBDOMAINS — the canonical URL for each public product
+  francaisiq: 'https://francaisiq.milliondollarstudio.ai',
+  // prepai was previously "ChemAI" — rebranded as a broader exam-prep platform
+  // that starts with chemistry (JEE/NEET) and expands to physics/math/biology.
+  prepai: 'https://prepai.milliondollarstudio.ai',
+  // astroai was previously "JyotishAI" — rebranded for a broader English-
+  // speaking Vedic astrology audience.
+  astroai: 'https://astro.milliondollarstudio.ai',
 
-  // TODO(launch): set to the production ChemAI URL (e.g. 'https://chemaistudio.com'
-  //   or 'https://chem.milliondollarstudio.ai') after the Vercel deploy + custom
-  //   domain are configured. Backend must be live on Render first.
-  chemai: null,
-
-  // JyotishAI web shell is empty scaffolding; the real product is a Tauri
-  // desktop app. No web URL until a web shell exists. Keep waitlist.
-  jyotishai: null,
-
-  // ATLAS web/engine directories are empty in the monorepo. Waitlist only.
-  atlas: null,
-
-  // NestIQ is a PRD (product requirements doc) only. Waitlist only.
+  // NOT YET LIVE — keep as null until the deploy + DNS are confirmed
   nestiq: null,
-
-  // JobFlow is an internal personal productivity tool — not for public launch.
-  jobflow: null,
+  atlas: null,
+  // scopestack — new product, AI audit scoping tool for services work. Repo
+  // does not exist yet. Keep as null until a web shell is built.
+  scopestack: null,
 } as const
 
 // Web3Forms key moved to server-side .env.local (see /api/submit-form)
@@ -92,7 +83,7 @@ export const METRICS = [
   { value: '100K+', label: 'Lines of Content', sublabel: 'Manufactured knowledge', proof: '/how-we-build' },
 ] as const
 
-export const FEATURED_PRODUCT_SLUGS = ['francaisiq', 'jyotishai', 'chemai'] as const
+export const FEATURED_PRODUCT_SLUGS = ['francaisiq', 'astroai', 'prepai'] as const
 
 export const TECH_CAPABILITIES = {
   frontend: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS'],

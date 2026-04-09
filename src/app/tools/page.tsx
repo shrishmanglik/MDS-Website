@@ -5,18 +5,18 @@ import { ToolsContent } from './ToolsContent'
 export const metadata: Metadata = {
   title: 'Free Tools',
   description:
-    'Free tools that run at $0. No sign-up required. No AI fees. Ever. CRS Calculator, Equation Balancer, and more.',
+    'Free tools that run at $0. No sign-up required. No AI fees. Ever. CRS Calculator for Express Entry, Vedic Kundli Generator, and TEF Canada Score Estimator.',
   alternates: { canonical: '/tools' },
   openGraph: {
     title: 'Free Tools | Million Dollar AI Studio',
     description:
-      'Free tools that run at $0. No sign-up required. No AI fees. Ever.',
+      'CRS Calculator, Vedic Kundli Generator, TEF Canada Score Estimator — free, instant, no sign-up.',
     images: [{ url: '/api/og?title=Free+Tools&subtitle=No+sign-up.+No+AI+fees.+Ever.', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Free Tools | MDS',
-    description: 'Free tools that run at $0. No sign-up required.',
+    description: 'CRS Calculator, Vedic Kundli Generator, TEF Score Estimator. Free, instant.',
   },
 }
 

@@ -1,30 +1,26 @@
 "use client"
 
-import { motion, useInView } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Cpu, Users, Wrench } from 'lucide-react'
 import { staggerContainer, fadeUpVariant, viewportOnce } from '@/lib/animations'
 import { products, liveProducts } from '@/lib/products'
 
-// Live cost counter that ticks up slowly to show real-time savings
-function LiveSavingsCounter() {
-  const [savings, setSavings] = useState(47823)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    if (!isInView) return
-    const interval = setInterval(() => {
-      setSavings(prev => prev + Math.floor(Math.random() * 3) + 1)
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [isInView])
-
+// Static, architecture-derived estimate (no fabricated ticking).
+//
+// Math (documented in /how-we-build):
+//   5,000 users × 4 sessions/mo × 5 interactions = 100,000 interactions/mo
+//   AI-wrapper cost per interaction: ~$0.05 (midpoint of $0.01–$0.10 range)
+//   AI-wrapper monthly cost:         ~$5,000/mo
+//   Deterministic-first monthly:     ~$130/mo
+//     (tier-1 templates free + tier-2 rules ~$80 + tier-3 AI residual ~$50)
+//   Savings:                         ~$4,870/mo
+//   Annualized:                      ~$58,000/yr
+//
+// Rounded to a clean label. Marked "Est." in the card to be explicit.
+function EstimatedSavingsDisplay() {
   return (
-    <span ref={ref} className="font-mono tabular-nums">
-      ${savings.toLocaleString()}
-    </span>
+    <span className="font-mono tabular-nums">~$58,000</span>
   )
 }
 
@@ -192,16 +188,23 @@ export function BentoShowcase() {
             <CodeSnippet />
           </motion.div>
 
-          {/* Cell 6: Savings counter */}
+          {/* Cell 6: Estimated annual savings — derived from architecture math,
+                not a ticking counter. See /how-we-build for the derivation. */}
           <motion.div
             variants={fadeUpVariant}
             className="rounded-2xl border border-border-custom bg-bg-elevated/50 backdrop-blur-sm p-6 flex flex-col justify-between"
           >
             <div>
-              <p className="text-text-tertiary text-xs font-mono uppercase tracking-widest mb-2">Est. Annual Savings vs AI-wrapper</p>
-              <p className="text-3xl font-bold text-accent-gold"><LiveSavingsCounter /></p>
+              <p className="text-text-tertiary text-xs font-mono uppercase tracking-widest mb-2">
+                Estimated annual savings vs AI-wrapper
+              </p>
+              <p className="text-3xl font-bold text-accent-gold">
+                <EstimatedSavingsDisplay />
+              </p>
             </div>
-            <p className="text-text-tertiary text-[10px] mt-3">For a 5K user product. Updates live.</p>
+            <p className="text-text-tertiary text-[10px] mt-3">
+              Modelled on 5,000 users × 100K interactions/mo. <Link href="/how-we-build" className="underline hover:text-accent-blue">See the math →</Link>
+            </p>
           </motion.div>
 
           {/* Cell 7: For People — CTA */}

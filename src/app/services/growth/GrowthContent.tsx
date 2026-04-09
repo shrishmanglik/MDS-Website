@@ -363,7 +363,9 @@ export function GrowthContent() {
               Example Project
             </h2>
             <p className="text-text-secondary text-base leading-relaxed">
-              We operate 6 products across education, immigration, and astrology — each built on the same deterministic-first stack, each running at near-zero cost.
+              The deterministic-first stack is proven across our own portfolio — products spanning education,
+              immigration, and astrology, each designed to run at near-zero cost. The same architecture powers
+              every client Growth Engine engagement.
             </p>
           </GlassCard>
         </ScrollReveal>

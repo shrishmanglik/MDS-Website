@@ -49,9 +49,9 @@ const auditFaqs = [
       'Yes. If you proceed with any implementation project within 60 days, 100% of the audit fee is credited toward the project cost.',
   },
   {
-    question: 'What industries do you work with?',
+    question: 'What kinds of businesses is this for?',
     answer:
-      'We have audited businesses across fintech, e-commerce, professional services, healthcare, and education. The methodology applies to any business with repeatable processes.',
+      'Any business with repeatable processes and at least one workflow that could be automated with AI or deterministic logic. The methodology is industry-agnostic — we map your workflows, find your bottlenecks, and recommend automation opportunities scored by impact and feasibility. You do not need prior AI experience or technical staff to engage.',
   },
 ]
 

@@ -48,16 +48,22 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <Mail size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
+              {/* Email — always visible, primary when Calendly isn't set */}
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <Mail size={20} className="text-accent-blue shrink-0" aria-hidden="true" />
+                  <span className="text-text-secondary">Email us directly</span>
+                </div>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-text-secondary hover:text-text-primary transition-colors"
+                  className="inline-flex items-center gap-1.5 text-accent-blue hover:text-accent-purple transition-colors font-medium ml-8 break-all"
                 >
                   {SITE.email}
                 </a>
               </div>
 
+              {/* Calendly — only rendered when a URL is set. When null, the
+                  email option above serves as the primary channel. */}
               {SITE.calendlyUrl && (
                 <div>
                   <div className="flex items-center gap-3 mb-2">

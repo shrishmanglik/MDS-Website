@@ -6,6 +6,9 @@ import { SITE } from '@/lib/constants'
 import { submitForm } from '@/lib/forms/submitForm'
 import { Button } from './Button'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const MIN_MESSAGE = 10
+
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,10 +21,33 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
+  // Client-side validation — returns first error message or null.
+  // Server also validates these, but catching them client-side gives instant
+  // feedback and cuts noise to the form API.
+  const validate = (): string | null => {
+    if (!formData.name.trim()) return 'Please enter your name.'
+    if (!EMAIL_RE.test(formData.email.trim())) {
+      return 'Please enter a valid email address.'
+    }
+    if (formData.message.trim().length < MIN_MESSAGE) {
+      return `Please write a message with at least ${MIN_MESSAGE} characters.`
+    }
+    if (formData.message.length > 10_000) {
+      return 'Message is too long (max 10,000 characters).'
+    }
+    if (!formData.budget) return 'Please select a budget range.'
+    return null
+  }
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitting(true)
     setError('')
+    const validationError = validate()
+    if (validationError) {
+      setError(validationError)
+      return
+    }
+    setSubmitting(true)
     const result = await submitForm({
       form_name: 'Contact',
       subject: 'New Contact Message — MDS Website',

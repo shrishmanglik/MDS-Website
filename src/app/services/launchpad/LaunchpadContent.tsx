@@ -345,7 +345,7 @@ export function LaunchpadContent() {
               Example Project
             </h2>
             <p className="text-text-secondary text-base leading-relaxed">
-              We built FrançaisIQ — a French exam prep platform with 4,000+ practice items, 9 scoring engines, and zero AI costs at runtime.
+              We built FrançaisIQ — a French exam prep platform with 1,500+ practice items, 10 scoring engines, and zero AI costs at runtime.
             </p>
           </GlassCard>
         </ScrollReveal>

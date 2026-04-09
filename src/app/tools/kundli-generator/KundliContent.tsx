@@ -694,7 +694,7 @@ export function KundliContent() {
                   <strong>Approximate Chart:</strong> This is a simplified calculation using
                   mean planetary motions. For professional-grade charts with Swiss Ephemeris
                   precision, Vimshottari Dasha, 50+ yoga calculations, and divisional charts,
-                  try JyotishAI Desktop.
+                  try Astro AI Studio Desktop.
                 </p>
               </div>
             </motion.div>
@@ -719,12 +719,12 @@ export function KundliContent() {
                   Want Professional-Grade Charts?
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed max-w-lg mx-auto mb-6">
-                  JyotishAI Desktop uses Swiss Ephemeris for arc-second precision, calculates
+                  Astro AI Studio Desktop uses Swiss Ephemeris for arc-second precision, calculates
                   50+ yogas, Vimshottari Dasha, Shadbala strength, Ashtakoot compatibility,
                   and all 16 divisional charts. Runs 100% offline.
                 </p>
-                <Button href="/waitlist/jyotishai" variant="cta" size="md">
-                  Join the JyotishAI Waitlist
+                <Button href="/waitlist/astroai" variant="cta" size="md">
+                  Join the Astro AI Studio Waitlist
                   <ArrowRight size={14} />
                 </Button>
               </GlassCard>
@@ -755,7 +755,7 @@ export function KundliContent() {
                 This free tool provides an approximate Kundli using simplified mean-motion
                 calculations. For precision astrology requiring Swiss Ephemeris calculations
                 accurate to arc-seconds, divisional charts (D2-D60), and yoga analysis,
-                professional software like JyotishAI is recommended.
+                professional software like Astro AI Studio is recommended.
               </p>
             </div>
           </section>

@@ -392,7 +392,7 @@ export function EnterpriseContent() {
               Example Project
             </h2>
             <p className="text-text-secondary text-base leading-relaxed">
-              JyotishAI: A desktop Vedic astrology application computing 50+ yogas, 16 divisional charts, and complete kundali readings — all deterministic. The engine was built with AI, but runs without it.
+              Astro AI Studio: A desktop Vedic astrology application computing 50+ yogas, 16 divisional charts, and complete kundali readings — all deterministic. The engine was built with AI, but runs without it.
             </p>
           </GlassCard>
         </ScrollReveal>

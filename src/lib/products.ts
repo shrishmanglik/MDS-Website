@@ -26,7 +26,7 @@ const rawProducts: Array<Omit<Product, 'externalUrl'>> = [
     slug: 'francaisiq',
     name: 'FrançaisIQ',
     tagline: 'French exam prep for TEF Canada / Express Entry.',
-    status: 'built',
+    status: 'live',
     description:
       'TEF Canada preparation platform with 10 deterministic scoring engines and 1,500+ practice items. Rebuilt from an AI prototype to eliminate 25+ API calls per session.',
     longDescription: `FrançaisIQ prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
@@ -41,7 +41,7 @@ The original AI prototype relied on 25+ Gemini API calls per session with an exp
       'Spaced repetition for vocabulary retention',
     ],
     techStack: ['Vite', 'React 19', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Stripe', 'Vercel'],
-    buildTime: 'Built — deterministic rebuild complete, relaunching soon',
+    buildTime: 'Built and verified — launching April 2026',
     waitlistEnabled: true,
     story:
       'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 10 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
@@ -49,13 +49,13 @@ The original AI prototype relied on 25+ Gemini API calls per session with an exp
     highlight: '1,500+ practice items, 10 deterministic scoring engines, zero AI at runtime',
   },
   {
-    slug: 'jyotishai',
-    name: 'JyotishAI',
+    slug: 'astroai',
+    name: 'Astro AI Studio',
     tagline: 'Vedic astrology for professional astrologers.',
     status: 'in-development',
     description:
       'Offline desktop app with Swiss Ephemeris precision. 16 divisional charts, 50+ yogas, Shadbala, Ashtakavarga, and Vimshottari dasha — all in a 75MB self-contained package.',
-    longDescription: `JyotishAI is a desktop application for professional Vedic astrologers who need offline capability and astronomical-grade precision. Built with Tauri v2 and a Python FastAPI sidecar running Swiss Ephemeris, the engine performs complete kundali generation — including all 16 divisional charts, Shadbala planetary strength analysis, Ashtakavarga calculations, and Vimshottari dasha timelines — entirely offline in a 75MB self-contained package.
+    longDescription: `Astro AI Studio is a desktop application for professional Vedic astrologers who need offline capability and astronomical-grade precision. Built with Tauri v2 and a Python FastAPI sidecar running Swiss Ephemeris, the engine performs complete kundali generation — including all 16 divisional charts, Shadbala planetary strength analysis, Ashtakavarga calculations, and Vimshottari dasha timelines — entirely offline in a 75MB self-contained package.
 
 The architecture separates the deterministic calculation engine (pure Python, no AI dependencies) from the optional AI interpretation layer. Professional astrologers get precision tools without internet requirements or per-query costs.`,
     features: [
@@ -71,33 +71,33 @@ The architecture separates the deterministic calculation engine (pure Python, no
     buildTime: 'In development — desktop app',
     waitlistEnabled: true,
     story:
-      'Professional astrologers in India need offline capability and precision. We built a 75MB self-contained engine with Swiss Ephemeris — the same library used by astronomical observatories — wrapped in a Tauri v2 desktop shell.',
+      'Professional astrologers need offline capability and precision. We built a 75MB self-contained engine with Swiss Ephemeris — the same library used by astronomical observatories — wrapped in a Tauri v2 desktop shell.',
     featured: false,
     highlight: '50+ yoga calculations, 16 divisional charts, Swiss Ephemeris, 75MB offline engine',
   },
   {
-    slug: 'chemai',
-    name: 'ChemAI',
-    tagline: 'Chemistry education for Indian JEE/NEET students.',
+    slug: 'prepai',
+    name: 'PrepAI Studio',
+    tagline: 'AI-powered exam prep — starting with Chemistry.',
     status: 'built',
     description:
-      'JEE/NEET chemistry prep with a blueprint exam generator, FSRS spaced repetition, and deterministic grading. 130/130 tests passing, zero AI at runtime.',
-    longDescription: `ChemAI is a chemistry education platform targeting Indian students preparing for JEE and NEET competitive exams. The core innovation is the blueprint exam paper generation engine — it constructs complete, exam-accurate practice papers from a pre-validated question bank, matching the exact topic distribution, difficulty curve, and question-type mix of real exams.
+      'AI-powered exam prep platform starting with JEE/NEET Chemistry. Blueprint exam generator, FSRS spaced repetition, deterministic grading. 130/130 tests passing, zero AI at runtime.',
+    longDescription: `PrepAI Studio is an exam prep platform targeting Indian students preparing for competitive exams. We're starting with JEE/NEET Chemistry — the first in a planned series that will extend to Physics, Math, and Biology on the same deterministic-first architecture.
 
-The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review scheduling and a deterministic scoring engine for instant grading. All 130 tests pass. No AI API calls at test time.`,
+The core innovation is the blueprint exam paper generation engine — it constructs complete, exam-accurate practice papers from a pre-validated question bank, matching the exact topic distribution, difficulty curve, and question-type mix of real exams. The platform uses FSRS (Free Spaced Repetition Scheduler) for optimized review scheduling and a deterministic scoring engine for instant grading. All 130 tests pass. No AI API calls at test time.`,
     features: [
       'Blueprint engine generates exam-accurate practice papers',
       'FSRS spaced repetition for optimized study scheduling',
       'Deterministic scoring — instant grading, zero AI cost',
       'Topic-wise and chapter-wise practice modes',
       'Performance analytics with weakness identification',
-      'Complete JEE/NEET chemistry syllabus coverage',
+      'Complete JEE/NEET Chemistry syllabus coverage (Physics / Math / Biology on the roadmap)',
     ],
-    techStack: ['Next.js', 'TypeScript', 'Python', 'SQLite', 'FSRS', 'Tailwind CSS'],
-    buildTime: 'Built — 130/130 tests passing, pending deployment',
+    techStack: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL', 'FSRS', 'Razorpay', 'Tailwind CSS'],
+    buildTime: 'Built — 130/130 tests passing, launching April 2026',
     waitlistEnabled: true,
     story:
-      'Indian competitive exam prep is a $10B+ market running on outdated methods. We built a blueprint engine that generates exam-accurate papers deterministically — no AI needed at test time.',
+      'Indian competitive exam prep is a $10B+ market running on outdated methods. We built a blueprint engine that generates exam-accurate papers deterministically — no AI needed at test time. Starting with Chemistry; the architecture extends to every other subject.',
     featured: false,
     highlight: 'Blueprint exam paper generation, FSRS spaced repetition, 130/130 tests passing',
   },

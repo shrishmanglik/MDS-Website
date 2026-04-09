@@ -35,7 +35,7 @@ const tools = [
   {
     name: 'Equation Balancer',
     description:
-      'Balance any chemical equation deterministically. Built on the ChemAI engine.',
+      'Balance any chemical equation deterministically. Built on the PrepAI Studio engine.',
     href: '#',
     icon: FlaskConical,
     badge: null,
@@ -45,7 +45,7 @@ const tools = [
   {
     name: 'Free Kundli Generator',
     description:
-      'Generate a Vedic birth chart (Kundli) with planetary positions, nakshatras, and North Indian Rashi chart. Powered by the JyotishAI engine.',
+      'Generate a Vedic birth chart (Kundli) with planetary positions, nakshatras, and North Indian Rashi chart. Powered by the Astro AI Studio engine.',
     href: '/tools/kundli-generator',
     icon: Star,
     badge: '74K+ monthly searches',

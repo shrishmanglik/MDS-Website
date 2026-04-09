@@ -403,7 +403,7 @@ export function TEFContent() {
                     Practice for TEF Canada
                   </h3>
                   <p className="text-text-secondary text-sm mb-4">
-                    4,000+ exercises to boost your TEF scores and reach your target CLB level.
+                    1,500+ practice items and 10 deterministic scoring engines to help you reach your target CLB level.
                   </p>
                   <Button href="/products/francaisiq" variant="primary" size="sm">
                     Try Fran\u00e7aisIQ

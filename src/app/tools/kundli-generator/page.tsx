@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Kundli Generator — Vedic Birth Chart Online | Million Dollar AI Studio',
     description:
-      'Generate your free Vedic birth chart with planetary positions and nakshatra details. Powered by the JyotishAI engine.',
+      'Generate your free Vedic birth chart with planetary positions and nakshatra details. Powered by the Astro AI Studio engine.',
     images: [
       {
         url: '/api/og?title=Free+Kundli+Generator&subtitle=Vedic+Birth+Chart+Online',
