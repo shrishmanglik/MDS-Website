@@ -77,7 +77,7 @@ export function ForPeopleContent() {
                     {product.highlight}
                   </p>
                   <div className="mt-auto">
-                    {product.externalUrl && product.status === 'live' ? (
+                    {product.externalUrl ? (
                       <Button
                         href={product.externalUrl}
                         variant="primary"
