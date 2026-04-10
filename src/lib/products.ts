@@ -23,22 +23,22 @@ export interface Product {
 
 const rawProducts: Array<Omit<Product, 'externalUrl'>> = [
   {
-    slug: 'francaisiq',
-    name: 'FrançaisIQ',
-    tagline: 'French exam prep for TEF Canada / Express Entry.',
-    status: 'live',
+    slug: 'pathway',
+    name: 'Pathway AI Studio',
+    tagline: 'French exam prep & Canadian immigration intelligence.',
+    status: 'built',
     description:
-      'TEF Canada preparation platform with 10 deterministic scoring engines and 1,500+ practice items. Rebuilt from an AI prototype to eliminate 25+ API calls per session.',
-    longDescription: `FrançaisIQ prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
+      'TEF Canada preparation with 10 deterministic scoring engines, 1,500+ practice items, and CRS intelligence. Built and verified, launching April 2026.',
+    longDescription: `Pathway AI Studio (formerly FrançaisIQ) prepares candidates for the TEF Canada exam required for Express Entry immigration. The platform covers all four exam sections — Compréhension Orale, Compréhension Écrite, Expression Orale, and Expression Écrite — with deterministic scoring engines that evaluate responses without any AI API calls at runtime.
 
 The original AI prototype relied on 25+ Gemini API calls per session with an exposed API key. We rebuilt the entire system with 10 deterministic scoring engines, pre-validated lookup tables, and the Web Speech API for pronunciation assessment. The result: 1,500+ practice items running at $0 per interaction.`,
     features: [
       '1,500+ practice items across all four TEF Canada sections',
       '10 deterministic scoring engines — zero AI at runtime',
+      'CRS score calculation and Express Entry readiness',
       'Web Speech API integration for pronunciation assessment',
       'CLB level mapping aligned to IRCC requirements',
       'Progress tracking with section-by-section analytics',
-      'Spaced repetition for vocabulary retention',
     ],
     techStack: ['Vite', 'React 19', 'TypeScript', 'Tailwind CSS', 'Web Speech API', 'Supabase', 'Stripe', 'Vercel'],
     buildTime: 'Built and verified — launching April 2026',
@@ -46,7 +46,7 @@ The original AI prototype relied on 25+ Gemini API calls per session with an exp
     story:
       'The original prototype used 25+ Gemini API calls and had an exposed key. We rebuilt with 10 deterministic scoring engines and lookup tables. 100% of scoring now runs at $0.',
     featured: true,
-    highlight: '1,500+ practice items, 10 deterministic scoring engines, zero AI at runtime',
+    highlight: '1,500+ practice items, 10 deterministic scoring engines, CRS intelligence',
   },
   {
     slug: 'astroai',
@@ -152,6 +152,31 @@ The platform provides landlord-tenant rights analysis, rent increase calculation
       'Canadian rental laws vary by province and change annually. We are encoding all 13 regulatory frameworks as deterministic rule engines — no AI guessing at tenant rights.',
     featured: false,
     highlight: '13 provincial regulatory frameworks as rule engines, investment analysis',
+  },
+  {
+    slug: 'scopestack',
+    name: 'ScopeStack',
+    tagline: 'AI audit scoping and proposal generation.',
+    status: 'coming-soon',
+    description:
+      'Automated AI audit scoping tool for the MDS services practice. Generates structured opportunity reports and implementation roadmaps from intake questionnaires.',
+    longDescription: `ScopeStack automates the scoping phase of MDS AI audits. It takes structured intake data — business type, current processes, team size, tech stack — and generates a scored opportunity matrix with ROI projections and implementation roadmaps.
+
+The tool is being built to scale the services arm of MDS: every audit currently requires manual analysis, but 80% of the scoping process follows deterministic patterns that can be pre-computed.`,
+    features: [
+      'Structured intake questionnaire with branching logic',
+      'Deterministic opportunity scoring matrix',
+      'ROI projection engine based on industry benchmarks',
+      'Implementation roadmap generator',
+      'PDF report generation',
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'Stripe'],
+    buildTime: 'Coming soon',
+    waitlistEnabled: true,
+    story:
+      'Every AI audit starts with the same scoping process. ScopeStack automates the 80% that is deterministic, freeing the human auditor to focus on the 20% that requires domain judgment.',
+    featured: false,
+    highlight: 'Automated audit scoping, ROI projections, roadmap generation',
   },
   {
     slug: 'jobflow',

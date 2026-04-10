@@ -18,12 +18,12 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'francaisiq-scoring-engines',
     industry: 'Education',
-    label: 'BUILD LOG · FRANCAISIQ',
-    title: 'FrançaisIQ: Eliminating 25+ AI API Calls',
+    label: 'BUILD LOG · PATHWAY AI STUDIO',
+    title: 'Pathway AI Studio: Eliminating 25+ AI API Calls',
     subtitle: 'AI prototype had 25+ Gemini API calls and an exposed key. We rebuilt with deterministic scoring engines, lookup tables, and Web Speech API. Result: 100% of scoring at $0.',
     heroStat: { value: '25+', label: 'AI calls eliminated' },
     challenge:
-      'The original FrançaisIQ prototype was built with 25+ Gemini API calls per session. Every scoring interaction — oral comprehension, reading comprehension, writing evaluation — hit an AI API. The API key was exposed in client-side code. At scale, this architecture would cost thousands per month and posed a security risk. We needed to rebuild scoring from scratch with zero AI dependencies at runtime.',
+      'The original prototype (then called FrançaisIQ) was built with 25+ Gemini API calls per session. Every scoring interaction — oral comprehension, reading comprehension, writing evaluation — hit an AI API. The API key was exposed in client-side code. At scale, this architecture would cost thousands per month and posed a security risk. We needed to rebuild scoring from scratch with zero AI dependencies at runtime.',
     solution:
       'We rebuilt the entire scoring pipeline with 10 deterministic scoring engines. Oral comprehension uses pre-validated answer keys with fuzzy matching. Reading comprehension maps responses to scored rubrics. Writing evaluation uses rule-based grammar checking and vocabulary analysis. Pronunciation assessment uses the Web Speech API — a browser-native capability that requires zero API calls. The result: 1,500+ practice items running at $0 per interaction.',
     approach: [

@@ -15,7 +15,7 @@ const featuredProducts = products.filter((p) =>
 
 // Color accents per product for visual variety
 const productAccents: Record<string, { border: string; glow: string; bg: string }> = {
-  francaisiq: { border: 'border-accent-blue/30', glow: 'shadow-[0_0_40px_rgba(41,98,255,0.08)]', bg: 'from-accent-blue/5' },
+  pathway: { border: 'border-accent-blue/30', glow: 'shadow-[0_0_40px_rgba(41,98,255,0.08)]', bg: 'from-accent-blue/5' },
   astroai: { border: 'border-accent-purple/30', glow: 'shadow-[0_0_40px_rgba(124,58,237,0.08)]', bg: 'from-accent-purple/5' },
   prepai: { border: 'border-accent-emerald/30', glow: 'shadow-[0_0_40px_rgba(16,185,129,0.08)]', bg: 'from-accent-emerald/5' },
 }
@@ -50,7 +50,7 @@ export function ProductsPreview() {
         {/* Product cards — stacked, full-width, horizontal layout */}
         <div className="space-y-6">
           {featuredProducts.map((product, index) => {
-            const accent = productAccents[product.slug] || productAccents.francaisiq
+            const accent = productAccents[product.slug] || productAccents.pathway
             return (
               <motion.div
                 key={product.slug}

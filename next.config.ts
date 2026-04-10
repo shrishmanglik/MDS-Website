@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
       { source: '/services', destination: '/for-businesses', permanent: true },
       // F-010: collapse /free-audit into /free-assessment (single canonical assessment funnel)
       { source: '/free-audit', destination: '/free-assessment', permanent: true },
+      // Product slug renames — preserve old URLs from Google index and shared links
+      { source: '/products/francaisiq', destination: '/products/pathway', permanent: true },
+      { source: '/products/chemai', destination: '/products/prepai', permanent: true },
+      { source: '/products/jyotishai', destination: '/products/astroai', permanent: true },
+      { source: '/waitlist/francaisiq', destination: '/waitlist/pathway', permanent: true },
+      { source: '/waitlist/chemai', destination: '/waitlist/prepai', permanent: true },
+      { source: '/waitlist/jyotishai', destination: '/waitlist/astroai', permanent: true },
     ]
   },
   async headers() {

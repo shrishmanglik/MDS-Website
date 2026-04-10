@@ -753,20 +753,20 @@ export function CRSContent() {
 
         <SectionDivider variant="gold" className="mb-24" />
 
-        {/* FrancaisIQ Promo */}
+        {/* Pathway AI Studio Promo */}
         <ScrollReveal>
           <section className="max-w-2xl mx-auto text-center">
             <GlassCard padding="lg" hover={false}>
               <Badge variant="premium" className="mb-4">
-                Coming soon
+                Launching April 2026
               </Badge>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-3">
                 Boost Your CRS with French
               </h2>
               <p className="text-text-secondary mb-6">
                 Strong French scores can add up to 50 bonus points to your CRS.
-                FrancaisIQ helps you reach CLB 7+ in French with AI-powered practice
-                tailored for Express Entry candidates.
+                Pathway AI Studio helps you reach CLB 7+ in French with deterministic
+                scoring engines tailored for Express Entry candidates.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <div className="flex-1">
@@ -785,7 +785,7 @@ export function CRSContent() {
                 </Button>
               </div>
               <p className="text-xs text-text-tertiary mt-3">
-                Get notified when FrancaisIQ launches. No spam.
+                Get notified when Pathway AI Studio launches. No spam.
               </p>
             </GlassCard>
           </section>

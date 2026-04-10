@@ -37,19 +37,15 @@ export const SITE = {
  */
 export const PRODUCT_URLS: Record<string, string | null> = {
   // LIVE SUBDOMAINS — the canonical URL for each public product
-  francaisiq: 'https://francaisiq.milliondollarstudio.ai',
-  // prepai was previously "ChemAI" — rebranded as a broader exam-prep platform
-  // that starts with chemistry (JEE/NEET) and expands to physics/math/biology.
+  // pathway was previously "FrançaisIQ" — rebranded as Pathway AI Studio
+  // covering French exam prep + Canadian immigration intelligence.
+  pathway: 'https://pathway.milliondollarstudio.ai',
   prepai: 'https://prepai.milliondollarstudio.ai',
-  // astroai was previously "JyotishAI" — rebranded for a broader English-
-  // speaking Vedic astrology audience.
   astroai: 'https://astro.milliondollarstudio.ai',
 
   // NOT YET LIVE — keep as null until the deploy + DNS are confirmed
   nestiq: null,
   atlas: null,
-  // scopestack — new product, AI audit scoping tool for services work. Repo
-  // does not exist yet. Keep as null until a web shell is built.
   scopestack: null,
 } as const
 
@@ -83,7 +79,7 @@ export const METRICS = [
   { value: '100K+', label: 'Lines of Content', sublabel: 'Manufactured knowledge', proof: '/how-we-build' },
 ] as const
 
-export const FEATURED_PRODUCT_SLUGS = ['francaisiq', 'astroai', 'prepai'] as const
+export const FEATURED_PRODUCT_SLUGS = ['pathway', 'astroai', 'prepai'] as const
 
 export const TECH_CAPABILITIES = {
   frontend: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS'],
